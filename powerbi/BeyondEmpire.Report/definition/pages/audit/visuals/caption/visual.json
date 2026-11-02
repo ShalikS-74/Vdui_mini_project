@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "caption",
+  "position": {
+    "x": 20,
+    "y": 10,
+    "z": 0,
+    "width": 1240,
+    "height": 90,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Beyond the Empire | Uncalibrated historical model scores. 98 rows, 6 contractions. Explanations are not causes. No modern transfer claims.",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Segoe UI"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
