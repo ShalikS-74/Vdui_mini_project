@@ -1,0 +1,6 @@
+polity,century,oof_p_decline,true_label,fp_flag,top3_coefficient_features,note,type
+Latium::ItRomPr,0,0.9384065970426436,survival,1,Hier=+1.3186; Info=+0.8783; Pop=+0.7795,,
+Latium::ItRomPr,100,0.9175699856276331,survival,1,Hier=+1.3186; Info=+0.8783; Pop=+0.8001,,
+Middle Yellow River Valley::CnMing*,1400,0.8970309428044301,survival,1,Info=+1.1301; Pop=+0.8314; Hier=+0.6154,,
+Middle Yellow River Valley::CnQingL,1800,0.9206303737912918,survival,1,Hier=+1.1908; Pop=+1.1629; Info=+1.1301,,
+Middle Yellow River Valley::CnWHan*,-200,0.9012330996439534,survival,1,Info=+0.8280; Hier=+0.8072; Pop=+0.7900,,
