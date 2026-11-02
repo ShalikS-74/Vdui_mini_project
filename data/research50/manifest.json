@@ -1,0 +1,52 @@
+{
+  "status": "feasibility_only_not_confirmatory_evidence",
+  "source_urls": {
+    "Polaris2026.xlsx": "https://raw.githubusercontent.com/Seshat-Global-History-Databank/build_polaris_dataset/55ca5fbc2b563ddbbc1a3413071d4bd243d0a5fa/Polaris2026.xlsx",
+    "cliopatria.geojson.zip": "https://raw.githubusercontent.com/Seshat-Global-History-Databank/cliopatria/5f433377139a6eeaeacbdc894b70f8805b72c8b5/cliopatria.geojson.zip"
+  },
+  "sha256": {
+    "Polaris2026.xlsx": "cf60c9f76eeda6db545521831a9201e65c64d2b74d4aeb55445cd2b564456c41",
+    "cliopatria.geojson.zip": "e10a4e429fca708788ff9e7572a95fce801fae55852d217cffabc1c59cd4eed4"
+  },
+  "horizon": 50,
+  "target": "decline_rise_stable_area_ratio",
+  "thresholds": [
+    0.7,
+    1.3
+  ],
+  "registry_polities": 626,
+  "direct_id_matched_polities": 342,
+  "candidate_rows": 756,
+  "outcome_counts": {
+    "stable": 605,
+    "rise": 92,
+    "decline": 59
+  },
+  "groups": 113,
+  "strict_feature_nonmissing": {
+    "polity_population": 38,
+    "population_of_the_largest_settlement": 61,
+    "administrative_level": 10,
+    "military_level": 7,
+    "full_time_bureaucrat": 2,
+    "examination_system": 0,
+    "merit_promotion": 6,
+    "formal_legal_code": 3,
+    "court": 0,
+    "judge": 5,
+    "professional_military_officer": 11,
+    "professional_soldier": 13,
+    "irrigation_system": 0,
+    "road": 0,
+    "food_storage_site": 0,
+    "written_record": 8,
+    "script": 4,
+    "calendar": 4,
+    "indigenous_coin": 37,
+    "paper_currency": 3
+  },
+  "rows_with_any_strict_feature": 144,
+  "missing_endpoint_rule": "censored_not_collapse",
+  "lineage_status": "conservative_sourced_grouping_not_verified_outcome_continuity",
+  "fitted_models": 0
+}
