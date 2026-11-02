@@ -38,3 +38,12 @@ def test_grouping_is_source_based():
     reg=pd.DataFrame([dict(polity_id='a',long_name='A'),dict(polity_id='b',long_name='B')])
     general=pd.DataFrame([dict(polity_id='a',variable_name='polity_succeeding_entity',value_from='B')])
     groups,edges,unresolved=r.connected_groups(reg,general,geometry());assert groups['a']==groups['b'] and len(edges)==1
+
+def test_sensitivity_boundaries():
+    import sys
+    sys.path.insert(0,str(p.parent))
+    from adjudication_audit import possible_classes
+    assert possible_classes(.7,.7)==('decline',)
+    assert possible_classes(1.3,1.3)==('rise',)
+    assert possible_classes(.8,1.2)==('stable',)
+    assert possible_classes(.69,1.31)==('decline','stable','rise')
