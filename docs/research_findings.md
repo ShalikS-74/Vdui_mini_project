@@ -98,3 +98,14 @@ PowerBI Desktop refresh and visual rendering remain unverified.
 Source confidence is high for what the retrieved files contain, limited for their
 historical completeness and for unresolved coding/continuity interpretations.
 Pinned raw URLs and SHA256 appear in `data/research50/manifest.json`.
+
+## Additional source checks and sensitivity
+
+`docs/label_adjudication.md` now records termination/composite policy and automated
+source checks. Consecutive Cliopatria releases agree on all754shared row labels,
+but hypothetical±10%independent endpoint-area errors leave only34/59decline labels
+invariant, and±10year lookup shifts leave20/59invariant. These stress levels are
+not estimated historical errors. None of six directly coded CrisisDB collapse
+records overlaps an eligible panel window, so they cannot validate a collapse
+predictor. `docs/related_work.md` rejects a broad first-use-of-ML collapse novelty
+claim and frames a measurement-aware benchmark as a candidate, not proven, contribution.
