@@ -1,0 +1,23 @@
+{
+  "source_url": "https://raw.githubusercontent.com/seshatdb/Equinox_Data/602c7cdf0649e1fbbdb37f5b5a387edbe19915d0/Equinox_on_GitHub_June9_2022.xlsx",
+  "source_sha256": "48c7fbd00b6ebca4405d171e1d8e4fb2ea74a2fcd3edd0762e699e7d472f0556",
+  "source_commit": "602c7cdf0649e1fbbdb37f5b5a387edbe19915d0",
+  "horizon": 100,
+  "target": "binary",
+  "rows": 98,
+  "class_counts": {
+    "stable": 81,
+    "rise": 11,
+    "decline": 6
+  },
+  "contractions": 6,
+  "grouping": "PolID, not verified lineage",
+  "fp_threshold": 0.7,
+  "score": "uncalibrated",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "temporal_cutoff": 800
+}
