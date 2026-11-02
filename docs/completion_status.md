@@ -33,10 +33,14 @@ No fabricated label interpolation, lineage links, historical reviews, literature
 citations, Power BI success or publication outcomes are used to hide these gaps.
 
 Expanded construction/evaluation is reproducible with pinned hashes, protocol,
-split membership, missingness/exclusion logs and17tests. The app separates its
+split membership, missingness/exclusion logs and18tests. The app separates its
 research summary tab from legacy predictions and SHAP explanations.
 
 Source adjudication now includes consecutive-release checks, explicit component
 relationships, terminal-window exclusions, CrisisDB coverage and hypothetical
 label sensitivity. See label_adjudication.md and related_work.md. These checks
 are not independent human review, and no models were tuned during them.
+
+Official site source confirms a polity-lifetime display fallback for undated
+features. A provenance-marked coverage sensitivity is now separate from strict
+inputs; no new model fit. See feature_time_support.md.
