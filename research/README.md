@@ -46,3 +46,8 @@ After feature-support audit, `python research/evaluate_governance_scenario.py`
 runs the separately frozen retrospective scenario on the exact original splits.
 Read `secondary_protocol.md` and `docs/secondary_results.md` first. It does not
 replace or recalibrate the primary outputs and is not confirmatory forecasting.
+
+`python research/prepare_review.py` creates the fixed120record, outcome-blinded
+review package in `research/review/`. All reviewer/decision fields are blank. The
+package requires independent reviewers and original-source access; it is not
+adjudicated evidence or a new modeling cohort.
