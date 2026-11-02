@@ -1,0 +1,77 @@
+polity,PolID,group_id,lineage_status
+Big Island Hawaii::Hawaii2,Hawaii2,Hawaii2,observed_polity_only_not_verified_lineage
+Cambodian Basin::KhAngkC,KhAngkC,KhAngkC,observed_polity_only_not_verified_lineage
+Cambodian Basin::KhAngkE,KhAngkE,KhAngkE,observed_polity_only_not_verified_lineage
+Cambodian Basin::KhAngkL,KhAngkL,KhAngkL,observed_polity_only_not_verified_lineage
+Central Java::IdKedir,IdKedir,IdKedir,observed_polity_only_not_verified_lineage
+Central Java::IdMedng,IdMedng,IdMedng,observed_polity_only_not_verified_lineage
+Crete::TrByzM3,TrByzM3,TrByzM3,observed_polity_only_not_verified_lineage
+Cuzco::PeInca*,PeInca*,PeInca*,observed_polity_only_not_verified_lineage
+Deccan::InSataL,InSataL,InSataL,observed_polity_only_not_verified_lineage
+Deccan::InVijay,InVijay,InVijay,observed_polity_only_not_verified_lineage
+Finger Lakes::UsIroqE,UsIroqE,UsIroqE,observed_polity_only_not_verified_lineage
+Galilee::IlYisrl,IlYisrl,IlYisrl,observed_polity_only_not_verified_lineage
+Iceland::IsCommw,IsCommw,IsCommw,observed_polity_only_not_verified_lineage
+Kachi Plain::PkSind1,PkSind1,PkSind1,observed_polity_only_not_verified_lineage
+Kachi Plain::PkSind2,PkSind2,PkSind2,observed_polity_only_not_verified_lineage
+Kansai::JpAsuka,JpAsuka,JpAsuka,observed_polity_only_not_verified_lineage
+Kansai::JpHeian,JpHeian,JpHeian,observed_polity_only_not_verified_lineage
+Kansai::JpKamak,JpKamak,JpKamak,observed_polity_only_not_verified_lineage
+Kansai::JpKofun,JpKofun,JpKofun,observed_polity_only_not_verified_lineage
+Kansai::JpTokgw,JpTokgw,JpTokgw,observed_polity_only_not_verified_lineage
+Konya Plain::TrBrzMD,TrBrzMD,TrBrzMD,observed_polity_only_not_verified_lineage
+Konya Plain::TrByzM1,TrByzM1,TrByzM1,observed_polity_only_not_verified_lineage
+Konya Plain::TrByzM2,TrByzM2,TrByzM2,observed_polity_only_not_verified_lineage
+Konya Plain::TrERom*,TrERom*,TrERom*,observed_polity_only_not_verified_lineage
+Konya Plain::TrHatNK,TrHatNK,TrHatNK,observed_polity_only_not_verified_lineage
+Konya Plain::TrRum**,TrRum**,TrRum**,observed_polity_only_not_verified_lineage
+Latium::ItPapEM,ItPapEM,ItPapEM,observed_polity_only_not_verified_lineage
+Latium::ItPapHM,ItPapHM,ItPapHM,observed_polity_only_not_verified_lineage
+Latium::ItPapM2,ItPapM2,ItPapM2,observed_polity_only_not_verified_lineage
+Latium::ItPapRn,ItPapRn,ItPapRn,observed_polity_only_not_verified_lineage
+Latium::ItRav**,ItRav**,ItRav**,observed_polity_only_not_verified_lineage
+Latium::ItRomER,ItRomER,ItRomER,observed_polity_only_not_verified_lineage
+Latium::ItRomPr,ItRomPr,ItRomPr,observed_polity_only_not_verified_lineage
+Latium::ItRomRg,ItRomRg,ItRomRg,observed_polity_only_not_verified_lineage
+Latium::ItStPet,ItStPet,ItStPet,observed_polity_only_not_verified_lineage
+Lowland Andes::EcJivaE,EcJivaE,EcJivaE,observed_polity_only_not_verified_lineage
+Middle Ganga::InGurjr,InGurjr,InGurjr,observed_polity_only_not_verified_lineage
+Middle Yellow River Valley::CnEHan*,CnEHan*,CnEHan*,observed_polity_only_not_verified_lineage
+Middle Yellow River Valley::CnErlit,CnErlit,CnErlit,observed_polity_only_not_verified_lineage
+Middle Yellow River Valley::CnMing*,CnMing*,CnMing*,observed_polity_only_not_verified_lineage
+Middle Yellow River Valley::CnNSong,CnNSong,CnNSong,observed_polity_only_not_verified_lineage
+Middle Yellow River Valley::CnNWei*,CnNWei*,CnNWei*,observed_polity_only_not_verified_lineage
+Middle Yellow River Valley::CnQingL,CnQingL,CnQingL,observed_polity_only_not_verified_lineage
+Middle Yellow River Valley::CnTangL,CnTangL,CnTangL,observed_polity_only_not_verified_lineage
+Middle Yellow River Valley::CnWHan*,CnWHan*,CnWHan*,observed_polity_only_not_verified_lineage
+Middle Yellow River Valley::CnWZhou,CnWZhou,CnWZhou,observed_polity_only_not_verified_lineage
+Niger Inland Delta::MlMali*,MlMali*,MlMali*,observed_polity_only_not_verified_lineage
+North Colombia::CoTairo,CoTairo,CoTairo,observed_polity_only_not_verified_lineage
+Orkhon Valley::MnMongL,MnMongL,MnMongL,observed_polity_only_not_verified_lineage
+Orkhon Valley::MnXngnE,MnXngnE,MnXngnE,observed_polity_only_not_verified_lineage
+Paris Basin::FrCaptE,FrCaptE,FrCaptE,observed_polity_only_not_verified_lineage
+Paris Basin::FrCaptL,FrCaptL,FrCaptL,observed_polity_only_not_verified_lineage
+Paris Basin::FrHallB,FrHallB,FrHallB,observed_polity_only_not_verified_lineage
+Paris Basin::FrTeneB,FrTeneB,FrTeneB,observed_polity_only_not_verified_lineage
+Sogdiana::AfKushn,AfKushn,AfKushn,observed_polity_only_not_verified_lineage
+Sogdiana::UzJanid,UzJanid,UzJanid,observed_polity_only_not_verified_lineage
+Southern Mesopotamia::IqAbbs1,IqAbbs1,IqAbbs1,observed_polity_only_not_verified_lineage
+Southern Mesopotamia::IqAkkad,IqAkkad,IqAkkad,observed_polity_only_not_verified_lineage
+Southern Mesopotamia::IrPart2,IrPart2,IrPart2,observed_polity_only_not_verified_lineage
+Susiana::IrAchae,IrAchae,IrAchae,observed_polity_only_not_verified_lineage
+Susiana::IrMElm2,IrMElm2,IrMElm2,observed_polity_only_not_verified_lineage
+Susiana::IrPart1,IrPart1,IrPart1,observed_polity_only_not_verified_lineage
+Susiana::IrQajar,IrQajar,IrQajar,observed_polity_only_not_verified_lineage
+Susiana::IrSasn1,IrSasn1,IrSasn1,observed_polity_only_not_verified_lineage
+Susiana::IrSasn2,IrSasn2,IrSasn2,observed_polity_only_not_verified_lineage
+Susiana::IrSeleu,IrSeleu,IrSeleu,observed_polity_only_not_verified_lineage
+Upper Egypt::EgDyn2*,EgDyn2*,EgDyn2*,observed_polity_only_not_verified_lineage
+Upper Egypt::EgMidKg,EgMidKg,EgMidKg,observed_polity_only_not_verified_lineage
+Upper Egypt::EgNKRam,EgNKRam,EgNKRam,observed_polity_only_not_verified_lineage
+Upper Egypt::EgNKThu,EgNKThu,EgNKThu,observed_polity_only_not_verified_lineage
+Upper Egypt::EgNaqa1,EgNaqa1,EgNaqa1,observed_polity_only_not_verified_lineage
+Upper Egypt::EgNaqa2,EgNaqa2,EgNaqa2,observed_polity_only_not_verified_lineage
+Upper Egypt::EgPtol2,EgPtol2,EgPtol2,observed_polity_only_not_verified_lineage
+Upper Egypt::EgThebL,EgThebL,EgThebL,observed_polity_only_not_verified_lineage
+Upper Egypt::TnFatim,TnFatim,TnFatim,observed_polity_only_not_verified_lineage
+Valley of Oaxaca::MxAlb1E,MxAlb1E,MxAlb1E,observed_polity_only_not_verified_lineage
