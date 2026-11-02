@@ -32,3 +32,8 @@ not all collapses or disappearances. A static geometry interval may repeat one
 reconstruction at several50-year marks; this is not finer independent evidence.
 Grouping limits some related histories crossing folds, but does not eliminate
 regional, source or global-time dependence. Do not call these rows independent.
+
+For label-only stress tests, previous-release comparison, terminal-window/crisis
+review queues and component/grouping checks, see `adjudication_audit.py` and
+`../docs/label_adjudication.md`. No model is refit in this audit. Previous-release
+inputs are pinned/hash-checked, including the Mac archive metadata exclusion.
