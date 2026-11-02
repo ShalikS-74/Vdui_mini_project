@@ -47,3 +47,14 @@ def test_sensitivity_boundaries():
     assert possible_classes(1.3,1.3)==('rise',)
     assert possible_classes(.8,1.2)==('stable',)
     assert possible_classes(.69,1.31)==('decline','stable','rise')
+
+def test_source_display_sensitivity_never_replaces_partial_dates():
+    import sys
+    sys.path.insert(0,str(p.parent))
+    from feature_support_audit import fallback_at
+    x=pd.DataFrame([dict(year_from=np.nan,year_to=np.nan,is_disputed=False,is_uncertain=False,value_from='P',value_to=np.nan)])
+    assert fallback_at(x,25,0,100)==(1.,'polity_lifetime_display_assumption')
+    x.year_to=50;assert np.isnan(fallback_at(x,25,0,100)[0])
+    x.year_to=np.nan;x.is_uncertain=True;assert np.isnan(fallback_at(x,25,0,100)[0])
+    x.is_uncertain=False;x.value_from='IP';assert np.isnan(fallback_at(x,25,0,100)[0])
+    x.value_from='P';assert np.isnan(fallback_at(pd.concat([x,x]),25,0,100)[0])
