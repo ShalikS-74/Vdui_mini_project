@@ -50,3 +50,9 @@ models on the original splits, without tuning. There is a conditional combined-
 forest signal, but unclear historical timing and weaker holdout decline AP prevent
 a forecasting claim. Source-narrative spot checks are not independent adjudication.
 See secondary_results.md; prior strict and area-only results remain intact.
+
+A fixed120record, outcome-blinded time-support review package is now prepared in
+research/review with reproducible stratified sampling and blank adjudication
+fields. No reviewer has been contacted. It needs two independent judgments,
+source citations/pages and disagreement handling before it becomes review evidence.
+No further model fitting is planned without those measurement/source inputs.
