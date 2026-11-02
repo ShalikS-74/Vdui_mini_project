@@ -1,0 +1,70 @@
+table Explanations
+
+	measure 'SHAP contribution' = SUM(Explanations[shap_value])
+		formatString: 0.000
+
+	column row
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: row
+
+	column polity
+		dataType: string
+		summarizeBy: none
+		sourceColumn: polity
+
+	column time_t
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: time_t
+
+	column feature
+		dataType: string
+		summarizeBy: none
+		sourceColumn: feature
+
+	column value
+		dataType: double
+		summarizeBy: none
+		sourceColumn: value
+
+	column shap_value
+		dataType: double
+		summarizeBy: none
+		sourceColumn: shap_value
+
+	column base_value
+		dataType: double
+		summarizeBy: none
+		sourceColumn: base_value
+
+	column fold
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: fold
+
+	column units
+		dataType: string
+		summarizeBy: none
+		sourceColumn: units
+
+	column model
+		dataType: string
+		summarizeBy: none
+		sourceColumn: model
+
+	column observation_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: observation_id
+
+	partition Explanations = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(DataRoot & "\shap_long.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    Typed = Table.TransformColumnTypes(Headers, {{"row", Int64.Type}, {"polity", type text}, {"time_t", Int64.Type}, {"feature", type text}, {"value", type number}, {"shap_value", type number}, {"base_value", type number}, {"fold", Int64.Type}, {"units", type text}, {"model", type text}}),
+			    Keyed = Table.AddColumn(Typed, "observation_id", each [polity] & "|" & Text.From([time_t]), type text)
+			in
+			    Keyed
