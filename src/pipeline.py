@@ -164,6 +164,7 @@ def main():
     raw[FEATURES].isna().mean().rename('missing_rate').to_csv(out/'missingness.csv')
     table[['polity','PolID','group_id']].drop_duplicates().assign(lineage_status='observed_polity_only_not_verified_lineage').to_csv(out/'continuity.csv',index=False)
     table.to_parquet(out/'table.parquet',index=False)
+    table.to_csv(out/'table.csv',index=False)
     pred,splits,folds,explain = run_evaluation(table,args.target,args.horizon)
     pred.to_csv(out/'split_predictions.csv',index=False)
     splits.to_csv(out/'splits.csv',index=False)
