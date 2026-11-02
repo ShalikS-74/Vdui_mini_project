@@ -74,3 +74,7 @@ factor, calibrated probability or modern transfer is claimed. The initial audit'
 future-delta diagnosis was reversed: shifting source time forward for an equality
 join retrieves the past, not the future. Its original text is retained, with a
 prominent correction and tests. No code is merged to main by this work.
+
+Canonical branch exports use `data/table.csv`; the older tracked parquet is a
+legacy snapshot until `python src/pipeline.py` regenerates it. Rebuild or run the
+offline restore before using parquet directly. The dashboard uses flat CSVs.
