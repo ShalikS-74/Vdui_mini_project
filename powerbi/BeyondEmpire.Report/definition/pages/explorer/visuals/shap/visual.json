@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "shap",
+  "position": {
+    "x": 20,
+    "y": 230,
+    "z": 0,
+    "width": 780,
+    "height": 530,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "barChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Explanations"
+                    }
+                  },
+                  "Property": "feature"
+                }
+              },
+              "queryRef": "Explanations.feature"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Explanations"
+                    }
+                  },
+                  "Property": "SHAP contribution"
+                }
+              },
+              "queryRef": "Explanations.SHAP contribution"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
