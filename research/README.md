@@ -37,3 +37,7 @@ For label-only stress tests, previous-release comparison, terminal-window/crisis
 review queues and component/grouping checks, see `adjudication_audit.py` and
 `../docs/label_adjudication.md`. No model is refit in this audit. Previous-release
 inputs are pinned/hash-checked, including the Mac archive metadata exclusion.
+
+`feature_support_audit.py --polaris-path data/raw/Polaris2026.xlsx` separately
+compares strict time support with a documented source-display assumption. It
+never replaces strict values or fits a model. See `docs/feature_time_support.md`.
