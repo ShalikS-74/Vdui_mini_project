@@ -41,3 +41,8 @@ inputs are pinned/hash-checked, including the Mac archive metadata exclusion.
 `feature_support_audit.py --polaris-path data/raw/Polaris2026.xlsx` separately
 compares strict time support with a documented source-display assumption. It
 never replaces strict values or fits a model. See `docs/feature_time_support.md`.
+
+After feature-support audit, `python research/evaluate_governance_scenario.py`
+runs the separately frozen retrospective scenario on the exact original splits.
+Read `secondary_protocol.md` and `docs/secondary_results.md` first. It does not
+replace or recalibrate the primary outputs and is not confirmatory forecasting.
