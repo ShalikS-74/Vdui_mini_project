@@ -3,7 +3,10 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import pytest
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
+PROJECT_ROOT = next(p for p in Path(__file__).resolve().parents if (p/'app.py').exists())
+sys.path.insert(0,str(PROJECT_ROOT/'src'))
+from bundled_exports import restore
+if not (PROJECT_ROOT/'data/run_metadata.json').exists(): restore(PROJECT_ROOT)
 from pipeline import FEATURES,CANDIDATES,build_table,MissingRateFilter,temporal_indices,load_source,ROOT,make_model,metrics
 
 def fixture():
