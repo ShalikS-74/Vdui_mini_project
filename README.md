@@ -12,7 +12,9 @@ python -m venv .venv
 # Windows: .venv\Scripts\activate
 # macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
-python src/pipeline.py
+python src/bundled_exports.py  # restore bundled exports for offline demo
+python src/pipeline.py        # optional full scientific rebuild from source
+python powerbi/build_project.py
 pytest -q
 streamlit run app.py
 ```
@@ -40,7 +42,7 @@ The source is CC BY-NC-SA according to its README. See `docs/data_provenance.md`
 - Tested Streamlit explorer, audit queue, evaluation and downloads.
 - Power BI PBIP candidate with model, pages and visuals. **Schema-checked, not
   opened/rendered in Power BI Desktop. Not a verified dashboard or a PBIX.**
-  See `powerbi/README.md` for exact remaining steps.
+  Run `python powerbi/build_project.py` to materialize it. See `powerbi/README.md` for exact remaining steps.
 
 ## Current evidence, not a performance claim
 
