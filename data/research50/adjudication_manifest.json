@@ -1,0 +1,19 @@
+{
+  "status": "descriptive_adjudication_not_independent_expert_review",
+  "original_panel_groups": 113,
+  "strengthened_panel_groups": 113,
+  "current_rows": 756,
+  "previous_rows": 754,
+  "common_rows": 754,
+  "changed_labels_common": 0,
+  "current_only_rows": 2,
+  "previous_only_rows": 0,
+  "previous_sha256": "d01ae3a20d358cc5d54f69d9d725d390767d9c8759ac89ad6f90c58d106f3370",
+  "terminal_windows": 592,
+  "terminal_windows_with_current_geometry": 267,
+  "crisis_records": 166,
+  "direct_present_collapse_records": 6,
+  "candidate_crisis_overlaps": 95,
+  "extra_component_edges": 1210,
+  "extra_component_edges_crossing_existing_groups": 18
+}
