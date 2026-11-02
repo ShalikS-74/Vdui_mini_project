@@ -47,14 +47,14 @@ def print_audit(frame: pd.DataFrame) -> None:
 
 
 def compute_labels(frame: pd.DataFrame) -> pd.DataFrame:
-    work = frame[["PolID", "Time", "Terr"]].copy()
+    work = frame[["NGA", "PolID", "Time", "Terr"]].copy()
     work["Time"] = pd.to_numeric(work["Time"], errors="coerce")
     work["Terr"] = pd.to_numeric(work["Terr"], errors="coerce")
-    future = work[["PolID", "Time", "Terr"]].rename(
+    future = work[["NGA", "PolID", "Time", "Terr"]].rename(
         columns={"Time": "next_time", "Terr": "next_terr"}
     )
     work["next_time"] = work["Time"] + 100
-    work = work.merge(future, on=["PolID", "next_time"], how="left")
+    work = work.merge(future, on=["NGA", "PolID", "next_time"], how="left")
     work["terr_change"] = work["next_terr"] - work["Terr"]
     work["contraction"] = (work["terr_change"] <= np.log10(0.7)).astype("Int64")
     labeled = work.dropna(subset=["Terr", "next_terr"]).copy()
@@ -78,7 +78,7 @@ def main() -> None:
     print_audit(frame)
     compute_labels(frame)
     print(f"features for later steps: {', '.join(FEATURES)}")
-    print("assumptions: PolID is the polity key; Time is in years; label horizon is +100 years.")
+    print("assumptions: (NGA, PolID) is the polity key; Time is in years; label horizon is +100 years.")
 
 
 if __name__ == "__main__":
