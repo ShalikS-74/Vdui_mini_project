@@ -1,0 +1,155 @@
+table Predictions
+
+	measure 'Selected score' = SELECTEDVALUE(Predictions[model_score])
+		formatString: 0.000
+
+	column nga
+		dataType: string
+		summarizeBy: none
+		sourceColumn: nga
+
+	column PolID
+		dataType: string
+		summarizeBy: none
+		sourceColumn: PolID
+
+	column polity
+		dataType: string
+		summarizeBy: none
+		sourceColumn: polity
+
+	column group_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: group_id
+
+	column time_t
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: time_t
+
+	column next_time
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: next_time
+
+	column Terr
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Terr
+
+	column next_Terr
+		dataType: double
+		summarizeBy: none
+		sourceColumn: next_Terr
+
+	column contraction
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: contraction
+
+	column outcome
+		dataType: string
+		summarizeBy: none
+		sourceColumn: outcome
+
+	column Pop
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Pop
+
+	column Cap
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Cap
+
+	column Hier
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Hier
+
+	column Gov
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Gov
+
+	column Infra
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Infra
+
+	column Info
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Info
+
+	column Money
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Money
+
+	column Pop_delta
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Pop_delta
+
+	column Cap_delta
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Cap_delta
+
+	column Hier_delta
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Hier_delta
+
+	column Gov_delta
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Gov_delta
+
+	column Infra_delta
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Infra_delta
+
+	column Info_delta
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Info_delta
+
+	column Money_delta
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Money_delta
+
+	column model_score
+		dataType: double
+		summarizeBy: none
+		sourceColumn: model_score
+
+	column y
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: y
+
+	column fp_flag
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: fp_flag
+
+	column observation_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: observation_id
+
+	partition Predictions = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(DataRoot & "\predictions.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    Typed = Table.TransformColumnTypes(Headers, {{"nga", type text}, {"PolID", type text}, {"polity", type text}, {"group_id", type text}, {"time_t", Int64.Type}, {"next_time", Int64.Type}, {"Terr", type number}, {"next_Terr", type number}, {"contraction", Int64.Type}, {"outcome", type text}, {"Pop", type number}, {"Cap", type number}, {"Hier", type number}, {"Gov", type number}, {"Infra", type number}, {"Info", type number}, {"Money", type number}, {"Pop_delta", type number}, {"Cap_delta", type number}, {"Hier_delta", type number}, {"Gov_delta", type number}, {"Infra_delta", type number}, {"Info_delta", type number}, {"Money_delta", type number}, {"model_score", type number}, {"y", Int64.Type}, {"fp_flag", Int64.Type}}),
+			    Keyed = Table.AddColumn(Typed, "observation_id", each [polity] & "|" & Text.From([time_t]), type text)
+			in
+			    Keyed
