@@ -115,3 +115,13 @@ to polity duration for undated values. A separate, provenance-marked coverage
 sensitivity increases any-feature coverage from144to727rows without fitting models.
 That does not confer independent historical dating or prospective validity.
 See `docs/feature_time_support.md`; strict primary values remain unchanged.
+
+A separately frozen secondary **retrospective** governance scenario is now in
+`docs/secondary_results.md`. Combined forest grouped macro-F1=.375and time/group
+holdout=.312; pooled seed0 improvement over area-only has a positive conditional
+bootstrap interval, but decline AP drops on the historical holdout and the
+polity-lifetime timing assumption is not verified. The original area-only results
+and strict144-row coverage remain unchanged. Three source-narrative checks include
+an Eastern Han record whose description starts "Western Han", a scope flag for
+review rather than a confirmed error. This is conditional exploratory signal,
+not successful forecasting or publication readiness.
