@@ -109,3 +109,9 @@ not estimated historical errors. None of six directly coded CrisisDB collapse
 records overlaps an eligible panel window, so they cannot validate a collapse
 predictor. `docs/related_work.md` rejects a broad first-use-of-ML collapse novelty
 claim and frames a measurement-aware benchmark as a candidate, not proven, contribution.
+
+The feature-date investigation now identifies an official website display fallback
+to polity duration for undated values. A separate, provenance-marked coverage
+sensitivity increases any-feature coverage from144to727rows without fitting models.
+That does not confer independent historical dating or prospective validity.
+See `docs/feature_time_support.md`; strict primary values remain unchanged.
