@@ -1,0 +1,19 @@
+{
+  "seed": "20261102-time-support-v1",
+  "sampling": "two_hash_ranked_unique_polity_feature_records_per_feature_period_stratum",
+  "eligible_records": 2343,
+  "selected_records": 120,
+  "features": 20,
+  "period_counts": {
+    "500BCE_to_1500CE": 40,
+    "after_1500CE": 40,
+    "before_500BCE": 40
+  },
+  "selection_does_not_use": [
+    "area_outcome",
+    "model_score",
+    "false_positive",
+    "future_area"
+  ],
+  "limitations": "stratified_audit_sample_not_population_error_estimator;sample_allows_repeated_polities;reviewers_must_not_consult_predictions"
+}
