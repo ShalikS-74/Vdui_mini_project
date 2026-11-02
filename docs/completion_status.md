@@ -44,3 +44,9 @@ are not independent human review, and no models were tuned during them.
 Official site source confirms a polity-lifetime display fallback for undated
 features. A provenance-marked coverage sensitivity is now separate from strict
 inputs; no new model fit. See feature_time_support.md.
+
+The separately frozen retrospective governance scenario now reports all fixed
+models on the original splits, without tuning. There is a conditional combined-
+forest signal, but unclear historical timing and weaker holdout decline AP prevent
+a forecasting claim. Source-narrative spot checks are not independent adjudication.
+See secondary_results.md; prior strict and area-only results remain intact.
