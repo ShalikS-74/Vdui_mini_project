@@ -10,14 +10,18 @@ validation. See tests and generated metrics, not the old audit counts.
 
 ## Still blocking full proposal / publication readiness
 
-1. Target decision: exact 50-year labels unavailable from this input. Three-class
-   century experiment supported, not a substitute approved by implication.
+1. Exact50-year labels remain unavailable from the legacy Equinox input. The
+   separate pinned Polaris/Clio extension now supplies756area-change candidates
+   with three classes, but continuing-ID selection and sparse strictly dated
+   governance features limit that study. See docs/research_findings.md.
 2. True lineage continuity: no verified predecessor/successor table. An unchanged
    polity-ID-only join misses transitions and can bias labels toward continuations.
 3. All 14 confident false-positive cases require source-based manual review.
    No causal protective factor or genuine-survival claim is warranted.
-4. Only six contractions. Majority exceeds model macro-F1. A useful prediction
-   claim is not supported. More data / revised well-grounded labels needed.
+4. Legacy Equinox has six contractions and majority wins its grouped macro-F1.
+   The expanded area-history model has59decline rows in30groups, bootstrap
+   improvement intervals containing zero, and almost no gain in time-plus-group
+   holdout. A useful governance/collapse prediction claim remains unsupported.
 5. Power BI project candidate needs Desktop open, DataRoot update, refresh,
    relationship/visual inspection and save to PBIX. No Desktop renderer is
    available in this execution environment; this step is not done.
@@ -27,3 +31,7 @@ validation. See tests and generated metrics, not the old audit counts.
 
 No fabricated label interpolation, lineage links, historical reviews, literature
 citations, Power BI success or publication outcomes are used to hide these gaps.
+
+Expanded construction/evaluation is reproducible with pinned hashes, protocol,
+split membership, missingness/exclusion logs and16tests. The app separates its
+research summary tab from legacy predictions and SHAP explanations.
