@@ -1,0 +1,7 @@
+relationship explanation_to_observation
+	fromColumn: Explanations.observation_id
+	toColumn: Predictions.observation_id
+
+relationship case_to_observation
+	fromColumn: Cases.observation_id
+	toColumn: Predictions.observation_id
