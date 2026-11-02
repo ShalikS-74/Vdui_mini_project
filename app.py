@@ -4,6 +4,9 @@ import json
 import pandas as pd
 import streamlit as st
 ROOT = Path(__file__).resolve().parent
+if not (ROOT/'dashboard/run_metadata.json').exists():
+    from src.bundled_exports import restore
+    restore(ROOT)
 
 @st.cache_data
 def load_data():
