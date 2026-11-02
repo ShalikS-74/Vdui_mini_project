@@ -1,0 +1,9 @@
+{
+  "status": "coverage_sensitivity_only_no_models",
+  "candidate_rows": 756,
+  "strict_any_rows": 144,
+  "fallback_any_rows": 727,
+  "source_site_commit": "1f847d95e224860115a3dc358165380fe5487bcd",
+  "policy": "single_undated_undisputed_certain_record_only;polity_date_display_not_independent_temporal_evidence",
+  "fitted_models": 0
+}
