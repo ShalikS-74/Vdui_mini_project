@@ -1,17 +1,16 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "cases",
   "position": {
     "x": 20,
     "y": 200,
     "z": 0,
-    "width": 1240,
     "height": 550,
+    "width": 1240,
     "tabOrder": 0
   },
   "visual": {
     "visualType": "tableEx",
-    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
@@ -97,6 +96,95 @@
           ]
         }
       }
-    }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "301ffc00d014dc54c78c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Cases"
+              }
+            },
+            "Property": "polity"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ddd15d55e5841c708ba0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Cases"
+              }
+            },
+            "Property": "century"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7f01040ae973c7e836e8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Cases"
+              }
+            },
+            "Property": "oof_p_decline"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5c8afebe044b6ee821a5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Cases"
+              }
+            },
+            "Property": "true_label"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2340ba0505da4e694539",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Cases"
+              }
+            },
+            "Property": "type"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9ea08ac693be06510008",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Cases"
+              }
+            },
+            "Property": "note"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

@@ -1,1 +1,5 @@
-expression DataRoot = "C:\CHANGE_ME\Vdui_mini_project\dashboard" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+expression DataRoot = "E:\code\contribution\vdui\dashboard" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 362f1587-0eac-4745-99c6-bbb13414e649
+
+	annotation PBI_ResultType = Text
+

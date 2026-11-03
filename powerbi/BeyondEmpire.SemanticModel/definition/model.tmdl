@@ -2,9 +2,15 @@ model Model
 	culture: en-US
 	defaultPowerBIDataSourceVersion: powerBI_V3
 	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Predictions","Explanations","Cases","DataRoot"]
+
+annotation PBI_ProTooling = ["DevMode"]
 
 ref table Predictions
 ref table Explanations
 ref table Cases
 
-ref expression DataRoot

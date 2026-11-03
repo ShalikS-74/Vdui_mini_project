@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "BeyondEmpire"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9663ffbc-b8ec-41f5-9f96-219f36afc9c5"
+  }
+}

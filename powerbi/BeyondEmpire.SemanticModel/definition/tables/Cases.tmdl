@@ -1,57 +1,68 @@
 table Cases
+	lineageTag: c91e1a0a-cee9-4fc5-8a06-e9f594a5de1b
 
 	column polity
 		dataType: string
+		lineageTag: 0b18a201-1dea-4c5e-9a32-b069ddb6a980
 		summarizeBy: none
 		sourceColumn: polity
 
 	column century
 		dataType: int64
+		lineageTag: 1128a714-1dd9-4203-8508-ada80c8bd4a6
 		summarizeBy: none
 		sourceColumn: century
 
 	column oof_p_decline
 		dataType: double
+		lineageTag: 76ffc2e5-da4d-47f7-b8a4-e79ddd4c4ee1
 		summarizeBy: none
 		sourceColumn: oof_p_decline
 
 	column true_label
 		dataType: string
+		lineageTag: 54d3b6fd-1d05-4aac-a34e-23b691a09ab6
 		summarizeBy: none
 		sourceColumn: true_label
 
 	column fp_flag
 		dataType: int64
+		lineageTag: 5d9a8c82-209c-47f5-b603-1fec985c7cfd
 		summarizeBy: none
 		sourceColumn: fp_flag
 
 	column type
 		dataType: string
+		lineageTag: 30b141b9-f6b6-4414-afa3-6e142c3ed788
 		summarizeBy: none
 		sourceColumn: type
 
 	column note
 		dataType: string
+		lineageTag: 40f00774-2251-49b0-a9aa-40fc14803422
 		summarizeBy: none
 		sourceColumn: note
 
 	column source_url
 		dataType: double
+		lineageTag: 8b2f6c64-b2cc-46fd-a9b2-101dd132d896
 		summarizeBy: none
 		sourceColumn: source_url
 
 	column observation_id
 		dataType: string
+		lineageTag: 913220fb-288e-417c-9ff8-195d079d949f
 		summarizeBy: none
 		sourceColumn: observation_id
 
 	partition Cases = m
 		mode: import
 		source =
-			let
-			    Source = Csv.Document(File.Contents(DataRoot & "\fp_cases.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
-			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-			    Typed = Table.TransformColumnTypes(Headers, {{"polity", type text}, {"century", Int64.Type}, {"oof_p_decline", type number}, {"true_label", type text}, {"fp_flag", Int64.Type}, {"type", type text}, {"note", type text}, {"source_url", type number}}),
-			    Keyed = Table.AddColumn(Typed, "observation_id", each [polity] & "|" & Text.From([century]), type text)
-			in
-			    Keyed
+				let
+				    Source = Csv.Document(File.Contents(DataRoot & "\fp_cases.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"polity", type text}, {"century", Int64.Type}, {"oof_p_decline", type number}, {"true_label", type text}, {"fp_flag", Int64.Type}, {"type", type text}, {"note", type text}, {"source_url", type number}}),
+				    Keyed = Table.AddColumn(Typed, "observation_id", each [polity] & "|" & Text.From([century]), type text)
+				in
+				    Keyed
+

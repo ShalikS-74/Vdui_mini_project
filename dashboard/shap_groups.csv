@@ -1,589 +1,589 @@
 row,polity,time_t,feature_group,shap_value
-0,Big Island Hawaii::Hawaii2,1200,administration,-0.7945293619807945
-0,Big Island Hawaii::Hawaii2,1200,governance,0.17460656941372327
-0,Big Island Hawaii::Hawaii2,1200,information,-1.261843988990917
-0,Big Island Hawaii::Hawaii2,1200,infrastructure,-2.1587964608620704
-0,Big Island Hawaii::Hawaii2,1200,monetary_system,-2.1290723077979465
+0,Big Island Hawaii::Hawaii2,1200,administration,-0.7945293619807912
+0,Big Island Hawaii::Hawaii2,1200,governance,0.1746065694137168
+0,Big Island Hawaii::Hawaii2,1200,information,-1.261843988990919
+0,Big Island Hawaii::Hawaii2,1200,infrastructure,-2.158796460862065
+0,Big Island Hawaii::Hawaii2,1200,monetary_system,-2.1290723077979496
 0,Big Island Hawaii::Hawaii2,1200,scale,-3.344878900083006
-1,Big Island Hawaii::Hawaii2,1300,administration,-0.7945293619807945
-1,Big Island Hawaii::Hawaii2,1300,governance,0.17460656941372327
-1,Big Island Hawaii::Hawaii2,1300,information,-1.261843988990917
-1,Big Island Hawaii::Hawaii2,1300,infrastructure,-2.1587964608620704
-1,Big Island Hawaii::Hawaii2,1300,monetary_system,-2.1290723077979465
+1,Big Island Hawaii::Hawaii2,1300,administration,-0.7945293619807912
+1,Big Island Hawaii::Hawaii2,1300,governance,0.1746065694137168
+1,Big Island Hawaii::Hawaii2,1300,information,-1.261843988990919
+1,Big Island Hawaii::Hawaii2,1300,infrastructure,-2.158796460862065
+1,Big Island Hawaii::Hawaii2,1300,monetary_system,-2.1290723077979496
 1,Big Island Hawaii::Hawaii2,1300,scale,-3.0810168964104947
-2,Big Island Hawaii::Hawaii2,1400,administration,-0.7945293619807945
-2,Big Island Hawaii::Hawaii2,1400,governance,0.17460656941372327
-2,Big Island Hawaii::Hawaii2,1400,information,-1.261843988990917
-2,Big Island Hawaii::Hawaii2,1400,infrastructure,-1.7753913147871019
-2,Big Island Hawaii::Hawaii2,1400,monetary_system,-2.1290723077979465
-2,Big Island Hawaii::Hawaii2,1400,scale,-2.8570559081365903
-3,Big Island Hawaii::Hawaii2,1500,administration,-0.7945293619807945
-3,Big Island Hawaii::Hawaii2,1500,governance,0.17460656941372327
-3,Big Island Hawaii::Hawaii2,1500,information,-1.261843988990917
-3,Big Island Hawaii::Hawaii2,1500,infrastructure,-1.7753913147871019
-3,Big Island Hawaii::Hawaii2,1500,monetary_system,-2.1290723077979465
+2,Big Island Hawaii::Hawaii2,1400,administration,-0.7945293619807912
+2,Big Island Hawaii::Hawaii2,1400,governance,0.1746065694137168
+2,Big Island Hawaii::Hawaii2,1400,information,-1.261843988990919
+2,Big Island Hawaii::Hawaii2,1400,infrastructure,-1.7753913147870974
+2,Big Island Hawaii::Hawaii2,1400,monetary_system,-2.1290723077979496
+2,Big Island Hawaii::Hawaii2,1400,scale,-2.85705590813659
+3,Big Island Hawaii::Hawaii2,1500,administration,-0.7945293619807912
+3,Big Island Hawaii::Hawaii2,1500,governance,0.1746065694137168
+3,Big Island Hawaii::Hawaii2,1500,information,-1.261843988990919
+3,Big Island Hawaii::Hawaii2,1500,infrastructure,-1.7753913147870974
+3,Big Island Hawaii::Hawaii2,1500,monetary_system,-2.1290723077979496
 3,Big Island Hawaii::Hawaii2,1500,scale,-2.568468385053881
-4,Cambodian Basin::KhAngkC,1100,administration,0.22864235937621957
-4,Cambodian Basin::KhAngkC,1100,governance,1.0042595294112573
-4,Cambodian Basin::KhAngkC,1100,information,0.21828508272127925
-4,Cambodian Basin::KhAngkC,1100,infrastructure,0.2177126347177404
-4,Cambodian Basin::KhAngkC,1100,monetary_system,-0.06581396250327648
-4,Cambodian Basin::KhAngkC,1100,scale,0.2350274047985808
-5,Cambodian Basin::KhAngkE,900,administration,0.17935735912861586
-5,Cambodian Basin::KhAngkE,900,governance,0.6122186928463897
-5,Cambodian Basin::KhAngkE,900,information,0.865197709274669
-5,Cambodian Basin::KhAngkE,900,infrastructure,0.13843353186801818
-5,Cambodian Basin::KhAngkE,900,monetary_system,0.014774526366686134
-5,Cambodian Basin::KhAngkE,900,scale,-1.3021628393556175
-6,Cambodian Basin::KhAngkL,1300,administration,0.26063258200647993
-6,Cambodian Basin::KhAngkL,1300,governance,0.5520721791886735
-6,Cambodian Basin::KhAngkL,1300,information,1.0401269185133553
-6,Cambodian Basin::KhAngkL,1300,infrastructure,0.07602109273203579
-6,Cambodian Basin::KhAngkL,1300,monetary_system,-0.014593243834579354
-6,Cambodian Basin::KhAngkL,1300,scale,0.38283167156449904
-7,Central Java::IdKedir,1100,administration,-0.10955862717299827
-7,Central Java::IdKedir,1100,governance,-0.05021383453488292
-7,Central Java::IdKedir,1100,information,-0.5944041942561807
-7,Central Java::IdKedir,1100,infrastructure,0.179974930195237
-7,Central Java::IdKedir,1100,monetary_system,0.6124662445484446
-7,Central Java::IdKedir,1100,scale,-1.7869560639080422
+4,Cambodian Basin::KhAngkC,1100,administration,0.22864235937622
+4,Cambodian Basin::KhAngkC,1100,governance,1.0042595294112577
+4,Cambodian Basin::KhAngkC,1100,information,0.21828508272127994
+4,Cambodian Basin::KhAngkC,1100,infrastructure,0.21771263471774055
+4,Cambodian Basin::KhAngkC,1100,monetary_system,-0.06581396250327647
+4,Cambodian Basin::KhAngkC,1100,scale,0.23502740479858047
+5,Cambodian Basin::KhAngkE,900,administration,0.1793573591286159
+5,Cambodian Basin::KhAngkE,900,governance,0.612218692846389
+5,Cambodian Basin::KhAngkE,900,information,0.8651977092746695
+5,Cambodian Basin::KhAngkE,900,infrastructure,0.13843353186801843
+5,Cambodian Basin::KhAngkE,900,monetary_system,0.014774526366686101
+5,Cambodian Basin::KhAngkE,900,scale,-1.3021628393556202
+6,Cambodian Basin::KhAngkL,1300,administration,0.26063258200648
+6,Cambodian Basin::KhAngkL,1300,governance,0.5520721791886727
+6,Cambodian Basin::KhAngkL,1300,information,1.040126918513356
+6,Cambodian Basin::KhAngkL,1300,infrastructure,0.07602109273203593
+6,Cambodian Basin::KhAngkL,1300,monetary_system,-0.014593243834579321
+6,Cambodian Basin::KhAngkL,1300,scale,0.3828316715644981
+7,Central Java::IdKedir,1100,administration,-0.10955862717299782
+7,Central Java::IdKedir,1100,governance,-0.05021383453488107
+7,Central Java::IdKedir,1100,information,-0.5944041942561816
+7,Central Java::IdKedir,1100,infrastructure,0.17997493019523655
+7,Central Java::IdKedir,1100,monetary_system,0.6124662445484454
+7,Central Java::IdKedir,1100,scale,-1.7869560639080424
 8,Central Java::IdMedng,800,administration,-0.44107850563023593
-8,Central Java::IdMedng,800,governance,0.292173508034853
-8,Central Java::IdMedng,800,information,-0.6356591610435454
+8,Central Java::IdMedng,800,governance,0.2921735080348526
+8,Central Java::IdMedng,800,information,-0.6356591610435451
 8,Central Java::IdMedng,800,infrastructure,0.5123591686579108
-8,Central Java::IdMedng,800,monetary_system,-0.4056688249082228
-8,Central Java::IdMedng,800,scale,0.9922347753772488
-9,Crete::TrByzM3,1100,administration,0.7482839192736555
-9,Crete::TrByzM3,1100,governance,0.985541881066705
-9,Crete::TrByzM3,1100,information,0.865197709274669
-9,Crete::TrByzM3,1100,infrastructure,0.25077592231278567
-9,Crete::TrByzM3,1100,monetary_system,0.08819395186984925
-9,Crete::TrByzM3,1100,scale,0.6324792801172293
-10,Cuzco::PeInca*,1400,administration,0.19011606930541067
-10,Cuzco::PeInca*,1400,governance,-0.02925251716490334
-10,Cuzco::PeInca*,1400,information,-1.0827747757694024
-10,Cuzco::PeInca*,1400,infrastructure,0.013832700229416222
-10,Cuzco::PeInca*,1400,monetary_system,-1.1421184289532453
-10,Cuzco::PeInca*,1400,scale,-0.8351470952276011
-11,Deccan::InSataL,-100,administration,-0.043964208607810314
-11,Deccan::InSataL,-100,governance,0.6275251437293194
-11,Deccan::InSataL,-100,information,0.02661546184057686
-11,Deccan::InSataL,-100,infrastructure,0.3080712648840956
-11,Deccan::InSataL,-100,monetary_system,0.07919445395743689
-11,Deccan::InSataL,-100,scale,0.6662172478640933
-12,Deccan::InSataL,0,administration,-0.043964208607810314
-12,Deccan::InSataL,0,governance,0.6275251437293194
-12,Deccan::InSataL,0,information,0.02661546184057686
-12,Deccan::InSataL,0,infrastructure,0.3080712648840956
-12,Deccan::InSataL,0,monetary_system,0.07919445395743689
-12,Deccan::InSataL,0,scale,0.6682510574422502
-13,Deccan::InSataL,100,administration,-0.043964208607810314
-13,Deccan::InSataL,100,governance,0.6275251437293194
-13,Deccan::InSataL,100,information,0.02661546184057686
-13,Deccan::InSataL,100,infrastructure,0.3080712648840956
-13,Deccan::InSataL,100,monetary_system,0.07919445395743689
-13,Deccan::InSataL,100,scale,0.6682510574422502
+8,Central Java::IdMedng,800,monetary_system,-0.4056688249082238
+8,Central Java::IdMedng,800,scale,0.9922347753772507
+9,Crete::TrByzM3,1100,administration,0.7482839192736556
+9,Crete::TrByzM3,1100,governance,0.9855418810667037
+9,Crete::TrByzM3,1100,information,0.8651977092746695
+9,Crete::TrByzM3,1100,infrastructure,0.2507759223127861
+9,Crete::TrByzM3,1100,monetary_system,0.08819395186984906
+9,Crete::TrByzM3,1100,scale,0.6324792801172298
+10,Cuzco::PeInca*,1400,administration,0.19011606930540992
+10,Cuzco::PeInca*,1400,governance,-0.02925251716490226
+10,Cuzco::PeInca*,1400,information,-1.0827747757694042
+10,Cuzco::PeInca*,1400,infrastructure,0.013832700229416187
+10,Cuzco::PeInca*,1400,monetary_system,-1.1421184289532471
+10,Cuzco::PeInca*,1400,scale,-0.8351470952276043
+11,Deccan::InSataL,-100,administration,-0.043964208607810404
+11,Deccan::InSataL,-100,governance,0.6275251437293197
+11,Deccan::InSataL,-100,information,0.02661546184057695
+11,Deccan::InSataL,-100,infrastructure,0.3080712648840958
+11,Deccan::InSataL,-100,monetary_system,0.07919445395743684
+11,Deccan::InSataL,-100,scale,0.6662172478640922
+12,Deccan::InSataL,0,administration,-0.043964208607810404
+12,Deccan::InSataL,0,governance,0.6275251437293197
+12,Deccan::InSataL,0,information,0.02661546184057695
+12,Deccan::InSataL,0,infrastructure,0.3080712648840958
+12,Deccan::InSataL,0,monetary_system,0.07919445395743684
+12,Deccan::InSataL,0,scale,0.6682510574422491
+13,Deccan::InSataL,100,administration,-0.043964208607810404
+13,Deccan::InSataL,100,governance,0.6275251437293197
+13,Deccan::InSataL,100,information,0.02661546184057695
+13,Deccan::InSataL,100,infrastructure,0.3080712648840958
+13,Deccan::InSataL,100,monetary_system,0.07919445395743684
+13,Deccan::InSataL,100,scale,0.6682510574422491
 14,Deccan::InVijay,1400,administration,-0.08264581392856511
-14,Deccan::InVijay,1400,governance,0.25700792412112117
-14,Deccan::InVijay,1400,information,-0.7664692750142724
-14,Deccan::InVijay,1400,infrastructure,0.17089166109474832
-14,Deccan::InVijay,1400,monetary_system,0.003848073620591001
-14,Deccan::InVijay,1400,scale,0.4377129159721133
-15,Finger Lakes::UsIroqE,1600,administration,-0.5279516605151429
-15,Finger Lakes::UsIroqE,1600,governance,-0.6795223610653345
-15,Finger Lakes::UsIroqE,1600,information,-3.132475802306794
-15,Finger Lakes::UsIroqE,1600,infrastructure,-0.5751976636568102
-15,Finger Lakes::UsIroqE,1600,monetary_system,0.0017822873409393603
-15,Finger Lakes::UsIroqE,1600,scale,0.9728528983608421
-16,Galilee::IlYisrl,-1000,administration,0.6182227785602835
-16,Galilee::IlYisrl,-1000,governance,-0.04569276608253433
-16,Galilee::IlYisrl,-1000,information,-0.4641720391859896
-16,Galilee::IlYisrl,-1000,infrastructure,-0.4505135322391568
-16,Galilee::IlYisrl,-1000,monetary_system,-0.4841491763901113
-16,Galilee::IlYisrl,-1000,scale,-0.9771981213179396
-17,Galilee::IlYisrl,-900,administration,0.6182227785602835
-17,Galilee::IlYisrl,-900,governance,-0.04569276608253433
-17,Galilee::IlYisrl,-900,information,-0.4641720391859896
-17,Galilee::IlYisrl,-900,infrastructure,-0.4505135322391568
-17,Galilee::IlYisrl,-900,monetary_system,-0.4841491763901113
-17,Galilee::IlYisrl,-900,scale,-0.42950874372961356
-18,Iceland::IsCommw,1000,administration,-0.7344575095833308
-18,Iceland::IsCommw,1000,governance,-1.165952405452662
-18,Iceland::IsCommw,1000,information,-1.521041563925629
+14,Deccan::InVijay,1400,governance,0.2570079241211206
+14,Deccan::InVijay,1400,information,-0.7664692750142721
+14,Deccan::InVijay,1400,infrastructure,0.17089166109474802
+14,Deccan::InVijay,1400,monetary_system,0.003848073620589344
+14,Deccan::InVijay,1400,scale,0.43771291597211415
+15,Finger Lakes::UsIroqE,1600,administration,-0.5279516605151428
+15,Finger Lakes::UsIroqE,1600,governance,-0.6795223610653331
+15,Finger Lakes::UsIroqE,1600,information,-3.132475802306793
+15,Finger Lakes::UsIroqE,1600,infrastructure,-0.5751976636568092
+15,Finger Lakes::UsIroqE,1600,monetary_system,0.0017822873409420524
+15,Finger Lakes::UsIroqE,1600,scale,0.9728528983608388
+16,Galilee::IlYisrl,-1000,administration,0.6182227785602811
+16,Galilee::IlYisrl,-1000,governance,-0.04569276608253264
+16,Galilee::IlYisrl,-1000,information,-0.4641720391859903
+16,Galilee::IlYisrl,-1000,infrastructure,-0.4505135322391557
+16,Galilee::IlYisrl,-1000,monetary_system,-0.484149176390112
+16,Galilee::IlYisrl,-1000,scale,-0.9771981213179382
+17,Galilee::IlYisrl,-900,administration,0.6182227785602811
+17,Galilee::IlYisrl,-900,governance,-0.04569276608253264
+17,Galilee::IlYisrl,-900,information,-0.4641720391859903
+17,Galilee::IlYisrl,-900,infrastructure,-0.4505135322391557
+17,Galilee::IlYisrl,-900,monetary_system,-0.484149176390112
+17,Galilee::IlYisrl,-900,scale,-0.4295087437296124
+18,Iceland::IsCommw,1000,administration,-0.7344575095833309
+18,Iceland::IsCommw,1000,governance,-1.1659524054526604
+18,Iceland::IsCommw,1000,information,-1.5210415639256283
 18,Iceland::IsCommw,1000,infrastructure,-1.6564581281818267
-18,Iceland::IsCommw,1000,monetary_system,0.029995768353405287
-18,Iceland::IsCommw,1000,scale,-0.39039460478058835
+18,Iceland::IsCommw,1000,monetary_system,0.02999576835340537
+18,Iceland::IsCommw,1000,scale,-0.39039460478058424
 19,Iceland::IsCommw,1100,administration,-0.6366645082656306
-19,Iceland::IsCommw,1100,governance,-0.9529145284820832
-19,Iceland::IsCommw,1100,information,-0.6583612739379587
+19,Iceland::IsCommw,1100,governance,-0.9529145284820819
+19,Iceland::IsCommw,1100,information,-0.6583612739379585
 19,Iceland::IsCommw,1100,infrastructure,-1.6564581281818267
-19,Iceland::IsCommw,1100,monetary_system,0.029995768353405287
-19,Iceland::IsCommw,1100,scale,0.8657173144495687
-20,Kachi Plain::PkSind1,900,administration,-0.38956920101642145
-20,Kachi Plain::PkSind1,900,governance,0.1300095747284847
-20,Kachi Plain::PkSind1,900,information,-0.009448336918757126
-20,Kachi Plain::PkSind1,900,infrastructure,0.32567084927596407
-20,Kachi Plain::PkSind1,900,monetary_system,0.08819395186984925
-20,Kachi Plain::PkSind1,900,scale,-1.1010322391936118
-21,Kachi Plain::PkSind2,1400,administration,-0.5388715069479333
-21,Kachi Plain::PkSind2,1400,governance,-0.39597265011614136
-21,Kachi Plain::PkSind2,1400,information,-0.18161690315530016
+19,Iceland::IsCommw,1100,monetary_system,0.02999576835340537
+19,Iceland::IsCommw,1100,scale,0.8657173144495702
+20,Kachi Plain::PkSind1,900,administration,-0.3895692010164215
+20,Kachi Plain::PkSind1,900,governance,0.13000957472848454
+20,Kachi Plain::PkSind1,900,information,-0.009448336918757133
+20,Kachi Plain::PkSind1,900,infrastructure,0.3256708492759647
+20,Kachi Plain::PkSind1,900,monetary_system,0.08819395186984906
+20,Kachi Plain::PkSind1,900,scale,-1.1010322391936125
+21,Kachi Plain::PkSind2,1400,administration,-0.5388715069479334
+21,Kachi Plain::PkSind2,1400,governance,-0.39597265011614086
+21,Kachi Plain::PkSind2,1400,information,-0.18161690315530007
 21,Kachi Plain::PkSind2,1400,infrastructure,0.4400652587632536
-21,Kachi Plain::PkSind2,1400,monetary_system,0.17521729944061412
-21,Kachi Plain::PkSind2,1400,scale,-2.831640901241616
-22,Kansai::JpAsuka,600,administration,-0.049906500359440914
-22,Kansai::JpAsuka,600,governance,0.685346745421666
-22,Kansai::JpAsuka,600,information,-0.6583612739379587
+21,Kachi Plain::PkSind2,1400,monetary_system,0.17521729944061457
+21,Kachi Plain::PkSind2,1400,scale,-2.8316409012416157
+22,Kansai::JpAsuka,600,administration,-0.04990650035944089
+22,Kansai::JpAsuka,600,governance,0.685346745421665
+22,Kansai::JpAsuka,600,information,-0.6583612739379585
 22,Kansai::JpAsuka,600,infrastructure,0.4852489524474142
-22,Kansai::JpAsuka,600,monetary_system,0.17521729944061412
-22,Kansai::JpAsuka,600,scale,-0.9458252650956457
-23,Kansai::JpHeian,800,administration,-0.023937285322024625
-23,Kansai::JpHeian,800,governance,-0.11441300655823261
-23,Kansai::JpHeian,800,information,0.38233696877026024
-23,Kansai::JpHeian,800,infrastructure,-0.0012711388583840886
-23,Kansai::JpHeian,800,monetary_system,0.6124662445484446
-23,Kansai::JpHeian,800,scale,0.9339510485185446
-24,Kansai::JpHeian,900,administration,-0.023937285322024625
-24,Kansai::JpHeian,900,governance,-0.11441300655823261
-24,Kansai::JpHeian,900,information,0.38233696877026024
-24,Kansai::JpHeian,900,infrastructure,-0.0012711388583840886
-24,Kansai::JpHeian,900,monetary_system,0.6124662445484446
-24,Kansai::JpHeian,900,scale,1.0239379710319523
-25,Kansai::JpHeian,1000,administration,-0.023937285322024625
-25,Kansai::JpHeian,1000,governance,-0.11441300655823261
-25,Kansai::JpHeian,1000,information,0.38233696877026024
-25,Kansai::JpHeian,1000,infrastructure,-0.0012711388583840886
-25,Kansai::JpHeian,1000,monetary_system,0.6124662445484446
-25,Kansai::JpHeian,1000,scale,0.9976881008130536
-26,Kansai::JpKamak,1200,administration,0.15075476852363842
-26,Kansai::JpKamak,1200,governance,0.6227563540371412
-26,Kansai::JpKamak,1200,information,0.031530067504184814
-26,Kansai::JpKamak,1200,infrastructure,0.3306609224256852
-26,Kansai::JpKamak,1200,monetary_system,0.006690245727080396
-26,Kansai::JpKamak,1200,scale,0.5816500358034334
-27,Kansai::JpKofun,300,administration,-0.3660222617563887
-27,Kansai::JpKofun,300,governance,-0.162944148204551
-27,Kansai::JpKofun,300,information,-2.8485550190316915
-27,Kansai::JpKofun,300,infrastructure,-0.000330681636254496
-27,Kansai::JpKofun,300,monetary_system,0.0031594781940404563
-27,Kansai::JpKofun,300,scale,-0.35484335415948004
+22,Kansai::JpAsuka,600,monetary_system,0.17521729944061457
+22,Kansai::JpAsuka,600,scale,-0.9458252650956462
+23,Kansai::JpHeian,800,administration,-0.023937285322024507
+23,Kansai::JpHeian,800,governance,-0.11441300655822838
+23,Kansai::JpHeian,800,information,0.38233696877026085
+23,Kansai::JpHeian,800,infrastructure,-0.0012711388583840856
+23,Kansai::JpHeian,800,monetary_system,0.6124662445484454
+23,Kansai::JpHeian,800,scale,0.9339510485185449
+24,Kansai::JpHeian,900,administration,-0.023937285322024507
+24,Kansai::JpHeian,900,governance,-0.11441300655822838
+24,Kansai::JpHeian,900,information,0.38233696877026085
+24,Kansai::JpHeian,900,infrastructure,-0.0012711388583840856
+24,Kansai::JpHeian,900,monetary_system,0.6124662445484454
+24,Kansai::JpHeian,900,scale,1.0239379710319525
+25,Kansai::JpHeian,1000,administration,-0.023937285322024507
+25,Kansai::JpHeian,1000,governance,-0.11441300655822838
+25,Kansai::JpHeian,1000,information,0.38233696877026085
+25,Kansai::JpHeian,1000,infrastructure,-0.0012711388583840856
+25,Kansai::JpHeian,1000,monetary_system,0.6124662445484454
+25,Kansai::JpHeian,1000,scale,0.9976881008130539
+26,Kansai::JpKamak,1200,administration,0.1507547685236387
+26,Kansai::JpKamak,1200,governance,0.6227563540371415
+26,Kansai::JpKamak,1200,information,0.03153006750418491
+26,Kansai::JpKamak,1200,infrastructure,0.3306609224256854
+26,Kansai::JpKamak,1200,monetary_system,0.006690245727080388
+26,Kansai::JpKamak,1200,scale,0.5816500358034324
+27,Kansai::JpKofun,300,administration,-0.36602226175638863
+27,Kansai::JpKofun,300,governance,-0.16294414820455064
+27,Kansai::JpKofun,300,information,-2.8485550190316906
+27,Kansai::JpKofun,300,infrastructure,-0.0003306816362544955
+27,Kansai::JpKofun,300,monetary_system,0.0031594781940402494
+27,Kansai::JpKofun,300,scale,-0.35484335415948104
 28,Kansai::JpKofun,400,administration,-0.32553991206669886
-28,Kansai::JpKofun,400,governance,-0.162944148204551
-28,Kansai::JpKofun,400,information,-1.1923504499269255
-28,Kansai::JpKofun,400,infrastructure,-0.000330681636254496
-28,Kansai::JpKofun,400,monetary_system,0.0031594781940404563
-28,Kansai::JpKofun,400,scale,-0.35484335415948004
-29,Kansai::JpTokgw,1700,administration,0.44698009485833395
-29,Kansai::JpTokgw,1700,governance,-0.12131791110363764
-29,Kansai::JpTokgw,1700,information,0.5451271626080008
-29,Kansai::JpTokgw,1700,infrastructure,0.6400611054851992
-29,Kansai::JpTokgw,1700,monetary_system,1.1607739550177238
-29,Kansai::JpTokgw,1700,scale,1.776500896348428
+28,Kansai::JpKofun,400,governance,-0.16294414820455064
+28,Kansai::JpKofun,400,information,-1.1923504499269253
+28,Kansai::JpKofun,400,infrastructure,-0.0003306816362544955
+28,Kansai::JpKofun,400,monetary_system,0.0031594781940402494
+28,Kansai::JpKofun,400,scale,-0.35484335415948104
+29,Kansai::JpTokgw,1700,administration,0.4469800948583321
+29,Kansai::JpTokgw,1700,governance,-0.12131791110363316
+29,Kansai::JpTokgw,1700,information,0.5451271626080016
+29,Kansai::JpTokgw,1700,infrastructure,0.6400611054851976
+29,Kansai::JpTokgw,1700,monetary_system,1.1607739550177256
+29,Kansai::JpTokgw,1700,scale,1.7765008963484277
 30,Konya Plain::TrBrzMD,-1800,administration,-0.44107850563023593
-30,Konya Plain::TrBrzMD,-1800,governance,-0.39597265011614136
-30,Konya Plain::TrBrzMD,-1800,information,-0.9080845157764964
+30,Konya Plain::TrBrzMD,-1800,governance,-0.39597265011614086
+30,Konya Plain::TrBrzMD,-1800,information,-0.908084515776496
 30,Konya Plain::TrBrzMD,-1800,infrastructure,0.45039296017677444
-30,Konya Plain::TrBrzMD,-1800,monetary_system,-0.15879222205996715
-30,Konya Plain::TrBrzMD,-1800,scale,0.395409821584947
+30,Konya Plain::TrBrzMD,-1800,monetary_system,-0.15879222205996754
+30,Konya Plain::TrBrzMD,-1800,scale,0.3954098215849468
 31,Konya Plain::TrByzM1,700,administration,0.6055541307961465
-31,Konya Plain::TrByzM1,700,governance,0.3796487948002999
-31,Konya Plain::TrByzM1,700,information,1.5995372522782552
-31,Konya Plain::TrByzM1,700,infrastructure,0.09868946837685556
-31,Konya Plain::TrByzM1,700,monetary_system,0.003848073620591001
-31,Konya Plain::TrByzM1,700,scale,0.47907344294042403
-32,Konya Plain::TrByzM2,900,administration,0.7466547913367452
-32,Konya Plain::TrByzM2,900,governance,-0.12131791110363764
-32,Konya Plain::TrByzM2,900,information,0.5451271626080008
-32,Konya Plain::TrByzM2,900,infrastructure,0.38445767476855447
-32,Konya Plain::TrByzM2,900,monetary_system,0.6124662445484446
-32,Konya Plain::TrByzM2,900,scale,1.1845893460086725
-33,Konya Plain::TrERom*,400,administration,0.8302305114998437
-33,Konya Plain::TrERom*,400,governance,0.730084699585487
-33,Konya Plain::TrERom*,400,information,0.9307866286709072
+31,Konya Plain::TrByzM1,700,governance,0.3796487948002991
+31,Konya Plain::TrByzM1,700,information,1.5995372522782545
+31,Konya Plain::TrByzM1,700,infrastructure,0.0986894683768554
+31,Konya Plain::TrByzM1,700,monetary_system,0.003848073620589344
+31,Konya Plain::TrByzM1,700,scale,0.479073442940424
+32,Konya Plain::TrByzM2,900,administration,0.7466547913367421
+32,Konya Plain::TrByzM2,900,governance,-0.12131791110363316
+32,Konya Plain::TrByzM2,900,information,0.5451271626080016
+32,Konya Plain::TrByzM2,900,infrastructure,0.3844576747685535
+32,Konya Plain::TrByzM2,900,monetary_system,0.6124662445484454
+32,Konya Plain::TrByzM2,900,scale,1.184589346008673
+33,Konya Plain::TrERom*,400,administration,0.8302305114998438
+33,Konya Plain::TrERom*,400,governance,0.730084699585486
+33,Konya Plain::TrERom*,400,information,0.9307866286709069
 33,Konya Plain::TrERom*,400,infrastructure,0.3316243939212666
-33,Konya Plain::TrERom*,400,monetary_system,0.17521729944061412
-33,Konya Plain::TrERom*,400,scale,0.6514641115341451
-34,Konya Plain::TrERom*,500,administration,0.8302305114998437
-34,Konya Plain::TrERom*,500,governance,0.730084699585487
-34,Konya Plain::TrERom*,500,information,0.9307866286709072
+33,Konya Plain::TrERom*,400,monetary_system,0.17521729944061457
+33,Konya Plain::TrERom*,400,scale,0.6514641115341453
+34,Konya Plain::TrERom*,500,administration,0.8302305114998438
+34,Konya Plain::TrERom*,500,governance,0.730084699585486
+34,Konya Plain::TrERom*,500,information,0.9307866286709069
 34,Konya Plain::TrERom*,500,infrastructure,0.3316243939212666
-34,Konya Plain::TrERom*,500,monetary_system,0.17521729944061412
+34,Konya Plain::TrERom*,500,monetary_system,0.17521729944061457
 34,Konya Plain::TrERom*,500,scale,0.6112388707638485
-35,Konya Plain::TrHatNK,-1300,administration,-0.00502041318151973
-35,Konya Plain::TrHatNK,-1300,governance,0.9661092118738461
-35,Konya Plain::TrHatNK,-1300,information,-0.02253059479550071
-35,Konya Plain::TrHatNK,-1300,infrastructure,0.05958503192661681
-35,Konya Plain::TrHatNK,-1300,monetary_system,-0.06581396250327648
-35,Konya Plain::TrHatNK,-1300,scale,0.7941086018274053
-36,Konya Plain::TrRum**,1100,administration,-0.0016811145491878983
-36,Konya Plain::TrRum**,1100,governance,0.2703869281952135
-36,Konya Plain::TrRum**,1100,information,1.4575768606407042
-36,Konya Plain::TrRum**,1100,infrastructure,0.16470290171892887
-36,Konya Plain::TrRum**,1100,monetary_system,0.003848073620591001
-36,Konya Plain::TrRum**,1100,scale,0.5910098995942831
-37,Latium::ItPapEM,1000,administration,0.2757374111563866
-37,Latium::ItPapEM,1000,governance,-0.12131791110363764
-37,Latium::ItPapEM,1000,information,0.5288481432242261
-37,Latium::ItPapEM,1000,infrastructure,-0.20343021587973142
-37,Latium::ItPapEM,1000,monetary_system,0.0641585340791681
-37,Latium::ItPapEM,1000,scale,0.19947352210089703
-38,Latium::ItPapHM,1200,administration,-0.0016811145491878983
-38,Latium::ItPapHM,1200,governance,0.2681570941828646
-38,Latium::ItPapHM,1200,information,2.0254184271909086
-38,Latium::ItPapHM,1200,infrastructure,-0.04571491705892998
-38,Latium::ItPapHM,1200,monetary_system,0.003848073620591001
-38,Latium::ItPapHM,1200,scale,0.6105249665229745
-39,Latium::ItPapM2,1700,administration,0.047886500958256514
-39,Latium::ItPapM2,1700,governance,0.5383506103119661
-39,Latium::ItPapM2,1700,information,0.9307866286709072
+35,Konya Plain::TrHatNK,-1300,administration,-0.005020413181519754
+35,Konya Plain::TrHatNK,-1300,governance,0.9661092118738465
+35,Konya Plain::TrHatNK,-1300,information,-0.022530594795500784
+35,Konya Plain::TrHatNK,-1300,infrastructure,0.05958503192661685
+35,Konya Plain::TrHatNK,-1300,monetary_system,-0.06581396250327647
+35,Konya Plain::TrHatNK,-1300,scale,0.7941086018274047
+36,Konya Plain::TrRum**,1100,administration,-0.0016811145491879096
+36,Konya Plain::TrRum**,1100,governance,0.2703869281952129
+36,Konya Plain::TrRum**,1100,information,1.4575768606407036
+36,Konya Plain::TrRum**,1100,infrastructure,0.1647029017189286
+36,Konya Plain::TrRum**,1100,monetary_system,0.003848073620589344
+36,Konya Plain::TrRum**,1100,scale,0.5910098995942825
+37,Latium::ItPapEM,1000,administration,0.2757374111563855
+37,Latium::ItPapEM,1000,governance,-0.12131791110363316
+37,Latium::ItPapEM,1000,information,0.5288481432242269
+37,Latium::ItPapEM,1000,infrastructure,-0.20343021587973095
+37,Latium::ItPapEM,1000,monetary_system,0.06415853407916816
+37,Latium::ItPapEM,1000,scale,0.1994735221008979
+38,Latium::ItPapHM,1200,administration,-0.0016811145491879096
+38,Latium::ItPapHM,1200,governance,0.26815709418286404
+38,Latium::ItPapHM,1200,information,2.0254184271909077
+38,Latium::ItPapHM,1200,infrastructure,-0.045714917058929896
+38,Latium::ItPapHM,1200,monetary_system,0.003848073620589344
+38,Latium::ItPapHM,1200,scale,0.6105249665229736
+39,Latium::ItPapM2,1700,administration,0.047886500958256535
+39,Latium::ItPapM2,1700,governance,0.5383506103119653
+39,Latium::ItPapM2,1700,information,0.9307866286709069
 39,Latium::ItPapM2,1700,infrastructure,0.15088961918462057
-39,Latium::ItPapM2,1700,monetary_system,0.23330591187549815
-39,Latium::ItPapM2,1700,scale,0.48634207805796476
-40,Latium::ItPapRn,1400,administration,0.057444524811822016
-40,Latium::ItPapRn,1400,governance,0.7781401098331967
-40,Latium::ItPapRn,1400,information,0.8433315581198325
-40,Latium::ItPapRn,1400,infrastructure,-0.02383880988553598
-40,Latium::ItPapRn,1400,monetary_system,0.08819395186984925
-40,Latium::ItPapRn,1400,scale,0.5395009801135005
-41,Latium::ItRav**,600,administration,0.15075476852363842
-41,Latium::ItRav**,600,governance,0.31755381373785185
-41,Latium::ItRav**,600,information,0.15930981475798645
-41,Latium::ItRav**,600,infrastructure,0.10476434700979441
-41,Latium::ItRav**,600,monetary_system,0.07919445395743689
-41,Latium::ItRav**,600,scale,0.6868322867361918
+39,Latium::ItPapM2,1700,monetary_system,0.23330591187549873
+39,Latium::ItPapM2,1700,scale,0.48634207805796464
+40,Latium::ItPapRn,1400,administration,0.05744452481182202
+40,Latium::ItPapRn,1400,governance,0.7781401098331957
+40,Latium::ItPapRn,1400,information,0.8433315581198331
+40,Latium::ItPapRn,1400,infrastructure,-0.023838809885536025
+40,Latium::ItPapRn,1400,monetary_system,0.08819395186984906
+40,Latium::ItPapRn,1400,scale,0.5395009801135009
+41,Latium::ItRav**,600,administration,0.1507547685236387
+41,Latium::ItRav**,600,governance,0.31755381373785196
+41,Latium::ItRav**,600,information,0.15930981475798695
+41,Latium::ItRav**,600,infrastructure,0.10476434700979448
+41,Latium::ItRav**,600,monetary_system,0.07919445395743684
+41,Latium::ItRav**,600,scale,0.6868322867361913
 42,Latium::ItRomER,-500,administration,-0.2850575623770091
-42,Latium::ItRomER,-500,governance,-0.34504725921302914
-42,Latium::ItRomER,-500,information,1.4102567300948519
-42,Latium::ItRomER,-500,infrastructure,-0.09384971220419155
-42,Latium::ItRomER,-500,monetary_system,0.003848073620591001
-42,Latium::ItRomER,-500,scale,0.6860571072825674
+42,Latium::ItRomER,-500,governance,-0.3450472592130284
+42,Latium::ItRomER,-500,information,1.4102567300948514
+42,Latium::ItRomER,-500,infrastructure,-0.0938497122041914
+42,Latium::ItRomER,-500,monetary_system,0.003848073620589344
+42,Latium::ItRomER,-500,scale,0.6860571072825653
 43,Latium::ItRomER,-400,administration,-0.2850575623770091
-43,Latium::ItRomER,-400,governance,-0.2893014089043109
-43,Latium::ItRomER,-400,information,1.4102567300948519
-43,Latium::ItRomER,-400,infrastructure,-0.09384971220419155
-43,Latium::ItRomER,-400,monetary_system,0.003848073620591001
-43,Latium::ItRomER,-400,scale,0.6741579182750443
-44,Latium::ItRomPr,0,administration,0.9178974750386947
-44,Latium::ItRomPr,0,governance,-0.025964467381377126
-44,Latium::ItRomPr,0,information,0.5451271626080008
-44,Latium::ItRomPr,0,infrastructure,0.6145007624135358
-44,Latium::ItRomPr,0,monetary_system,0.6124662445484446
-44,Latium::ItRomPr,0,scale,2.0195722733206027
-45,Latium::ItRomPr,100,administration,0.9178974750386947
-45,Latium::ItRomPr,100,governance,-0.025964467381377126
-45,Latium::ItRomPr,100,information,0.5451271626080008
-45,Latium::ItRomPr,100,infrastructure,0.6145007624135358
-45,Latium::ItRomPr,100,monetary_system,0.6124662445484446
-45,Latium::ItRomPr,100,scale,2.0619799450830447
-46,Latium::ItRomRg,-700,administration,-0.3660222617563887
-46,Latium::ItRomRg,-700,governance,-0.46768812989220787
-46,Latium::ItRomRg,-700,information,-0.34058810010161333
-46,Latium::ItRomRg,-700,infrastructure,-0.2107485004141134
-46,Latium::ItRomRg,-700,monetary_system,0.0010936919143888163
-46,Latium::ItRomRg,-700,scale,0.7956193821650763
-47,Latium::ItStPet,800,administration,0.17935735912861586
-47,Latium::ItStPet,800,governance,0.15593479613267242
-47,Latium::ItStPet,800,information,0.7777331046553259
-47,Latium::ItStPet,800,infrastructure,0.10325561162773668
-47,Latium::ItStPet,800,monetary_system,0.08819395186984925
+43,Latium::ItRomER,-400,governance,-0.2893014089043103
+43,Latium::ItRomER,-400,information,1.4102567300948514
+43,Latium::ItRomER,-400,infrastructure,-0.0938497122041914
+43,Latium::ItRomER,-400,monetary_system,0.003848073620589344
+43,Latium::ItRomER,-400,scale,0.6741579182750425
+44,Latium::ItRomPr,0,administration,0.917897475038691
+44,Latium::ItRomPr,0,governance,-0.025964467381376168
+44,Latium::ItRomPr,0,information,0.5451271626080016
+44,Latium::ItRomPr,0,infrastructure,0.6145007624135342
+44,Latium::ItRomPr,0,monetary_system,0.6124662445484454
+44,Latium::ItRomPr,0,scale,2.0195722733206023
+45,Latium::ItRomPr,100,administration,0.917897475038691
+45,Latium::ItRomPr,100,governance,-0.025964467381376168
+45,Latium::ItRomPr,100,information,0.5451271626080016
+45,Latium::ItRomPr,100,infrastructure,0.6145007624135342
+45,Latium::ItRomPr,100,monetary_system,0.6124662445484454
+45,Latium::ItRomPr,100,scale,2.0619799450830443
+46,Latium::ItRomRg,-700,administration,-0.36602226175638863
+46,Latium::ItRomRg,-700,governance,-0.46768812989220687
+46,Latium::ItRomRg,-700,information,-0.3405881001016132
+46,Latium::ItRomRg,-700,infrastructure,-0.21074850041411303
+46,Latium::ItRomRg,-700,monetary_system,0.001093691914392958
+46,Latium::ItRomRg,-700,scale,0.7956193821650737
+47,Latium::ItStPet,800,administration,0.1793573591286159
+47,Latium::ItStPet,800,governance,0.15593479613267222
+47,Latium::ItStPet,800,information,0.7777331046553264
+47,Latium::ItStPet,800,infrastructure,0.10325561162773687
+47,Latium::ItStPet,800,monetary_system,0.08819395186984906
 47,Latium::ItStPet,800,scale,0.5019202608658812
-48,Lowland Andes::EcJivaE,1600,administration,-0.7089080201298209
-48,Lowland Andes::EcJivaE,1600,governance,0.20748706724898555
-48,Lowland Andes::EcJivaE,1600,information,-1.4083551634448832
-48,Lowland Andes::EcJivaE,1600,infrastructure,-2.171576632397903
-48,Lowland Andes::EcJivaE,1600,monetary_system,-0.4841491763901113
-48,Lowland Andes::EcJivaE,1600,scale,-3.1672890967594958
-49,Middle Ganga::InGurjr,900,administration,-0.02383069806603985
-49,Middle Ganga::InGurjr,900,governance,-0.6114517574313062
-49,Middle Ganga::InGurjr,900,information,-0.2499759996219472
-49,Middle Ganga::InGurjr,900,infrastructure,0.22581094665839244
-49,Middle Ganga::InGurjr,900,monetary_system,0.08819395186984925
-49,Middle Ganga::InGurjr,900,scale,-1.1773485384736797
-50,Middle Yellow River Valley::CnEHan*,100,administration,0.5326014367093098
-50,Middle Yellow River Valley::CnEHan*,100,governance,-0.0950135128354277
-50,Middle Yellow River Valley::CnEHan*,100,information,0.4800110850729042
-50,Middle Yellow River Valley::CnEHan*,100,infrastructure,0.5633800762702054
-50,Middle Yellow River Valley::CnEHan*,100,monetary_system,0.6124662445484446
-50,Middle Yellow River Valley::CnEHan*,100,scale,1.633733432591838
-51,Middle Yellow River Valley::CnErlit,-1800,administration,-0.2776269811655497
-51,Middle Yellow River Valley::CnErlit,-1800,governance,-1.1618307218795545
-51,Middle Yellow River Valley::CnErlit,-1800,information,-0.1699687647037328
-51,Middle Yellow River Valley::CnErlit,-1800,infrastructure,-0.21149085857245165
-51,Middle Yellow River Valley::CnErlit,-1800,monetary_system,-0.1383181707336334
-51,Middle Yellow River Valley::CnErlit,-1800,scale,0.7837128220709539
-52,Middle Yellow River Valley::CnMing*,1400,administration,0.44698009485833395
-52,Middle Yellow River Valley::CnMing*,1400,governance,-0.055556915433112926
-52,Middle Yellow River Valley::CnMing*,1400,information,0.7079173564457412
-52,Middle Yellow River Valley::CnMing*,1400,infrastructure,0.3588973316968879
-52,Middle Yellow River Valley::CnMing*,1400,monetary_system,1.1607739550177238
-52,Middle Yellow River Valley::CnMing*,1400,scale,2.0373560659285856
-53,Middle Yellow River Valley::CnMing*,1500,administration,0.44698009485833395
-53,Middle Yellow River Valley::CnMing*,1500,governance,-0.055556915433112926
-53,Middle Yellow River Valley::CnMing*,1500,information,0.7079173564457412
-53,Middle Yellow River Valley::CnMing*,1500,infrastructure,0.3588973316968879
-53,Middle Yellow River Valley::CnMing*,1500,monetary_system,1.1607739550177238
+48,Lowland Andes::EcJivaE,1600,administration,-0.7089080201298179
+48,Lowland Andes::EcJivaE,1600,governance,0.2074870672489779
+48,Lowland Andes::EcJivaE,1600,information,-1.4083551634448854
+48,Lowland Andes::EcJivaE,1600,infrastructure,-2.1715766323978976
+48,Lowland Andes::EcJivaE,1600,monetary_system,-0.484149176390112
+48,Lowland Andes::EcJivaE,1600,scale,-3.1672890967594927
+49,Middle Ganga::InGurjr,900,administration,-0.023830698066039855
+49,Middle Ganga::InGurjr,900,governance,-0.6114517574313054
+49,Middle Ganga::InGurjr,900,information,-0.2499759996219474
+49,Middle Ganga::InGurjr,900,infrastructure,0.22581094665839288
+49,Middle Ganga::InGurjr,900,monetary_system,0.08819395186984906
+49,Middle Ganga::InGurjr,900,scale,-1.1773485384736815
+50,Middle Yellow River Valley::CnEHan*,100,administration,0.5326014367093077
+50,Middle Yellow River Valley::CnEHan*,100,governance,-0.09501351283542418
+50,Middle Yellow River Valley::CnEHan*,100,information,0.4800110850729049
+50,Middle Yellow River Valley::CnEHan*,100,infrastructure,0.563380076270204
+50,Middle Yellow River Valley::CnEHan*,100,monetary_system,0.6124662445484454
+50,Middle Yellow River Valley::CnEHan*,100,scale,1.6337334325918382
+51,Middle Yellow River Valley::CnErlit,-1800,administration,-0.2776269811655502
+51,Middle Yellow River Valley::CnErlit,-1800,governance,-1.1618307218795547
+51,Middle Yellow River Valley::CnErlit,-1800,information,-0.16996876470373332
+51,Middle Yellow River Valley::CnErlit,-1800,infrastructure,-0.2114908585724518
+51,Middle Yellow River Valley::CnErlit,-1800,monetary_system,-0.13831817073363334
+51,Middle Yellow River Valley::CnErlit,-1800,scale,0.7837128220709544
+52,Middle Yellow River Valley::CnMing*,1400,administration,0.4469800948583321
+52,Middle Yellow River Valley::CnMing*,1400,governance,-0.05555691543311088
+52,Middle Yellow River Valley::CnMing*,1400,information,0.7079173564457424
+52,Middle Yellow River Valley::CnMing*,1400,infrastructure,0.35889733169688703
+52,Middle Yellow River Valley::CnMing*,1400,monetary_system,1.1607739550177256
+52,Middle Yellow River Valley::CnMing*,1400,scale,2.037356065928586
+53,Middle Yellow River Valley::CnMing*,1500,administration,0.4469800948583321
+53,Middle Yellow River Valley::CnMing*,1500,governance,-0.05555691543311088
+53,Middle Yellow River Valley::CnMing*,1500,information,0.7079173564457424
+53,Middle Yellow River Valley::CnMing*,1500,infrastructure,0.35889733169688703
+53,Middle Yellow River Valley::CnMing*,1500,monetary_system,1.1607739550177256
 53,Middle Yellow River Valley::CnMing*,1500,scale,2.01026996877796
-54,Middle Yellow River Valley::CnNSong,1000,administration,0.8791270121586912
-54,Middle Yellow River Valley::CnNSong,1000,governance,0.9218187888590083
-54,Middle Yellow River Valley::CnNSong,1000,information,0.9534887415653205
+54,Middle Yellow River Valley::CnNSong,1000,administration,0.8791270121586913
+54,Middle Yellow River Valley::CnNSong,1000,governance,0.921818788859007
+54,Middle Yellow River Valley::CnNSong,1000,information,0.9534887415653202
 54,Middle Yellow River Valley::CnNSong,1000,infrastructure,0.4942856911842471
-54,Middle Yellow River Valley::CnNSong,1000,monetary_system,0.3204388305278238
-54,Middle Yellow River Valley::CnNSong,1000,scale,0.8259258909228985
-55,Middle Yellow River Valley::CnNWei*,400,administration,0.26063258200647993
-55,Middle Yellow River Valley::CnNWei*,400,governance,0.09578828247495588
-55,Middle Yellow River Valley::CnNWei*,400,information,0.7995992558101623
-55,Middle Yellow River Valley::CnNWei*,400,infrastructure,0.1658950050878497
-55,Middle Yellow River Valley::CnNWei*,400,monetary_system,0.05148423911826769
-55,Middle Yellow River Valley::CnNWei*,400,scale,-1.3336072607958958
-56,Middle Yellow River Valley::CnQingL,1800,administration,0.7889215307125853
-56,Middle Yellow River Valley::CnQingL,1800,governance,0.7988802869565473
-56,Middle Yellow River Valley::CnQingL,1800,information,1.0838592208230253
-56,Middle Yellow River Valley::CnQingL,1800,infrastructure,0.3756008005847491
-56,Middle Yellow River Valley::CnQingL,1800,monetary_system,0.16161337737301273
-56,Middle Yellow River Valley::CnQingL,1800,scale,1.0013150114691127
-57,Middle Yellow River Valley::CnTangL,800,administration,0.19457600293480395
-57,Middle Yellow River Valley::CnTangL,800,governance,0.9218187888590083
-57,Middle Yellow River Valley::CnTangL,800,information,0.8399781770932601
+54,Middle Yellow River Valley::CnNSong,1000,monetary_system,0.3204388305278246
+54,Middle Yellow River Valley::CnNSong,1000,scale,0.825925890922899
+55,Middle Yellow River Valley::CnNWei*,400,administration,0.26063258200648
+55,Middle Yellow River Valley::CnNWei*,400,governance,0.09578828247495574
+55,Middle Yellow River Valley::CnNWei*,400,information,0.7995992558101629
+55,Middle Yellow River Valley::CnNWei*,400,infrastructure,0.16589500508785002
+55,Middle Yellow River Valley::CnNWei*,400,monetary_system,0.05148423911826757
+55,Middle Yellow River Valley::CnNWei*,400,scale,-1.3336072607958986
+56,Middle Yellow River Valley::CnQingL,1800,administration,0.7889215307125854
+56,Middle Yellow River Valley::CnQingL,1800,governance,0.7988802869565462
+56,Middle Yellow River Valley::CnQingL,1800,information,1.083859220823026
+56,Middle Yellow River Valley::CnQingL,1800,infrastructure,0.3756008005847498
+56,Middle Yellow River Valley::CnQingL,1800,monetary_system,0.16161337737301237
+56,Middle Yellow River Valley::CnQingL,1800,scale,1.0013150114691145
+57,Middle Yellow River Valley::CnTangL,800,administration,0.19457600293480398
+57,Middle Yellow River Valley::CnTangL,800,governance,0.921818788859007
+57,Middle Yellow River Valley::CnTangL,800,information,0.8399781770932597
 57,Middle Yellow River Valley::CnTangL,800,infrastructure,0.4400652587632536
-57,Middle Yellow River Valley::CnTangL,800,monetary_system,0.17521729944061412
+57,Middle Yellow River Valley::CnTangL,800,monetary_system,0.17521729944061457
 57,Middle Yellow River Valley::CnTangL,800,scale,0.6301608098770384
-58,Middle Yellow River Valley::CnWHan*,-200,administration,0.5012489273602475
-58,Middle Yellow River Valley::CnWHan*,-200,governance,0.6380164810521073
-58,Middle Yellow River Valley::CnWHan*,-200,information,0.16422442042159438
-58,Middle Yellow River Valley::CnWHan*,-200,infrastructure,0.29369602826672164
-58,Middle Yellow River Valley::CnWHan*,-200,monetary_system,0.10819613724957973
-58,Middle Yellow River Valley::CnWHan*,-200,scale,0.5955948996880174
-59,Middle Yellow River Valley::CnWHan*,-100,administration,0.5012489273602475
-59,Middle Yellow River Valley::CnWHan*,-100,governance,0.6380164810521073
-59,Middle Yellow River Valley::CnWHan*,-100,information,0.16422442042159438
-59,Middle Yellow River Valley::CnWHan*,-100,infrastructure,0.29369602826672164
-59,Middle Yellow River Valley::CnWHan*,-100,monetary_system,0.10819613724957973
-59,Middle Yellow River Valley::CnWHan*,-100,scale,0.5955948996880174
-60,Middle Yellow River Valley::CnWZhou,-1000,administration,0.07928358483019146
-60,Middle Yellow River Valley::CnWZhou,-1000,governance,0.30717918939896716
-60,Middle Yellow River Valley::CnWZhou,-1000,information,0.4165339886319941
-60,Middle Yellow River Valley::CnWZhou,-1000,infrastructure,0.052846806333748664
-60,Middle Yellow River Valley::CnWZhou,-1000,monetary_system,0.0017822873409393603
-60,Middle Yellow River Valley::CnWZhou,-1000,scale,0.46317146471732
-61,Niger Inland Delta::MlMali*,1300,administration,-0.19659600233598837
-61,Niger Inland Delta::MlMali*,1300,governance,-0.08798074798153435
-61,Niger Inland Delta::MlMali*,1300,information,0.2043190160497111
+58,Middle Yellow River Valley::CnWHan*,-200,administration,0.5012489273602484
+58,Middle Yellow River Valley::CnWHan*,-200,governance,0.6380164810521075
+58,Middle Yellow River Valley::CnWHan*,-200,information,0.1642244204215949
+58,Middle Yellow River Valley::CnWHan*,-200,infrastructure,0.29369602826672186
+58,Middle Yellow River Valley::CnWHan*,-200,monetary_system,0.10819613724957967
+58,Middle Yellow River Valley::CnWHan*,-200,scale,0.5955948996880156
+59,Middle Yellow River Valley::CnWHan*,-100,administration,0.5012489273602484
+59,Middle Yellow River Valley::CnWHan*,-100,governance,0.6380164810521075
+59,Middle Yellow River Valley::CnWHan*,-100,information,0.1642244204215949
+59,Middle Yellow River Valley::CnWHan*,-100,infrastructure,0.29369602826672186
+59,Middle Yellow River Valley::CnWHan*,-100,monetary_system,0.10819613724957967
+59,Middle Yellow River Valley::CnWHan*,-100,scale,0.5955948996880156
+60,Middle Yellow River Valley::CnWZhou,-1000,administration,0.07928358483019143
+60,Middle Yellow River Valley::CnWZhou,-1000,governance,0.3071791893989665
+60,Middle Yellow River Valley::CnWZhou,-1000,information,0.4165339886319939
+60,Middle Yellow River Valley::CnWZhou,-1000,infrastructure,0.052846806333748574
+60,Middle Yellow River Valley::CnWZhou,-1000,monetary_system,0.0017822873409420524
+60,Middle Yellow River Valley::CnWZhou,-1000,scale,0.4631714647173203
+61,Niger Inland Delta::MlMali*,1300,administration,-0.19659600233598834
+61,Niger Inland Delta::MlMali*,1300,governance,-0.08798074798153424
+61,Niger Inland Delta::MlMali*,1300,information,0.20431901604971103
 61,Niger Inland Delta::MlMali*,1300,infrastructure,0.41940985593620733
-61,Niger Inland Delta::MlMali*,1300,monetary_system,0.1026065338970097
-61,Niger Inland Delta::MlMali*,1300,scale,0.9678113568447015
+61,Niger Inland Delta::MlMali*,1300,monetary_system,0.10260653389700997
+61,Niger Inland Delta::MlMali*,1300,scale,0.9678113568447029
 62,North Colombia::CoTairo,1100,administration,-0.8811470115598783
-62,North Colombia::CoTairo,1100,governance,-0.8534968525624809
-62,North Colombia::CoTairo,1100,information,-1.7934669186585788
+62,North Colombia::CoTairo,1100,governance,-0.8534968525624798
+62,North Colombia::CoTairo,1100,information,-1.793466918658578
 62,North Colombia::CoTairo,1100,infrastructure,0.45813873623691725
-62,North Colombia::CoTairo,1100,monetary_system,-0.11522576273380435
-62,North Colombia::CoTairo,1100,scale,0.49948220491424655
-63,North Colombia::CoTairo,1400,administration,-0.7344575095833308
-63,North Colombia::CoTairo,1400,governance,-0.6451931506356927
-63,North Colombia::CoTairo,1400,information,-1.7934669186585788
+62,North Colombia::CoTairo,1100,monetary_system,-0.11522576273380464
+62,North Colombia::CoTairo,1100,scale,0.4994822049142473
+63,North Colombia::CoTairo,1400,administration,-0.7344575095833309
+63,North Colombia::CoTairo,1400,governance,-0.6451931506356918
+63,North Colombia::CoTairo,1400,information,-1.793466918658578
 63,North Colombia::CoTairo,1400,infrastructure,0.45813873623691725
-63,North Colombia::CoTairo,1400,monetary_system,-0.11522576273380435
-63,North Colombia::CoTairo,1400,scale,0.19294158040057266
-64,Orkhon Valley::MnMongL,1400,administration,-0.2776269811655497
-64,Orkhon Valley::MnMongL,1400,governance,-0.6089538978850015
-64,Orkhon Valley::MnMongL,1400,information,-0.04710362311353918
-64,Orkhon Valley::MnMongL,1400,infrastructure,-0.021737735223103776
-64,Orkhon Valley::MnMongL,1400,monetary_system,-0.022311437565062445
-64,Orkhon Valley::MnMongL,1400,scale,-3.6371530319090795
-65,Orkhon Valley::MnMongL,1500,administration,-0.2776269811655497
-65,Orkhon Valley::MnMongL,1500,governance,-0.6089538978850015
-65,Orkhon Valley::MnMongL,1500,information,-0.04710362311353918
-65,Orkhon Valley::MnMongL,1500,infrastructure,-0.021737735223103776
-65,Orkhon Valley::MnMongL,1500,monetary_system,-0.022311437565062445
-65,Orkhon Valley::MnMongL,1500,scale,-3.6371530319090795
-66,Orkhon Valley::MnXngnE,-1400,administration,-0.5502335491495797
-66,Orkhon Valley::MnXngnE,-1400,governance,-2.047765873581667
-66,Orkhon Valley::MnXngnE,-1400,information,-0.36163838558443545
-66,Orkhon Valley::MnXngnE,-1400,infrastructure,-0.8891805848201226
-66,Orkhon Valley::MnXngnE,-1400,monetary_system,-0.21807279978702568
-66,Orkhon Valley::MnXngnE,-1400,scale,-1.7434433363846327
-67,Orkhon Valley::MnXngnE,-500,administration,-0.5502335491495797
-67,Orkhon Valley::MnXngnE,-500,governance,-2.047765873581667
-67,Orkhon Valley::MnXngnE,-500,information,-0.36163838558443545
-67,Orkhon Valley::MnXngnE,-500,infrastructure,-0.8891805848201226
-67,Orkhon Valley::MnXngnE,-500,monetary_system,-0.21807279978702568
-67,Orkhon Valley::MnXngnE,-500,scale,-1.7434433363846327
-68,Paris Basin::FrCaptE,1000,administration,-0.14769950167714097
-68,Paris Basin::FrCaptE,1000,governance,-0.6269665767170982
-68,Paris Basin::FrCaptE,1000,information,-0.40863803209942423
+63,North Colombia::CoTairo,1400,monetary_system,-0.11522576273380464
+63,North Colombia::CoTairo,1400,scale,0.19294158040057208
+64,Orkhon Valley::MnMongL,1400,administration,-0.2776269811655502
+64,Orkhon Valley::MnMongL,1400,governance,-0.6089538978850018
+64,Orkhon Valley::MnMongL,1400,information,-0.047103623113539335
+64,Orkhon Valley::MnMongL,1400,infrastructure,-0.02173773522310379
+64,Orkhon Valley::MnMongL,1400,monetary_system,-0.022311437565062438
+64,Orkhon Valley::MnMongL,1400,scale,-3.6371530319090777
+65,Orkhon Valley::MnMongL,1500,administration,-0.2776269811655502
+65,Orkhon Valley::MnMongL,1500,governance,-0.6089538978850018
+65,Orkhon Valley::MnMongL,1500,information,-0.047103623113539335
+65,Orkhon Valley::MnMongL,1500,infrastructure,-0.02173773522310379
+65,Orkhon Valley::MnMongL,1500,monetary_system,-0.022311437565062438
+65,Orkhon Valley::MnMongL,1500,scale,-3.6371530319090777
+66,Orkhon Valley::MnXngnE,-1400,administration,-0.5502335491495807
+66,Orkhon Valley::MnXngnE,-1400,governance,-2.047765873581668
+66,Orkhon Valley::MnXngnE,-1400,information,-0.36163838558443656
+66,Orkhon Valley::MnXngnE,-1400,infrastructure,-0.8891805848201232
+66,Orkhon Valley::MnXngnE,-1400,monetary_system,-0.21807279978702557
+66,Orkhon Valley::MnXngnE,-1400,scale,-1.743443336384631
+67,Orkhon Valley::MnXngnE,-500,administration,-0.5502335491495807
+67,Orkhon Valley::MnXngnE,-500,governance,-2.047765873581668
+67,Orkhon Valley::MnXngnE,-500,information,-0.36163838558443656
+67,Orkhon Valley::MnXngnE,-500,infrastructure,-0.8891805848201232
+67,Orkhon Valley::MnXngnE,-500,monetary_system,-0.21807279978702557
+67,Orkhon Valley::MnXngnE,-500,scale,-1.743443336384631
+68,Paris Basin::FrCaptE,1000,administration,-0.14769950167714094
+68,Paris Basin::FrCaptE,1000,governance,-0.6269665767170974
+68,Paris Basin::FrCaptE,1000,information,-0.40863803209942406
 68,Paris Basin::FrCaptE,1000,infrastructure,0.2412570065529436
-68,Paris Basin::FrCaptE,1000,monetary_system,0.1026065338970097
-68,Paris Basin::FrCaptE,1000,scale,0.5999292708980154
-69,Paris Basin::FrCaptL,1200,administration,0.13871974768968603
-69,Paris Basin::FrCaptL,1200,governance,0.7366597555864957
-69,Paris Basin::FrCaptL,1200,information,0.18734702347476564
-69,Paris Basin::FrCaptL,1200,infrastructure,0.3756008005847491
-69,Paris Basin::FrCaptL,1200,monetary_system,0.08819395186984925
-69,Paris Basin::FrCaptL,1200,scale,0.766280516129719
-70,Paris Basin::FrHallB,-900,administration,-0.5502335491495797
-70,Paris Basin::FrHallB,-900,governance,-2.215627270746278
-70,Paris Basin::FrHallB,-900,information,-0.4156990478841207
-70,Paris Basin::FrHallB,-900,infrastructure,0.3306609224256852
-70,Paris Basin::FrHallB,-900,monetary_system,-0.21082237896398986
-70,Paris Basin::FrHallB,-900,scale,-0.7909040946622933
-71,Paris Basin::FrTeneB,-300,administration,-0.3660222617563887
-71,Paris Basin::FrTeneB,-300,governance,-0.32646530911012345
-71,Paris Basin::FrTeneB,-300,information,-2.8485550190316915
-71,Paris Basin::FrTeneB,-300,infrastructure,0.016172676699263863
-71,Paris Basin::FrTeneB,-300,monetary_system,0.003848073620591001
-71,Paris Basin::FrTeneB,-300,scale,1.1530584449722592
-72,Sogdiana::AfKushn,100,administration,0.018873385603463348
-72,Sogdiana::AfKushn,100,governance,-0.07382385867492552
-72,Sogdiana::AfKushn,100,information,0.2195467749325198
-72,Sogdiana::AfKushn,100,infrastructure,0.026612871765249818
-72,Sogdiana::AfKushn,100,monetary_system,0.6124662445484446
-72,Sogdiana::AfKushn,100,scale,-0.7969610674493525
-73,Sogdiana::UzJanid,1600,administration,0.2757374111563866
-73,Sogdiana::UzJanid,1600,governance,-0.056026636830759785
-73,Sogdiana::UzJanid,1600,information,0.056756581094779095
-73,Sogdiana::UzJanid,1600,infrastructure,0.21831544480273404
-73,Sogdiana::UzJanid,1600,monetary_system,0.6124662445484446
-73,Sogdiana::UzJanid,1600,scale,-1.2934451186416003
-74,Southern Mesopotamia::IqAbbs1,800,administration,0.30652995022879875
-74,Southern Mesopotamia::IqAbbs1,800,governance,-0.14024999671108665
-74,Southern Mesopotamia::IqAbbs1,800,information,0.22319968838488718
-74,Southern Mesopotamia::IqAbbs1,800,infrastructure,0.3080712648840956
-74,Southern Mesopotamia::IqAbbs1,800,monetary_system,0.07919445395743689
-74,Southern Mesopotamia::IqAbbs1,800,scale,0.44811331264521204
-75,Southern Mesopotamia::IqAkkad,-2300,administration,0.047886500958256514
-75,Southern Mesopotamia::IqAkkad,-2300,governance,0.09097106867375072
-75,Southern Mesopotamia::IqAkkad,-2300,information,0.7037654997267833
+68,Paris Basin::FrCaptE,1000,monetary_system,0.10260653389700997
+68,Paris Basin::FrCaptE,1000,scale,0.5999292708980157
+69,Paris Basin::FrCaptL,1200,administration,0.13871974768968606
+69,Paris Basin::FrCaptL,1200,governance,0.7366597555864947
+69,Paris Basin::FrCaptL,1200,information,0.18734702347476578
+69,Paris Basin::FrCaptL,1200,infrastructure,0.3756008005847498
+69,Paris Basin::FrCaptL,1200,monetary_system,0.08819395186984906
+69,Paris Basin::FrCaptL,1200,scale,0.7662805161297204
+70,Paris Basin::FrHallB,-900,administration,-0.5502335491495807
+70,Paris Basin::FrHallB,-900,governance,-2.2156272707462783
+70,Paris Basin::FrHallB,-900,information,-0.41569904788412204
+70,Paris Basin::FrHallB,-900,infrastructure,0.3306609224256854
+70,Paris Basin::FrHallB,-900,monetary_system,-0.21082237896398975
+70,Paris Basin::FrHallB,-900,scale,-0.7909040946622927
+71,Paris Basin::FrTeneB,-300,administration,-0.36602226175638863
+71,Paris Basin::FrTeneB,-300,governance,-0.3264653091101228
+71,Paris Basin::FrTeneB,-300,information,-2.8485550190316906
+71,Paris Basin::FrTeneB,-300,infrastructure,0.016172676699263835
+71,Paris Basin::FrTeneB,-300,monetary_system,0.003848073620589344
+71,Paris Basin::FrTeneB,-300,scale,1.1530584449722583
+72,Sogdiana::AfKushn,100,administration,0.018873385603463293
+72,Sogdiana::AfKushn,100,governance,-0.07382385867492279
+72,Sogdiana::AfKushn,100,information,0.21954677493252017
+72,Sogdiana::AfKushn,100,infrastructure,0.026612871765249756
+72,Sogdiana::AfKushn,100,monetary_system,0.6124662445484454
+72,Sogdiana::AfKushn,100,scale,-0.7969610674493559
+73,Sogdiana::UzJanid,1600,administration,0.2757374111563855
+73,Sogdiana::UzJanid,1600,governance,-0.05602663683075772
+73,Sogdiana::UzJanid,1600,information,0.056756581094779185
+73,Sogdiana::UzJanid,1600,infrastructure,0.21831544480273352
+73,Sogdiana::UzJanid,1600,monetary_system,0.6124662445484454
+73,Sogdiana::UzJanid,1600,scale,-1.2934451186416005
+74,Southern Mesopotamia::IqAbbs1,800,administration,0.30652995022879925
+74,Southern Mesopotamia::IqAbbs1,800,governance,-0.1402499967110867
+74,Southern Mesopotamia::IqAbbs1,800,information,0.2231996883848879
+74,Southern Mesopotamia::IqAbbs1,800,infrastructure,0.3080712648840958
+74,Southern Mesopotamia::IqAbbs1,800,monetary_system,0.07919445395743684
+74,Southern Mesopotamia::IqAbbs1,800,scale,0.4481133126452106
+75,Southern Mesopotamia::IqAkkad,-2300,administration,0.047886500958256535
+75,Southern Mesopotamia::IqAkkad,-2300,governance,0.0909710686737506
+75,Southern Mesopotamia::IqAkkad,-2300,information,0.7037654997267829
 75,Southern Mesopotamia::IqAkkad,-2300,infrastructure,0.4400652587632536
-75,Southern Mesopotamia::IqAkkad,-2300,monetary_system,-0.11522576273380435
-75,Southern Mesopotamia::IqAkkad,-2300,scale,-1.1849286297942359
-76,Southern Mesopotamia::IrPart2,100,administration,0.17935735912861586
-76,Southern Mesopotamia::IrPart2,100,governance,0.12367229838523816
-76,Southern Mesopotamia::IrPart2,100,information,0.6246700465714761
-76,Southern Mesopotamia::IrPart2,100,infrastructure,0.25077592231278567
-76,Southern Mesopotamia::IrPart2,100,monetary_system,0.08819395186984925
-76,Southern Mesopotamia::IrPart2,100,scale,0.5788232739338255
-77,Susiana::IrAchae,-500,administration,0.4638206392011357
-77,Susiana::IrAchae,-500,governance,0.9648017039433543
-77,Susiana::IrAchae,-500,information,0.9307961627391755
-77,Susiana::IrAchae,-500,infrastructure,0.3347490222411977
-77,Susiana::IrAchae,-500,monetary_system,0.08819395186984925
-77,Susiana::IrAchae,-500,scale,0.8177079122602574
-78,Susiana::IrMElm2,-1400,administration,-0.0829080040341009
-78,Susiana::IrMElm2,-1400,governance,0.05050159097596916
-78,Susiana::IrMElm2,-1400,information,-0.03235980612271597
-78,Susiana::IrMElm2,-1400,infrastructure,0.19512297717615099
-78,Susiana::IrMElm2,-1400,monetary_system,-0.21807279978702568
-78,Susiana::IrMElm2,-1400,scale,-3.6371530319090795
-79,Susiana::IrPart1,-100,administration,0.19011606930541067
-79,Susiana::IrPart1,-100,governance,-0.017561673490143166
-79,Susiana::IrPart1,-100,information,0.3660579493864856
-79,Susiana::IrPart1,-100,infrastructure,0.38445767476855447
-79,Susiana::IrPart1,-100,monetary_system,0.6124662445484446
+75,Southern Mesopotamia::IqAkkad,-2300,monetary_system,-0.11522576273380464
+75,Southern Mesopotamia::IqAkkad,-2300,scale,-1.1849286297942343
+76,Southern Mesopotamia::IrPart2,100,administration,0.1793573591286159
+76,Southern Mesopotamia::IrPart2,100,governance,0.123672298385238
+76,Southern Mesopotamia::IrPart2,100,information,0.6246700465714765
+76,Southern Mesopotamia::IrPart2,100,infrastructure,0.2507759223127861
+76,Southern Mesopotamia::IrPart2,100,monetary_system,0.08819395186984906
+76,Southern Mesopotamia::IrPart2,100,scale,0.5788232739338257
+77,Susiana::IrAchae,-500,administration,0.46382063920113575
+77,Susiana::IrAchae,-500,governance,0.964801703943353
+77,Susiana::IrAchae,-500,information,0.9307961627391762
+77,Susiana::IrAchae,-500,infrastructure,0.33474902224119835
+77,Susiana::IrAchae,-500,monetary_system,0.08819395186984906
+77,Susiana::IrAchae,-500,scale,0.8177079122602587
+78,Susiana::IrMElm2,-1400,administration,-0.08290800403410108
+78,Susiana::IrMElm2,-1400,governance,0.05050159097596918
+78,Susiana::IrMElm2,-1400,information,-0.03235980612271607
+78,Susiana::IrMElm2,-1400,infrastructure,0.19512297717615115
+78,Susiana::IrMElm2,-1400,monetary_system,-0.21807279978702557
+78,Susiana::IrMElm2,-1400,scale,-3.6371530319090777
+79,Susiana::IrPart1,-100,administration,0.19011606930540992
+79,Susiana::IrPart1,-100,governance,-0.017561673490142517
+79,Susiana::IrPart1,-100,information,0.36605794938648617
+79,Susiana::IrPart1,-100,infrastructure,0.3844576747685535
+79,Susiana::IrPart1,-100,monetary_system,0.6124662445484454
 79,Susiana::IrPart1,-100,scale,1.075588368552327
-80,Susiana::IrQajar,1800,administration,-0.1231281636182548
-80,Susiana::IrQajar,1800,governance,0.11095379631228108
-80,Susiana::IrQajar,1800,information,1.0316956857280513
-80,Susiana::IrQajar,1800,infrastructure,0.167453461441515
-80,Susiana::IrQajar,1800,monetary_system,0.003848073620591001
-80,Susiana::IrQajar,1800,scale,-0.4670196875114838
-81,Susiana::IrSasn1,300,administration,0.48795500688789883
-81,Susiana::IrSasn1,300,governance,-0.22858574678211635
-81,Susiana::IrSasn1,300,information,-0.317829580521774
+80,Susiana::IrQajar,1800,administration,-0.12312816361825478
+80,Susiana::IrQajar,1800,governance,0.11095379631228085
+80,Susiana::IrQajar,1800,information,1.0316956857280508
+80,Susiana::IrQajar,1800,infrastructure,0.1674534614415147
+80,Susiana::IrQajar,1800,monetary_system,0.003848073620589344
+80,Susiana::IrQajar,1800,scale,-0.4670196875114826
+81,Susiana::IrSasn1,300,administration,0.48795500688789895
+81,Susiana::IrSasn1,300,governance,-0.22858574678211604
+81,Susiana::IrSasn1,300,information,-0.3178295805217739
 81,Susiana::IrSasn1,300,infrastructure,0.46898282272111597
-81,Susiana::IrSasn1,300,monetary_system,0.17521729944061412
-81,Susiana::IrSasn1,300,scale,0.6636548037333899
-82,Susiana::IrSasn2,500,administration,0.462305131933959
-82,Susiana::IrSasn2,500,governance,-0.48360285454779156
-82,Susiana::IrSasn2,500,information,0.11016375812190889
-82,Susiana::IrSasn2,500,infrastructure,0.31371867926949343
-82,Susiana::IrSasn2,500,monetary_system,0.07919445395743689
-82,Susiana::IrSasn2,500,scale,0.45615345772243066
-83,Susiana::IrSeleu,-300,administration,0.1602482842095687
-83,Susiana::IrSeleu,-300,governance,0.2186052272417828
-83,Susiana::IrSeleu,-300,information,0.037972944265187325
-83,Susiana::IrSeleu,-300,infrastructure,0.16470290171892887
-83,Susiana::IrSeleu,-300,monetary_system,0.003848073620591001
-83,Susiana::IrSeleu,-300,scale,0.4607821736678536
-84,Upper Egypt::EgDyn2*,-2900,administration,-0.18638114382176585
-84,Upper Egypt::EgDyn2*,-2900,governance,-0.922554414281567
-84,Upper Egypt::EgDyn2*,-2900,information,0.05615011654575236
-84,Upper Egypt::EgDyn2*,-2900,infrastructure,-0.03291698285076961
-84,Upper Egypt::EgDyn2*,-2900,monetary_system,-0.08067072678742636
-84,Upper Egypt::EgDyn2*,-2900,scale,0.6780821692501368
-85,Upper Egypt::EgDyn2*,-2800,administration,-0.18638114382176585
-85,Upper Egypt::EgDyn2*,-2800,governance,-0.922554414281567
-85,Upper Egypt::EgDyn2*,-2800,information,0.05615011654575236
-85,Upper Egypt::EgDyn2*,-2800,infrastructure,-0.03291698285076961
-85,Upper Egypt::EgDyn2*,-2800,monetary_system,-0.08067072678742636
-85,Upper Egypt::EgDyn2*,-2800,scale,0.6780821692501368
-86,Upper Egypt::EgMidKg,-2000,administration,0.13871974768968603
-86,Upper Egypt::EgMidKg,-2000,governance,0.07297408763926999
-86,Upper Egypt::EgMidKg,-2000,information,0.6465361977263125
-86,Upper Egypt::EgMidKg,-2000,infrastructure,-0.011356322058338468
-86,Upper Egypt::EgMidKg,-2000,monetary_system,-0.08067072678742636
-86,Upper Egypt::EgMidKg,-2000,scale,0.6781794981451448
-87,Upper Egypt::EgMidKg,-1900,administration,0.13871974768968603
-87,Upper Egypt::EgMidKg,-1900,governance,0.07297408763926999
-87,Upper Egypt::EgMidKg,-1900,information,0.6465361977263125
-87,Upper Egypt::EgMidKg,-1900,infrastructure,-0.011356322058338468
-87,Upper Egypt::EgMidKg,-1900,monetary_system,-0.08067072678742636
-87,Upper Egypt::EgMidKg,-1900,scale,0.6781794981451448
-88,Upper Egypt::EgNKRam,-1200,administration,0.3012701934454098
-88,Upper Egypt::EgNKRam,-1200,governance,0.27830184116044276
-88,Upper Egypt::EgNKRam,-1200,information,0.865197709274669
-88,Upper Egypt::EgNKRam,-1200,infrastructure,0.22581094665839244
-88,Upper Egypt::EgNKRam,-1200,monetary_system,-0.05864489913647737
+81,Susiana::IrSasn1,300,monetary_system,0.17521729944061457
+81,Susiana::IrSasn1,300,scale,0.6636548037333904
+82,Susiana::IrSasn2,500,administration,0.46230513193395983
+82,Susiana::IrSasn2,500,governance,-0.4836028545477917
+82,Susiana::IrSasn2,500,information,0.11016375812190923
+82,Susiana::IrSasn2,500,infrastructure,0.31371867926949365
+82,Susiana::IrSasn2,500,monetary_system,0.07919445395743684
+82,Susiana::IrSasn2,500,scale,0.45615345772242966
+83,Susiana::IrSeleu,-300,administration,0.16024828420956866
+83,Susiana::IrSeleu,-300,governance,0.21860522724178236
+83,Susiana::IrSeleu,-300,information,0.03797294426518731
+83,Susiana::IrSeleu,-300,infrastructure,0.1647029017189286
+83,Susiana::IrSeleu,-300,monetary_system,0.003848073620589344
+83,Susiana::IrSeleu,-300,scale,0.46078217366785457
+84,Upper Egypt::EgDyn2*,-2900,administration,-0.18638114382176588
+84,Upper Egypt::EgDyn2*,-2900,governance,-0.9225544142815658
+84,Upper Egypt::EgDyn2*,-2900,information,0.0561501165457524
+84,Upper Egypt::EgDyn2*,-2900,infrastructure,-0.03291698285076967
+84,Upper Egypt::EgDyn2*,-2900,monetary_system,-0.08067072678742618
+84,Upper Egypt::EgDyn2*,-2900,scale,0.6780821692501379
+85,Upper Egypt::EgDyn2*,-2800,administration,-0.18638114382176588
+85,Upper Egypt::EgDyn2*,-2800,governance,-0.9225544142815658
+85,Upper Egypt::EgDyn2*,-2800,information,0.0561501165457524
+85,Upper Egypt::EgDyn2*,-2800,infrastructure,-0.03291698285076967
+85,Upper Egypt::EgDyn2*,-2800,monetary_system,-0.08067072678742618
+85,Upper Egypt::EgDyn2*,-2800,scale,0.6780821692501379
+86,Upper Egypt::EgMidKg,-2000,administration,0.13871974768968606
+86,Upper Egypt::EgMidKg,-2000,governance,0.0729740876392699
+86,Upper Egypt::EgMidKg,-2000,information,0.646536197726313
+86,Upper Egypt::EgMidKg,-2000,infrastructure,-0.011356322058338489
+86,Upper Egypt::EgMidKg,-2000,monetary_system,-0.08067072678742618
+86,Upper Egypt::EgMidKg,-2000,scale,0.6781794981451459
+87,Upper Egypt::EgMidKg,-1900,administration,0.13871974768968606
+87,Upper Egypt::EgMidKg,-1900,governance,0.0729740876392699
+87,Upper Egypt::EgMidKg,-1900,information,0.646536197726313
+87,Upper Egypt::EgMidKg,-1900,infrastructure,-0.011356322058338489
+87,Upper Egypt::EgMidKg,-1900,monetary_system,-0.08067072678742618
+87,Upper Egypt::EgMidKg,-1900,scale,0.6781794981451459
+88,Upper Egypt::EgNKRam,-1200,administration,0.30127019344540984
+88,Upper Egypt::EgNKRam,-1200,governance,0.2783018411604424
+88,Upper Egypt::EgNKRam,-1200,information,0.8651977092746695
+88,Upper Egypt::EgNKRam,-1200,infrastructure,0.22581094665839288
+88,Upper Egypt::EgNKRam,-1200,monetary_system,-0.05864489913647723
 88,Upper Egypt::EgNKRam,-1200,scale,0.5325483319672197
-89,Upper Egypt::EgNKThu,-1500,administration,0.26758615480250814
-89,Upper Egypt::EgNKThu,-1500,governance,0.4281897345963436
-89,Upper Egypt::EgNKThu,-1500,information,0.1691390260852017
-89,Upper Egypt::EgNKThu,-1500,infrastructure,-0.008183940698150345
-89,Upper Egypt::EgNKThu,-1500,monetary_system,-0.0875652249723835
-89,Upper Egypt::EgNKThu,-1500,scale,0.6623131309630106
-90,Upper Egypt::EgNKThu,-1400,administration,0.26758615480250814
-90,Upper Egypt::EgNKThu,-1400,governance,0.4281897345963436
-90,Upper Egypt::EgNKThu,-1400,information,0.1691390260852017
-90,Upper Egypt::EgNKThu,-1400,infrastructure,-0.008183940698150345
-90,Upper Egypt::EgNKThu,-1400,monetary_system,-0.0875652249723835
-90,Upper Egypt::EgNKThu,-1400,scale,0.6623131309630106
-91,Upper Egypt::EgNaqa1,-3800,administration,-0.9789400128775757
-91,Upper Egypt::EgNaqa1,-3800,governance,-1.165952405452662
-91,Upper Egypt::EgNaqa1,-3800,information,-1.521041563925629
+89,Upper Egypt::EgNKThu,-1500,administration,0.26758615480250864
+89,Upper Egypt::EgNKThu,-1500,governance,0.42818973459634374
+89,Upper Egypt::EgNKThu,-1500,information,0.16913902608520223
+89,Upper Egypt::EgNKThu,-1500,infrastructure,-0.008183940698150352
+89,Upper Egypt::EgNKThu,-1500,monetary_system,-0.08756522497238348
+89,Upper Egypt::EgNKThu,-1500,scale,0.6623131309630098
+90,Upper Egypt::EgNKThu,-1400,administration,0.26758615480250864
+90,Upper Egypt::EgNKThu,-1400,governance,0.42818973459634374
+90,Upper Egypt::EgNKThu,-1400,information,0.16913902608520223
+90,Upper Egypt::EgNKThu,-1400,infrastructure,-0.008183940698150352
+90,Upper Egypt::EgNKThu,-1400,monetary_system,-0.08756522497238348
+90,Upper Egypt::EgNKThu,-1400,scale,0.6623131309630098
+91,Upper Egypt::EgNaqa1,-3800,administration,-0.9789400128775758
+91,Upper Egypt::EgNaqa1,-3800,governance,-1.1659524054526604
+91,Upper Egypt::EgNaqa1,-3800,information,-1.5210415639256283
 91,Upper Egypt::EgNaqa1,-3800,infrastructure,-0.9663798973691835
-91,Upper Egypt::EgNaqa1,-3800,monetary_system,-0.11522576273380435
-91,Upper Egypt::EgNaqa1,-3800,scale,-0.27535962427592814
-92,Upper Egypt::EgNaqa1,-3700,administration,-0.9789400128775757
-92,Upper Egypt::EgNaqa1,-3700,governance,-1.165952405452662
-92,Upper Egypt::EgNaqa1,-3700,information,-1.521041563925629
+91,Upper Egypt::EgNaqa1,-3800,monetary_system,-0.11522576273380464
+91,Upper Egypt::EgNaqa1,-3800,scale,-0.2753596242759236
+92,Upper Egypt::EgNaqa1,-3700,administration,-0.9789400128775758
+92,Upper Egypt::EgNaqa1,-3700,governance,-1.1659524054526604
+92,Upper Egypt::EgNaqa1,-3700,information,-1.5210415639256283
 92,Upper Egypt::EgNaqa1,-3700,infrastructure,-0.9663798973691835
-92,Upper Egypt::EgNaqa1,-3700,monetary_system,-0.11522576273380435
-92,Upper Egypt::EgNaqa1,-3700,scale,-0.6877557156563237
-93,Upper Egypt::EgNaqa2,-3500,administration,-0.6089163598945224
-93,Upper Egypt::EgNaqa2,-3500,governance,-0.60147817063313
-93,Upper Egypt::EgNaqa2,-3500,information,-2.5646342357565897
-93,Upper Egypt::EgNaqa2,-3500,infrastructure,-0.36340456501765805
-93,Upper Egypt::EgNaqa2,-3500,monetary_system,0.0024708827674899086
-93,Upper Egypt::EgNaqa2,-3500,scale,0.8246846238748264
-94,Upper Egypt::EgPtol2,-200,administration,0.40314238234770244
-94,Upper Egypt::EgPtol2,-200,governance,0.2681570941828646
-94,Upper Egypt::EgPtol2,-200,information,1.9307781660992096
-94,Upper Egypt::EgPtol2,-200,infrastructure,0.11244226698978774
-94,Upper Egypt::EgPtol2,-200,monetary_system,0.003848073620591001
-94,Upper Egypt::EgPtol2,-200,scale,0.4127405710407765
-95,Upper Egypt::EgThebL,-1000,administration,0.10449472745443703
-95,Upper Egypt::EgThebL,-1000,governance,-0.04052583070842181
-95,Upper Egypt::EgThebL,-1000,information,0.4311740269215822
-95,Upper Egypt::EgThebL,-1000,infrastructure,-0.25455090202306146
-95,Upper Egypt::EgThebL,-1000,monetary_system,-0.6486414895308948
-95,Upper Egypt::EgThebL,-1000,scale,-0.8062604803459473
-96,Upper Egypt::TnFatim,1000,administration,0.462305131933959
-96,Upper Egypt::TnFatim,1000,governance,1.309462069710551
-96,Upper Egypt::TnFatim,1000,information,0.22319968838488718
-96,Upper Egypt::TnFatim,1000,infrastructure,0.251597121030124
-96,Upper Egypt::TnFatim,1000,monetary_system,0.07919445395743689
-96,Upper Egypt::TnFatim,1000,scale,0.6522403884688412
+92,Upper Egypt::EgNaqa1,-3700,monetary_system,-0.11522576273380464
+92,Upper Egypt::EgNaqa1,-3700,scale,-0.6877557156563208
+93,Upper Egypt::EgNaqa2,-3500,administration,-0.6089163598945223
+93,Upper Egypt::EgNaqa2,-3500,governance,-0.6014781706331288
+93,Upper Egypt::EgNaqa2,-3500,information,-2.5646342357565888
+93,Upper Egypt::EgNaqa2,-3500,infrastructure,-0.36340456501765744
+93,Upper Egypt::EgNaqa2,-3500,monetary_system,0.002470882767491151
+93,Upper Egypt::EgNaqa2,-3500,scale,0.8246846238748232
+94,Upper Egypt::EgPtol2,-200,administration,0.4031423823477024
+94,Upper Egypt::EgPtol2,-200,governance,0.26815709418286404
+94,Upper Egypt::EgPtol2,-200,information,1.930778166099209
+94,Upper Egypt::EgPtol2,-200,infrastructure,0.11244226698978756
+94,Upper Egypt::EgPtol2,-200,monetary_system,0.003848073620589344
+94,Upper Egypt::EgPtol2,-200,scale,0.412740571040776
+95,Upper Egypt::EgThebL,-1000,administration,0.10449472745443661
+95,Upper Egypt::EgThebL,-1000,governance,-0.040525830708420314
+95,Upper Egypt::EgThebL,-1000,information,0.4311740269215829
+95,Upper Egypt::EgThebL,-1000,infrastructure,-0.2545509020230608
+95,Upper Egypt::EgThebL,-1000,monetary_system,-0.6486414895308957
+95,Upper Egypt::EgThebL,-1000,scale,-0.8062604803459505
+96,Upper Egypt::TnFatim,1000,administration,0.46230513193395983
+96,Upper Egypt::TnFatim,1000,governance,1.3094620697105515
+96,Upper Egypt::TnFatim,1000,information,0.2231996883848879
+96,Upper Egypt::TnFatim,1000,infrastructure,0.25159712103012416
+96,Upper Egypt::TnFatim,1000,monetary_system,0.07919445395743684
+96,Upper Egypt::TnFatim,1000,scale,0.6522403884688399
 97,Valley of Oaxaca::MxAlb1E,-500,administration,-0.7506045838084329
-97,Valley of Oaxaca::MxAlb1E,-500,governance,-0.7352682113740523
-97,Valley of Oaxaca::MxAlb1E,-500,information,-2.659274496848288
-97,Valley of Oaxaca::MxAlb1E,-500,infrastructure,-0.5764479180761677
-97,Valley of Oaxaca::MxAlb1E,-500,monetary_system,0.00040509648783826867
-97,Valley of Oaxaca::MxAlb1E,-500,scale,0.9358562969336157
+97,Valley of Oaxaca::MxAlb1E,-500,governance,-0.7352682113740507
+97,Valley of Oaxaca::MxAlb1E,-500,information,-2.6592744968482873
+97,Valley of Oaxaca::MxAlb1E,-500,infrastructure,-0.5764479180761667
+97,Valley of Oaxaca::MxAlb1E,-500,monetary_system,0.0004050964878438597
+97,Valley of Oaxaca::MxAlb1E,-500,scale,0.9358562969336129

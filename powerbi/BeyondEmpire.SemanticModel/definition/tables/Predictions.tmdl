@@ -1,155 +1,186 @@
 table Predictions
+	lineageTag: 38cfac3a-7f17-409a-9cda-fbd0c5b3506f
 
 	measure 'Selected score' = SELECTEDVALUE(Predictions[model_score])
 		formatString: 0.000
+		lineageTag: a8194c7d-3d9e-4ff0-b2bd-4d5bb90e2c76
 
 	column nga
 		dataType: string
+		lineageTag: 23781b1f-9eaf-4948-8294-78ae80c43412
 		summarizeBy: none
 		sourceColumn: nga
 
 	column PolID
 		dataType: string
+		lineageTag: 2fd140c9-f0b4-45c8-9742-06ebcfa7bcc2
 		summarizeBy: none
 		sourceColumn: PolID
 
 	column polity
 		dataType: string
+		lineageTag: 770ef1a3-91c7-4396-908a-a6810e250faa
 		summarizeBy: none
 		sourceColumn: polity
 
 	column group_id
 		dataType: string
+		lineageTag: 303f3d16-163a-4a6c-8f10-4f1038e2e5e0
 		summarizeBy: none
 		sourceColumn: group_id
 
 	column time_t
 		dataType: int64
+		lineageTag: 0ae142ee-7432-4080-9290-3b78a1d93238
 		summarizeBy: none
 		sourceColumn: time_t
 
 	column next_time
 		dataType: int64
+		lineageTag: 97583a1d-2d21-46a6-8b28-0c4f216d97df
 		summarizeBy: none
 		sourceColumn: next_time
 
 	column Terr
 		dataType: double
+		lineageTag: 2d03f3f0-4f5e-4b3d-923a-5c2d348268e9
 		summarizeBy: none
 		sourceColumn: Terr
 
 	column next_Terr
 		dataType: double
+		lineageTag: 836a3ab2-34ea-4659-90eb-64c67bb6a9ee
 		summarizeBy: none
 		sourceColumn: next_Terr
 
 	column contraction
 		dataType: int64
+		lineageTag: ac9ce1a9-d219-48c7-9328-9b030da54230
 		summarizeBy: none
 		sourceColumn: contraction
 
 	column outcome
 		dataType: string
+		lineageTag: 463b082d-3f12-4d40-a62a-e8bc32b16250
 		summarizeBy: none
 		sourceColumn: outcome
 
 	column Pop
 		dataType: double
+		lineageTag: 3df0d3c8-d3ba-4425-8312-defe6b67819a
 		summarizeBy: none
 		sourceColumn: Pop
 
 	column Cap
 		dataType: double
+		lineageTag: 0be64aed-e719-4471-ba5b-e2bb86e4ee5a
 		summarizeBy: none
 		sourceColumn: Cap
 
 	column Hier
 		dataType: double
+		lineageTag: 8d985208-5218-4adb-83d5-dcf2e3f213bb
 		summarizeBy: none
 		sourceColumn: Hier
 
 	column Gov
 		dataType: double
+		lineageTag: bf76dc60-0eb3-4efb-86b5-3c6ced34977d
 		summarizeBy: none
 		sourceColumn: Gov
 
 	column Infra
 		dataType: double
+		lineageTag: 1b4f8768-5c0f-491e-94e3-b02122603661
 		summarizeBy: none
 		sourceColumn: Infra
 
 	column Info
 		dataType: double
+		lineageTag: 1d149d4f-5c5d-46a5-a767-88817863b2cf
 		summarizeBy: none
 		sourceColumn: Info
 
 	column Money
 		dataType: double
+		lineageTag: 3095ded3-38b9-4610-bb28-917f4514cd1f
 		summarizeBy: none
 		sourceColumn: Money
 
 	column Pop_delta
 		dataType: double
+		lineageTag: 089bbaa8-b116-41a8-8868-2a45d3630f33
 		summarizeBy: none
 		sourceColumn: Pop_delta
 
 	column Cap_delta
 		dataType: double
+		lineageTag: acd84046-3108-48aa-b62b-76a4da814bc7
 		summarizeBy: none
 		sourceColumn: Cap_delta
 
 	column Hier_delta
 		dataType: double
+		lineageTag: 3988d515-9036-4d5e-8627-dfd8043a6d86
 		summarizeBy: none
 		sourceColumn: Hier_delta
 
 	column Gov_delta
 		dataType: double
+		lineageTag: 38e43d64-9abc-46f4-9af7-f847d0ac7998
 		summarizeBy: none
 		sourceColumn: Gov_delta
 
 	column Infra_delta
 		dataType: double
+		lineageTag: 46903cc0-d0a3-46cd-949b-f08189420034
 		summarizeBy: none
 		sourceColumn: Infra_delta
 
 	column Info_delta
 		dataType: double
+		lineageTag: 3c794a78-3f16-4451-9ec8-ff5c2ca11e07
 		summarizeBy: none
 		sourceColumn: Info_delta
 
 	column Money_delta
 		dataType: double
+		lineageTag: fb3d62eb-4b05-42dd-8f85-fc1a8aef253c
 		summarizeBy: none
 		sourceColumn: Money_delta
 
 	column model_score
 		dataType: double
+		lineageTag: 5c8f76b9-5649-4e35-8ddd-a4cee2d15917
 		summarizeBy: none
 		sourceColumn: model_score
 
 	column y
 		dataType: int64
+		lineageTag: eef06947-62ed-4d47-b76b-dac95b91e9e4
 		summarizeBy: none
 		sourceColumn: y
 
 	column fp_flag
 		dataType: int64
+		lineageTag: 3d66b607-b541-4b1c-93b0-a723d654affc
 		summarizeBy: none
 		sourceColumn: fp_flag
 
 	column observation_id
 		dataType: string
+		lineageTag: 69758703-786f-489a-a197-a0e8d1c1152e
 		summarizeBy: none
 		sourceColumn: observation_id
 
 	partition Predictions = m
 		mode: import
 		source =
-			let
-			    Source = Csv.Document(File.Contents(DataRoot & "\predictions.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
-			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-			    Typed = Table.TransformColumnTypes(Headers, {{"nga", type text}, {"PolID", type text}, {"polity", type text}, {"group_id", type text}, {"time_t", Int64.Type}, {"next_time", Int64.Type}, {"Terr", type number}, {"next_Terr", type number}, {"contraction", Int64.Type}, {"outcome", type text}, {"Pop", type number}, {"Cap", type number}, {"Hier", type number}, {"Gov", type number}, {"Infra", type number}, {"Info", type number}, {"Money", type number}, {"Pop_delta", type number}, {"Cap_delta", type number}, {"Hier_delta", type number}, {"Gov_delta", type number}, {"Infra_delta", type number}, {"Info_delta", type number}, {"Money_delta", type number}, {"model_score", type number}, {"y", Int64.Type}, {"fp_flag", Int64.Type}}),
-			    Keyed = Table.AddColumn(Typed, "observation_id", each [polity] & "|" & Text.From([time_t]), type text)
-			in
-			    Keyed
+				let
+				    Source = Csv.Document(File.Contents(DataRoot & "\predictions.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"nga", type text}, {"PolID", type text}, {"polity", type text}, {"group_id", type text}, {"time_t", Int64.Type}, {"next_time", Int64.Type}, {"Terr", type number}, {"next_Terr", type number}, {"contraction", Int64.Type}, {"outcome", type text}, {"Pop", type number}, {"Cap", type number}, {"Hier", type number}, {"Gov", type number}, {"Infra", type number}, {"Info", type number}, {"Money", type number}, {"Pop_delta", type number}, {"Cap_delta", type number}, {"Hier_delta", type number}, {"Gov_delta", type number}, {"Infra_delta", type number}, {"Info_delta", type number}, {"Money_delta", type number}, {"model_score", type number}, {"y", Int64.Type}, {"fp_flag", Int64.Type}}),
+				    Keyed = Table.AddColumn(Typed, "observation_id", each [polity] & "|" & Text.From([time_t]), type text)
+				in
+				    Keyed
+

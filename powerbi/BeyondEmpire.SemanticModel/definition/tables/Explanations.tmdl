@@ -1,70 +1,84 @@
 table Explanations
+	lineageTag: 6e8f2cf8-b91c-4ed3-b882-8b715394770a
 
 	measure 'SHAP contribution' = SUM(Explanations[shap_value])
 		formatString: 0.000
+		lineageTag: d97c3f6a-7736-4462-aa24-1e2c47e4b08e
 
 	column row
 		dataType: int64
+		lineageTag: 656f0d12-9169-49f4-b4a9-bd628ba83528
 		summarizeBy: none
 		sourceColumn: row
 
 	column polity
 		dataType: string
+		lineageTag: 0617f80b-697f-400a-a869-e37a0c16880e
 		summarizeBy: none
 		sourceColumn: polity
 
 	column time_t
 		dataType: int64
+		lineageTag: a7c2173e-b191-4e5f-a278-3e4d81dd5a49
 		summarizeBy: none
 		sourceColumn: time_t
 
 	column feature
 		dataType: string
+		lineageTag: 7b936c75-73e1-4084-85e6-761f5e49b343
 		summarizeBy: none
 		sourceColumn: feature
 
 	column value
 		dataType: double
+		lineageTag: 5d4f5fc8-4efa-4fd8-9abc-1e9d055bc0df
 		summarizeBy: none
 		sourceColumn: value
 
 	column shap_value
 		dataType: double
+		lineageTag: 24c45384-6620-4736-8427-d8eb31d0705f
 		summarizeBy: none
 		sourceColumn: shap_value
 
 	column base_value
 		dataType: double
+		lineageTag: 5306d91b-f18e-46c3-b832-9fa2f9c505b7
 		summarizeBy: none
 		sourceColumn: base_value
 
 	column fold
 		dataType: int64
+		lineageTag: a303835a-99fc-4c17-85ea-48fd30bc7bc2
 		summarizeBy: none
 		sourceColumn: fold
 
 	column units
 		dataType: string
+		lineageTag: 9e52f636-e2e8-433c-8396-573e7b79e99c
 		summarizeBy: none
 		sourceColumn: units
 
 	column model
 		dataType: string
+		lineageTag: 0ad2d5b3-ec3d-4f2f-91e8-4b963647663a
 		summarizeBy: none
 		sourceColumn: model
 
 	column observation_id
 		dataType: string
+		lineageTag: 192a9fb2-92af-4385-bf6d-20bfeebbb044
 		summarizeBy: none
 		sourceColumn: observation_id
 
 	partition Explanations = m
 		mode: import
 		source =
-			let
-			    Source = Csv.Document(File.Contents(DataRoot & "\shap_long.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
-			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-			    Typed = Table.TransformColumnTypes(Headers, {{"row", Int64.Type}, {"polity", type text}, {"time_t", Int64.Type}, {"feature", type text}, {"value", type number}, {"shap_value", type number}, {"base_value", type number}, {"fold", Int64.Type}, {"units", type text}, {"model", type text}}),
-			    Keyed = Table.AddColumn(Typed, "observation_id", each [polity] & "|" & Text.From([time_t]), type text)
-			in
-			    Keyed
+				let
+				    Source = Csv.Document(File.Contents(DataRoot & "\shap_long.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"row", Int64.Type}, {"polity", type text}, {"time_t", Int64.Type}, {"feature", type text}, {"value", type number}, {"shap_value", type number}, {"base_value", type number}, {"fold", Int64.Type}, {"units", type text}, {"model", type text}}),
+				    Keyed = Table.AddColumn(Typed, "observation_id", each [polity] & "|" & Text.From([time_t]), type text)
+				in
+				    Keyed
+
