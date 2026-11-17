@@ -6,3 +6,4 @@ paper/*.aux
 paper/*.log
 paper/*.pdf
 paper/*.out
+paper/IEEEtran.cls
