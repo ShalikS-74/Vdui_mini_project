@@ -80,7 +80,7 @@
                     "Entity": "Predictions"
                   }
                 },
-                "Property": "time_t"
+                "Property": "polity"
               }
             },
             "direction": "Ascending"
