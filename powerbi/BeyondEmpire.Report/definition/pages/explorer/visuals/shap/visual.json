@@ -2,15 +2,16 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "shap",
   "position": {
-    "x": 20.58325935107791,
-    "y": 301.88780381580932,
+    "x": 20,
+    "y": 230,
     "z": 0,
-    "height": 498.11487629608541,
-    "width": 789.02494179131986,
-    "tabOrder": 0
+    "width": 780,
+    "height": 530,
+    "tabOrder": 4
   },
   "visual": {
     "visualType": "barChart",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Category": {
@@ -26,8 +27,7 @@
                   "Property": "feature"
                 }
               },
-              "queryRef": "Explanations.feature",
-              "active": true
+              "queryRef": "Explanations.feature"
             }
           ]
         },
@@ -49,38 +49,27 @@
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   },
-  "filterConfig": {
-    "filters": [
+  "visualContainerObjects": {
+    "title": [
       {
-        "name": "cdd208e2279b350b8487",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Explanations"
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
               }
-            },
-            "Property": "feature"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "632b1773a248bd0a896a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Explanations"
+            }
+          },
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'Why the held-out model gave this score (SHAP, log-odds)'"
               }
-            },
-            "Property": "SHAP contribution"
+            }
           }
-        },
-        "type": "Advanced"
+        }
       }
     ]
   }

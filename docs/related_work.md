@@ -1,16 +1,16 @@
 # Related-work check and contribution boundary
 
-2 November2026. Targeted literature/source search, not a systematic review.
+2 November 2026. Targeted literature/source search, not a systematic review.
 A missing search hit is not proof of novelty. No publication venue is selected.
 
 |Prior source|What it already addresses|What this project may contribute, if validated|
 |---|---|---|
-|Cliopatria data paper, Scientific Data2025|Global political geometry; interval records; Seshat linkage; source-area comparison; explicit border/time/composite limitations|An auditable benchmark using those data, not discovery of the linkage or historical-area analysis|
-|Scheffer et al., PNAS2023, vulnerability of aging states|State termination/longevity, hazard models, MOROS and Seshat cohorts, periodization and sample sensitivity|A different50-year continuing-ID area-change endpoint; must not be called a replication of termination prediction|
-|Bennett, PLOS ONE2022, retrodicting rise/spread/fall|Spatial-temporal agent-based models of state expansion, conquest and collapse1500BCE-1500CE; several historical benchmarks|A transparent supervised area-change eligibility benchmark, not the first quantitative model of rise/fall|
-|Scale and information-processing thresholds, Nature Communications2020|Seshat complexity/scale trajectories, thresholds and historical instability|Measurement-support audit rather than a new claim that institutions/complexity explain historical dynamics|
+|Cliopatria data paper, Scientific Data 2025|Global political geometry; interval records; Seshat linkage; source-area comparison; explicit border/time/composite limitations|An auditable benchmark using those data, not discovery of the linkage or historical-area analysis|
+|Scheffer et al., PNAS 2023, vulnerability of aging states|State termination/longevity, hazard models, MOROS and Seshat cohorts, periodization and sample sensitivity|A different 50-year continuing-ID area-change endpoint; must not be called a replication of termination prediction|
+|Bennett, PLOS ONE 2022, retrodicting rise/spread/fall|Spatial-temporal agent-based models of state expansion, conquest and collapse 1500BCE-1500CE; several historical benchmarks|A transparent supervised area-change eligibility benchmark, not the first quantitative model of rise/fall|
+|Scale and information-processing thresholds, Nature Communications 2020|Seshat complexity/scale trajectories, thresholds and historical instability|Measurement-support audit rather than a new claim that institutions/complexity explain historical dynamics|
 |Wand, Seshat longevity-selection study|Survivorship selection favouring long-lived states; Bayesian correction of longevity analysis|Make continuing-ID/geometry/temporal-feature exclusions visible; selection is already a recognized problem|
-|Polaris2025 release report|Curated successor release to Equinox, SQL/community/GIS infrastructure|Reproducible use of a newer workbook, not a novel dataset source or institutional coding framework|
+|Polaris 2025 release report|Curated successor release to Equinox, SQL/community/GIS infrastructure|Reproducible use of a newer workbook, not a novel dataset source or institutional coding framework|
 |PsychohistoryML public repository|Self-reported exploratory Seshat ML and CrisisDB analyses, temporal generalization and duration-proxy limitations|Potentially clearer endpoint/temporal/lineage audits. Its reported scores are unaudited repository claims, not peer-reviewed benchmark targets|
 
 ## Recommendation

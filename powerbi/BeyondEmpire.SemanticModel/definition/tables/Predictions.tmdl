@@ -3,6 +3,10 @@ table Predictions
 
 	measure 'Selected score' = SELECTEDVALUE(Predictions[model_score])
 		formatString: 0.000
+
+	measure 'Mean model score' = AVERAGE(Predictions[model_score])
+		formatString: 0.000
+		lineageTag: 6442d883-603c-49b3-9a72-1f91213e50fb
 		lineageTag: a8194c7d-3d9e-4ff0-b2bd-4d5bb90e2c76
 
 	column nga

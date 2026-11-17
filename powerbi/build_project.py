@@ -22,20 +22,28 @@ for page,title in [('explorer','Historical explorer'),('audit','False-positive a
     write(f'BeyondEmpire.Report/definition/pages/{page}/page.json',{'$schema':schema('page','1.4.0'),'name':page,'displayName':title,'displayOption':'FitToPage','width':1280,'height':800})
 def field(table,col,measure=False):return {('Measure' if measure else 'Column'):{'Expression':{'SourceRef':{'Entity':table}},'Property':col}}
 def projection(table,col,measure=False):return {'field':field(table,col,measure),'queryRef':f'{table}.{col}'}
-def visual(page,name,kind,x,y,w,h,roles=None,text=None):
+def visual(page,name,kind,x,y,w,h,roles=None,text=None,title=None,tab=0):
     v={'visualType':kind,'drillFilterOtherVisuals':True}
     if roles:v['query']={'queryState':{role:{'projections':cols} for role,cols in roles.items()}}
     if text:v['objects']={'general':[{'properties':{'paragraphs':[{'textRuns':[{'value':text,'textStyle':{'fontSize':'15pt','fontFamily':'Segoe UI'}}]}]}}]}
-    write(f'BeyondEmpire.Report/definition/pages/{page}/visuals/{name}/visual.json',{'$schema':schema('visualContainer','2.0.0'),'name':name,'position':{'x':x,'y':y,'z':0,'width':w,'height':h,'tabOrder':0},'visual':v})
-caption='Beyond the Empire | Uncalibrated historical model scores. 98 rows, 6 contractions. Explanations are not causes. No modern transfer claims.'
+    container={}
+    if title:container['title']=[{'properties':{'show':{'expr':{'Literal':{'Value':'true'}}},'text':{'expr':{'Literal':{'Value':repr(title)}}}}}]
+    out={'$schema':schema('visualContainer','2.14.0'),'name':name,'position':{'x':x,'y':y,'z':0,'width':w,'height':h,'tabOrder':tab},'visual':v}
+    if container:out['visualContainerObjects']=container
+    write(f'BeyondEmpire.Report/definition/pages/{page}/visuals/{name}/visual.json',out)
+caption=('Beyond the Empire | Uncalibrated historical model scores from held-out rows (98 rows, 6 contractions). '
+ 'A polity is a historical political unit. A score ranks rows; it is not a probability. '
+ 'Explanations describe the model, not causes of history. No modern-country or transfer claims. '
+ 'Select exactly one polity and one year for a single score; the score card stays blank on multi-row selections by design.')
 for p in ['explorer','audit']:visual(p,'caption','textbox',20,10,1240,90,text=caption)
-visual('explorer','polity','slicer',20,110,400,100,{'Values':[projection('Predictions','polity')]})
-visual('explorer','year','slicer',440,110,300,100,{'Values':[projection('Predictions','time_t')]})
-visual('explorer','score','card',760,110,490,100,{'Values':[projection('Predictions','Selected score',True)]})
-visual('explorer','shap','barChart',20,230,780,530,{'Category':[projection('Explanations','feature')],'Y':[projection('Explanations','SHAP contribution',True)]})
-visual('explorer','observed','tableEx',820,230,430,530,{'Values':[projection('Predictions',x) for x in ['polity','time_t','outcome','model_score']]})
+visual('explorer','polity','slicer',20,110,400,100,{'Values':[projection('Predictions','polity')]},title='Polity',tab=1)
+visual('explorer','year','slicer',440,110,300,100,{'Values':[projection('Predictions','time_t')]},title='Observed year',tab=2)
+visual('explorer','score','card',760,110,490,100,{'Values':[projection('Predictions','Selected score',True)]},title='Out-of-fold contraction score (uncalibrated)',tab=3)
+visual('explorer','shap','barChart',20,230,780,530,{'Category':[projection('Explanations','feature')],'Y':[projection('Explanations','SHAP contribution',True)]},title='Why the held-out model gave this score (SHAP, log-odds)',tab=4)
+visual('explorer','observed','tableEx',820,230,430,530,{'Values':[projection('Predictions',x) for x in ['polity','time_t','outcome','model_score']]},title='Held-out observations (filtered by slicers)',tab=5)
 visual('audit','reviewnote','textbox',20,110,1240,70,text='Fixed OOF score >= 0.70; no observed contraction. All historical verdicts pending sourced manual review. Non-contraction is not proof of genuine survival.')
-visual('audit','cases','tableEx',20,200,1240,550,{'Values':[projection('Cases',x) for x in ['polity','century','oof_p_decline','true_label','type','note']]})
+visual('audit','cases','tableEx',20,200,1240,280,{'Values':[projection('Cases',x) for x in ['polity','century','oof_p_decline','true_label','type','note']]},title='Flagged confident false positives - all pending historical review',tab=1)
+visual('audit','scatter','scatterChart',20,490,1240,260,{'Details':[projection('Predictions','observation_id')],'X':[projection('Predictions','time_t')],'Y':[projection('Predictions','Mean model score',True)]},title='Score by observed year, all held-out rows - points at or above 0.70 without a decline outcome form the audit queue',tab=2)
 model=OUT/'BeyondEmpire.SemanticModel/definition';model.mkdir(parents=True,exist_ok=True)
 (model/'database.tmdl').write_text('database\n\tcompatibilityLevel: 1601\n')
 (model/'model.tmdl').write_text('model Model\n\tculture: en-US\n\tdefaultPowerBIDataSourceVersion: powerBI_V3\n\tsourceQueryCulture: en-US\n\nref table Predictions\nref table Explanations\nref table Cases\n\nref expression DataRoot\n')
@@ -45,7 +53,7 @@ for table,file in [('Predictions','predictions.csv'),('Explanations','shap_long.
     df=pd.read_csv(ROOT/'dashboard'/file)
     year='century' if table=='Cases' else 'time_t'
     measures=''
-    if table=='Predictions':measures="\tmeasure 'Selected score' = SELECTEDVALUE(Predictions[model_score])\n\t\tformatString: 0.000\n\n"
+    if table=='Predictions':measures="\tmeasure 'Selected score' = SELECTEDVALUE(Predictions[model_score])\n\t\tformatString: 0.000\n\n\tmeasure 'Mean model score' = AVERAGE(Predictions[model_score])\n\t\tformatString: 0.000\n\n"
     if table=='Explanations':measures="\tmeasure 'SHAP contribution' = SUM(Explanations[shap_value])\n\t\tformatString: 0.000\n\n"
     text=f'table {table}\n\n'+measures
     for col in list(df)+['observation_id']:

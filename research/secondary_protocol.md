@@ -1,23 +1,23 @@
 # Secondary exploratory protocol: polity-lifetime display scenario
 
-2November2026, fixed before fitting governance-scenario models. This is exploratory,
+2 November 2026, fixed before fitting governance-scenario models. This is exploratory,
 written after inspecting strict coverage, area-only performance and source-display
 semantics. It is not preregistration or confirmatory evaluation. No parameter search.
 
 Question: under a retrospective polity-lifetime assignment for single undated
-source records, do the20preselected governance/scale features add discrimination
+source records, do the 20 preselected governance/scale features add discrimination
 over the frozen area-history baseline? This is not evidence those inputs were
 known or valid at the forecast origin. Keep the strict primary dataset unchanged.
 
 - Use only `feature_support_audit.py` scenario values and marked provenance.
-- Preserve all756rows, class thresholds, source hashes and split membership from
+- Preserve all 756 rows, class thresholds, source hashes and split membership from
   the primary area-history study. No class/period/region selection after results.
-- Models: identical balanced logistic(C1) and shallow forest(150trees,depth3,
-  leaf4) with the same fold-local median imputation/missing indicators/scaling.
+- Models: identical balanced logistic (C=1) and shallow forest (150 trees, depth 3,
+  min_samples_leaf 4) with the same fold-local median imputation/missing indicators/scaling.
 - Compare governance-only and area-plus-governance to existing area-only and
   majority predictions, paired on the same rows and splits. No new tuning.
-- Report macro-F1/AP fold summaries and pooled seed0 OOF differences. Fixed
- 1000group-bootstrap replicates with seed20261102, intervals explicitly conditional
+- Report macro-F1/AP fold summaries and pooled seed 0 OOF differences. Fixed
+ 1000 group-bootstrap replicates with seed 20261102, intervals explicitly conditional
  exploratory and not corrected for multiple comparisons. Report all four models.
 - Time-plus-group holdout remains inspected exploratory evidence. Do not call it
   untouched, independent or proof of governance causality. Failure to improve is

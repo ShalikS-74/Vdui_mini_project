@@ -79,11 +79,11 @@ Canonical branch exports use `data/table.csv`; the older tracked parquet is a
 legacy snapshot until `python src/pipeline.py` regenerates it. Rebuild or run the
 offline restore before using parquet directly. The dashboard uses flat CSVs.
 
-## Expanded exploratory50-year study
+## Expanded exploratory 50-year study
 
 `research/README.md` gives pinned-source reproduction commands, `research/protocol.md`
 records choices fixed before fitting the expanded models, and
-`docs/research_findings.md` reports the results and open gates. The756candidate
+`docs/research_findings.md` reports the results and open gates. The 756 candidate
 observations make the area-change target feasible, but strict governance coverage
 is sparse and the time-plus-group forest does not materially beat majority.
 This is a separate experiment, not a replacement of the old dashboard and not a

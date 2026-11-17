@@ -5,12 +5,13 @@
     "x": 440,
     "y": 110,
     "z": 0,
-    "height": 71.666666666666671,
     "width": 300,
-    "tabOrder": 0
+    "height": 100,
+    "tabOrder": 2
   },
   "visual": {
     "visualType": "slicer",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
@@ -26,37 +27,32 @@
                   "Property": "time_t"
                 }
               },
-              "queryRef": "Predictions.time_t",
-              "active": true
+              "queryRef": "Predictions.time_t"
             }
           ]
         }
       }
-    },
-    "objects": {
-      "general": [
-        {
-          "properties": {}
-        }
-      ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   },
-  "filterConfig": {
-    "filters": [
+  "visualContainerObjects": {
+    "title": [
       {
-        "name": "8711e9604274bceb2d80",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Predictions"
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
               }
-            },
-            "Property": "time_t"
+            }
+          },
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'Observed year'"
+              }
+            }
           }
-        },
-        "type": "Advanced"
+        }
       }
     ]
   }

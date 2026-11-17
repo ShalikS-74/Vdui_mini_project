@@ -8,7 +8,6 @@ import urllib.request
 import warnings
 import numpy as np
 import pandas as pd
-import shap
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.dummy import DummyClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -138,6 +137,7 @@ def run_evaluation(table, target='binary', horizon=100):
             # Fold-specific SHAP for the exact logistic model that generated
             # the displayed OOF score. Binary SHAP is additive in log-odds.
             if target == 'binary' and kind == 'logistic' and protocol == 'grouped' and seed == 0:
+                import shap  # lazy: only needed for OOF explanation export
                 train_z = model[:-1].transform(table.iloc[train][CANDIDATES])
                 test_z = model[:-1].transform(table.iloc[test][CANDIDATES])
                 names = model.named_steps['imp'].get_feature_names_out(model.named_steps['filter'].columns_)

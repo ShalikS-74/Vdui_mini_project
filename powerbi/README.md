@@ -13,8 +13,10 @@ The TMDL semantic model and rendering have not been executed in Power BI Desktop
 4. Confirm observation_id uniqueness in Predictions and one-to-many relationships
    to Explanations and Cases. All use polity|year, derived in Power Query.
 5. Inspect both pages: polity/year slicers, selected-score card, SHAP bars,
-   observation table and false-positive review table. Select exactly one polity
-   and year for a single score; a multi-row selection intentionally returns blank.
+   observation table, false-positive review table and the score-by-year scatter
+   (points at or above 0.70 without a decline outcome are the audit queue).
+   Select exactly one polity and year for a single score; a multi-row selection
+   intentionally returns blank.
 6. Check that selection filters the exact OOF SHAP row; log-odds explanations must
    reconstruct that score. Check pending historical-review status and captions.
 7. Inspect pixels at 100% and fit-to-page, fix any Desktop issues, then save as
@@ -22,7 +24,10 @@ The TMDL semantic model and rendering have not been executed in Power BI Desktop
 
 Regenerate project source with `python powerbi/build_project.py` after export
 schema changes. Existing Desktop visual edits would be overwritten; preserve a
-copy before regenerating. Sources consulted for format and schema conventions:
+copy before regenerating. The generator also does not emit Desktop-added
+metadata (lineageTags, model annotations, newer schema versions), so a blind
+regenerate-plus-commit would drop them; restore or re-apply them as done in the
+committed files. Sources consulted for format and schema conventions:
 https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview
 https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report
 https://github.com/ruiromano/pbip-demo/

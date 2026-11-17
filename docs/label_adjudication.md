@@ -1,12 +1,12 @@
 # Label adjudication and sensitivity audit
 
-2 November2026. These are automated source/consistency checks. They are not
+2 November 2026. These are automated source/consistency checks. They are not
 independent expert review and do not settle what a historical collapse means.
 No models were refitted or selected during this audit.
 
 ## Defensible outcome and termination policy
 
-Keep the primary label named **continuing-ID mapped area change over50years**.
+Keep the primary label named **continuing-ID mapped area change over 50 years**.
 A registry end date is not evidence of collapse. A name change, dynasty change,
 conquest, incorporation, fragmentation and substantial institutional transformation
 can have different meanings. The PNAS survival study explicitly distinguishes
@@ -29,28 +29,28 @@ Therefore:
   decides eligibility before model outcomes are examined.
 - When crisis dates span the forecast boundary, use interval-censored event time
   in a suitable survival design, or exclude ambiguous windows under a fixed rule.
-  Do not pick a convenient midpoint to produce a crisp50-year positive label.
+  Do not pick a convenient midpoint to produce a crisp 50-year positive label.
 - A negative crisis label requires evidence that the relevant outcome was observed
   absent in the observation window. No crisis record means unlabelled, not absent.
 
-The terminal-window audit finds592registry-grid windows whose future endpoint
-exceeds their polity's registered end. Of these,267have a unique current geometry.
+The terminal-window audit finds 592 registry-grid windows whose future endpoint
+exceeds their polity's registered end. Of these, 267 have a unique current geometry.
 They are outside the current continuing-ID study. These counts describe windows,
-not592distinct terminations or267collapse events. The current primary constructor
+not 592 distinct terminations or 267 collapse events. The current primary constructor
 never generated them as candidates; the audit now makes that selection visible.
 
 ## CrisisDB cross-check
 
-The Polaris workbook's CrisisDB-consequences sheet has166records, including six
-with direct Collapse=P, oneIP, oneIA, oneSUand157A. These are selected crisis
-annotations, not a complete observed cohort of all polity-years. There are95
+The Polaris workbook's CrisisDB-consequences sheet has 166 records, including six
+with direct Collapse=P, one IP, one IA, one SU and 157 A. These are selected crisis
+annotations, not a complete observed cohort of all polity-years. There are 95
 candidate panel/source-crisis window overlaps when either linked ID is considered,
 but **zero overlaps with the six direct-P collapse records**.
 
 Cahokia, Tiwanaku and Wari lack direct geometry matches in this source. Early
 Valois France has several simultaneously mapped entities/composites rather than
-one unambiguous area. The Inca panel has a1450-1500growth window but not the later
-source-coded1528-1570crisis window under the continuing-ID policy. Thus the panel
+one unambiguous area. The Inca panel has a 1450-1500 growth window but not the later
+source-coded 1528-1570 crisis window under the continuing-ID policy. Thus the panel
 cannot validate collapse sensitivity using these records. It is not evidence of
 no collapse. `direct_collapse_coverage.csv` preserves the exact source rows and
 eligibility checks for review. The two Wari annotations are separate source rows,
@@ -65,10 +65,10 @@ active POLITY record. A future reviewed composite policy must distinguish the
 political unit of interest and test duplicates/topological union, rather than
 choosing whichever area yields a desired outcome.
 
-Explicit Components/MemberOf links generate1210distinct registry edge/basis
-records in the audit;18cross the original registry-level groups. Those18link
+Explicit Components/MemberOf links generate 1210 distinct registry edge/basis
+records in the audit; 18 cross the original registry-level groups. Those 18 link
 Bohemia/Moravia to Holy Roman Empire periods. Transitive strengthening across all
-registry IDs leaves **113eligible-panel groups unchanged**. This checks paths
+registry IDs leaves **113 eligible-panel groups unchanged**. This checks paths
 through ineligible IDs as well. It does not establish that all related histories
 are separated: shared sources, regions, common shocks and incomplete links remain.
 
@@ -76,7 +76,7 @@ are separated: shared sources, regions, common shocks and incomplete links remai
 
 The data paper says historical boundary uncertainty is unquantified. The following
 are hypothetical stress tests, **not error estimates or confidence intervals**.
-With independent endpoint area errors bounded by±epsilon, the ratio range is
+With independent endpoint area errors bounded by ±epsilon, the ratio range is
 r*(1-epsilon)/(1+epsilon) through r*(1+epsilon)/(1-epsilon). A label is invariant
 only if its full range stays in the same operational class.
 
@@ -91,16 +91,16 @@ correlation itself is unknown. Actual border errors need not be multiplicative.
 A lack of invariance is possible threshold sensitivity, not a probability of a
 wrong label. No perturbation level is selected as the correct historical error.
 
-We also shift **both** current/future lookups by the same±1,±10or±25years while
+We also shift **both** current/future lookups by the same ±1, ±10 or ±25 years while
 respecting registry bounds. Labels must agree at negative, zero and positive
 shifts; unavailable/ambiguous shifted endpoints count as noninvariant. For declines,
-41/59are invariant at±1year,20/59at±10years and3/59at±25years. This combines timing
-sensitivity and eligibility change; it is not a pure error rate. The50-year grid
+41/59 are invariant at ±1 year, 20/59 at ±10 years and 3/59 at ±25 years. This combines timing
+sensitivity and eligibility change; it is not a pure error rate. The 50-year grid
 phase and irregular source boundary timing deserve explicit future review.
 
 ## Source-release sensitivity
 
-Pinned currentv0.2.1has756rows; priorv0.2.0has754. All754common polity/year labels
+Pinned current v0.2.1 has 756 rows; prior v0.2.0 has 754. All 754 common polity/year labels
 are unchanged, with two current-only rows. This is a limited consecutive-release
 check, not independent-source replication and not a guarantee of label accuracy.
 Both releases share underlying sources. Hashes and releases are recorded in the

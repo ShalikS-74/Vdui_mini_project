@@ -1,0 +1,93 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "scatter",
+  "position": {
+    "x": 20,
+    "y": 490,
+    "z": 0,
+    "width": 1240,
+    "height": 260,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Details": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Predictions"
+                    }
+                  },
+                  "Property": "observation_id"
+                }
+              },
+              "queryRef": "Predictions.observation_id"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Predictions"
+                    }
+                  },
+                  "Property": "time_t"
+                }
+              },
+              "queryRef": "Predictions.time_t"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Predictions"
+                    }
+                  },
+                  "Property": "Mean model score"
+                }
+              },
+              "queryRef": "Predictions.Mean model score"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "visualContainerObjects": {
+    "title": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'Score by observed year, all held-out rows - points at or above 0.70 without a decline outcome form the audit queue'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

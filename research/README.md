@@ -29,7 +29,7 @@ The exact same SeshatID does not prove perfect boundary reliability or historica
 continuity. In particular this panel excludes polities without a future endpoint
 under the same ID. It estimates area-change among continuing, mapped observations,
 not all collapses or disappearances. A static geometry interval may repeat one
-reconstruction at several50-year marks; this is not finer independent evidence.
+reconstruction at several 50-year marks; this is not finer independent evidence.
 Grouping limits some related histories crossing folds, but does not eliminate
 regional, source or global-time dependence. Do not call these rows independent.
 
@@ -47,7 +47,7 @@ runs the separately frozen retrospective scenario on the exact original splits.
 Read `secondary_protocol.md` and `docs/secondary_results.md` first. It does not
 replace or recalibrate the primary outputs and is not confirmatory forecasting.
 
-`python research/prepare_review.py` creates the fixed120record, outcome-blinded
+`python research/prepare_review.py` creates the fixed 120-record, outcome-blinded
 review package in `research/review/`. All reviewer/decision fields are blank. The
 package requires independent reviewers and original-source access; it is not
 adjudicated evidence or a new modeling cohort.

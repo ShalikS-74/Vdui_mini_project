@@ -5,12 +5,13 @@
     "x": 20,
     "y": 110,
     "z": 0,
-    "height": 156.66666666666669,
     "width": 400,
-    "tabOrder": 0
+    "height": 100,
+    "tabOrder": 1
   },
   "visual": {
     "visualType": "slicer",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
@@ -26,37 +27,32 @@
                   "Property": "polity"
                 }
               },
-              "queryRef": "Predictions.polity",
-              "active": true
+              "queryRef": "Predictions.polity"
             }
           ]
         }
       }
-    },
-    "objects": {
-      "general": [
-        {
-          "properties": {}
-        }
-      ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   },
-  "filterConfig": {
-    "filters": [
+  "visualContainerObjects": {
+    "title": [
       {
-        "name": "6df630f1ab35bc97720e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Predictions"
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
               }
-            },
-            "Property": "polity"
+            }
+          },
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'Polity'"
+              }
+            }
           }
-        },
-        "type": "Categorical"
+        }
       }
     ]
   }

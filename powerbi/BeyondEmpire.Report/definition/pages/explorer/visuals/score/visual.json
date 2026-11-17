@@ -3,14 +3,15 @@
   "name": "score",
   "position": {
     "x": 760,
-    "y": 81.666666666666671,
+    "y": 110,
     "z": 0,
-    "height": 100,
     "width": 490,
-    "tabOrder": 0
+    "height": 100,
+    "tabOrder": 3
   },
   "visual": {
     "visualType": "card",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
@@ -31,24 +32,27 @@
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   },
-  "filterConfig": {
-    "filters": [
+  "visualContainerObjects": {
+    "title": [
       {
-        "name": "c4f351af70ddca1d8964",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Predictions"
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
               }
-            },
-            "Property": "Selected score"
+            }
+          },
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'Out-of-fold contraction score (uncalibrated)'"
+              }
+            }
           }
-        },
-        "type": "Advanced"
+        }
       }
     ]
   }
