@@ -97,28 +97,28 @@
           ]
         }
       }
-    }
-  },
-  "visualContainerObjects": {
-    "title": [
-      {
-        "properties": {
-          "show": {
-            "expr": {
-              "Literal": {
-                "Value": "true"
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
               }
-            }
-          },
-          "text": {
-            "expr": {
-              "Literal": {
-                "Value": "'Flagged confident false positives - all pending historical review'"
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Flagged confident false positives - all pending historical review'"
+                }
               }
             }
           }
         }
-      }
-    ]
+      ]
+    }
   }
 }

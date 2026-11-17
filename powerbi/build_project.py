@@ -14,10 +14,10 @@ def write(path,obj):
 def schema(part,version):return f'https://developer.microsoft.com/json-schemas/fabric/item/report/definition/{part}/{version}/schema.json'
 write('BeyondEmpire.pbip',{'version':'1.0','artifacts':[{'report':{'path':'BeyondEmpire.Report'}}],'settings':{'enableAutoRecovery':True}})
 write('BeyondEmpire.Report/definition.pbir',{'version':'4.0','datasetReference':{'byPath':{'path':'../BeyondEmpire.SemanticModel'}}})
-write('BeyondEmpire.SemanticModel/definition.pbism',{'version':'4.0','settings':{}})
+write('BeyondEmpire.SemanticModel/definition.pbism',{'version':'4.2','settings':{}})
 write('BeyondEmpire.Report/definition/version.json',{'$schema':schema('versionMetadata','1.0.0'),'version':'2.0.0'})
 write('BeyondEmpire.Report/definition/report.json',{'$schema':schema('report','1.3.0'),'themeCollection':{'baseTheme':{'name':'CY24SU10','reportVersionAtImport':'5.61','type':'SharedResources'}},'layoutOptimization':'None','settings':{'useEnhancedTooltips':True}})
-write('BeyondEmpire.Report/definition/pages/pages.json',{'$schema':schema('pagesMetadata','1.0.0'),'pageOrder':['explorer','audit'],'activePageName':'explorer'})
+write('BeyondEmpire.Report/definition/pages/pages.json',{'$schema':schema('pagesMetadata','1.1.0'),'pageOrder':['explorer','audit'],'activePageName':'explorer'})
 for page,title in [('explorer','Historical explorer'),('audit','False-positive audit')]:
     write(f'BeyondEmpire.Report/definition/pages/{page}/page.json',{'$schema':schema('page','1.4.0'),'name':page,'displayName':title,'displayOption':'FitToPage','width':1280,'height':800})
 def field(table,col,measure=False):return {('Measure' if measure else 'Column'):{'Expression':{'SourceRef':{'Entity':table}},'Property':col}}
@@ -28,8 +28,8 @@ def visual(page,name,kind,x,y,w,h,roles=None,text=None,title=None,tab=0):
     if text:v['objects']={'general':[{'properties':{'paragraphs':[{'textRuns':[{'value':text,'textStyle':{'fontSize':'15pt','fontFamily':'Segoe UI'}}]}]}}]}
     container={}
     if title:container['title']=[{'properties':{'show':{'expr':{'Literal':{'Value':'true'}}},'text':{'expr':{'Literal':{'Value':repr(title)}}}}}]
+    if container:v['visualContainerObjects']=container
     out={'$schema':schema('visualContainer','2.14.0'),'name':name,'position':{'x':x,'y':y,'z':0,'width':w,'height':h,'tabOrder':tab},'visual':v}
-    if container:out['visualContainerObjects']=container
     write(f'BeyondEmpire.Report/definition/pages/{page}/visuals/{name}/visual.json',out)
 caption=('Beyond the Empire | Uncalibrated historical model scores from held-out rows (98 rows, 6 contractions). '
  'A polity is a historical political unit. A score ranks rows; it is not a probability. '

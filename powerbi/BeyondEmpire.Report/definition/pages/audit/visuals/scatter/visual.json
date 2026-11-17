@@ -66,28 +66,28 @@
           ]
         }
       }
-    }
-  },
-  "visualContainerObjects": {
-    "title": [
-      {
-        "properties": {
-          "show": {
-            "expr": {
-              "Literal": {
-                "Value": "true"
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
               }
-            }
-          },
-          "text": {
-            "expr": {
-              "Literal": {
-                "Value": "'Score by observed year, all held-out rows - points at or above 0.70 without a decline outcome form the audit queue'"
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Score by observed year, all held-out rows - points at or above 0.70 without a decline outcome form the audit queue'"
+                }
               }
             }
           }
         }
-      }
-    ]
+      ]
+    }
   }
 }
