@@ -1,0 +1,8 @@
+__pycache__/
+.pytest_cache/
+.venv/
+data/raw/*.xlsx
+paper/*.aux
+paper/*.log
+paper/*.pdf
+paper/*.out
