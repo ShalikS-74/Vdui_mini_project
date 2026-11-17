@@ -43,7 +43,7 @@ def main():
     summary = pd.read_csv(ROOT/'data/metrics_summary.csv',header=[0,1],index_col=[0,1])
     baseline = summary.loc[('grouped','majority'),('macro_f1','mean')]
     d4.metric('Majority baseline macro-F1',f'{baseline:.3f}',help='Grouped-fold mean. The models do not beat this baseline; see the Evaluation tab.')
-    browser,audit,evaluation,research = st.tabs(['Polity browser','False-positive audit','Evaluation & limits','50-year research study'])
+    browser,audit,evaluation,research,whatif = st.tabs(['Polity browser','False-positive audit','Evaluation & limits','50-year research study','What-if (illustrative)'])
     with browser:
         polity = st.selectbox('Polity',sorted(data.polity.unique()))
         history = data[data.polity.eq(polity)].sort_values('time_t')
@@ -110,5 +110,44 @@ def main():
             st.download_button('Download expanded evaluation summary',(r/'area_history_summary.csv').read_bytes(),'area_history_summary.csv','text/csv')
             st.markdown('Protocol and full limits: `research/protocol.md`, `docs/research_findings.md`. Reproduction: `research/README.md`. These summaries never replace the Equinox dashboard predictions.')
             st.json(rm)
+
+    with whatif:
+        st.subheader('Illustrative what-if score')
+        st.warning('Non-causal and illustrative only. The logistic baseline is fitted on all 98 labelled observations for exploration; the output is an uncalibrated model score, not a probability of collapse, and it must not be read as a historical or modern claim.')
+        @st.cache_resource
+        def fit_whatif():
+            from src.pipeline import make_model, CANDIDATES
+            table = pd.read_parquet(ROOT/'data/table.parquet')
+            model = make_model('logistic', 0)
+            model.fit(table[CANDIDATES], table.contraction)
+            medians = table[CANDIDATES].median(numeric_only=True)
+            return table, model, medians
+        try:
+            wtable, wmodel, wmedians = fit_whatif()
+        except Exception as exc:
+            st.error(f'What-if model unavailable: {exc}')
+        else:
+            cases = (wtable.polity + ' @ ' + wtable.century.astype(int).astype(str)).tolist()
+            default_ix = int((wtable.polity.eq('Latium::ItRomPr') & wtable.century.eq(100)).idxmax())
+            choice = st.selectbox('Prefill from a real labelled polity-century', cases, index=default_ix)
+            row = wtable.iloc[cases.index(choice)]
+            st.caption('Inputs start from the selected real observation. Where the historical record is missing, the input starts at the training median - the same value the pipeline median-imputer would supply. Adjust any of the 14 model inputs.')
+            from src.pipeline import FEATURES, CANDIDATES
+            labels = {f'{f}_delta': f'{f} change over prior century' for f in FEATURES}
+            values = {}
+            cols = st.columns(2)
+            for i, feat in enumerate(CANDIDATES):
+                raw = row[feat]
+                imputed = pd.isna(raw)
+                start = float(wmedians[feat]) if imputed else float(raw)
+                values[feat] = cols[i % 2].number_input(
+                    labels.get(feat, feat) + (' (median-filled)' if imputed else ''),
+                    value=start, key=f'whatif_{feat}')
+            if st.button('Compute illustrative score'):
+                import numpy as np
+                X = pd.DataFrame([values], columns=CANDIDATES)
+                score = float(wmodel.predict_proba(X)[0, 1])
+                st.metric('Illustrative contraction-warning score', f'{score:.3f}')
+                st.caption('Same median-imputation and standardization pipeline as the audited baseline. A higher score only means the inputs look more like labelled contractions to this small logistic model. It is not a validated risk estimate.')
 
 if __name__ == '__main__': main()
