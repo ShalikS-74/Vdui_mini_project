@@ -1,3 +1,13 @@
+> **Implementation follow-up, 2026-11-02:** This original audit is retained as
+> historical context, not the current status. Its central delta-leakage diagnosis
+> is incorrect: moving a source row at s to merge key s+100 joins it to t=s+100,
+> so the row at t receives t-100, not t+100. Regression tests verify this and
+> future-feature invariance. Do not reverse that shift. Current artifacts,
+> SHAP, grouping, thresholds and metrics were regenerated. See
+> `completion_status.md`, the root README, and `data/run_metadata.json`.
+> Full proposal/research completion remains blocked by data/lineage review,
+> scope resolution, historical case evidence and Power BI Desktop validation.
+
 # Implementation Audit Report
 
 **Project:** Beyond the Empire / Equinox contraction model  

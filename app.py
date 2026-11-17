@@ -1,102 +1,94 @@
+"""Interactive historical demo, using the exact OOF explanation exports."""
 from pathlib import Path
-
-import numpy as np
+import json
 import pandas as pd
 import streamlit as st
-from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-
-
 ROOT = Path(__file__).resolve().parent
-BASE_FEATURES = ["Pop", "Cap", "Hier", "Gov", "Infra", "Info", "Money"]
-FEATURES = BASE_FEATURES + [f"{feature}_delta" for feature in BASE_FEATURES]
-
+if not (ROOT/'dashboard/run_metadata.json').exists():
+    from src.bundled_exports import restore
+    restore(ROOT)
 
 @st.cache_data
-def load_data() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    table = pd.read_parquet(ROOT / "data" / "table.parquet")
-    cases = pd.read_csv(ROOT / "data" / "fp_cases.csv", keep_default_na=False)
-    ranking = pd.read_csv(ROOT / "data" / "fp_feature_ranking.csv")
-    return table, cases, ranking
+def load_data():
+    d = ROOT/'dashboard'
+    return (pd.read_csv(d/'predictions.csv'),pd.read_csv(d/'shap_long.csv'),pd.read_csv(d/'fp_cases.csv',keep_default_na=False),pd.read_csv(d/'shap_groups.csv'),json.loads((d/'run_metadata.json').read_text()))
 
+def main():
+    st.set_page_config(page_title='Beyond the Empire',layout='wide')
+    st.title('Beyond the Empire')
+    st.caption('Equinox historical contraction explorer | 100-year exploratory baseline')
+    st.warning('Uncalibrated model scores, not real-world risk probabilities. Only 6 observed contractions. No modern-country or causal claims.')
+    try:
+        data,explain,cases,groups,meta = load_data()
+    except (FileNotFoundError,ValueError) as exc:
+        st.error(f'Data unavailable: {exc}. Run python src/pipeline.py first.'); st.stop()
+    a,b,c = st.columns(3)
+    a.metric('Labeled observations',meta['rows'])
+    b.metric('Observed contractions',meta['contractions'])
+    c.metric('Confident false positives',len(cases))
+    browser,audit,evaluation,research = st.tabs(['Polity browser','False-positive audit','Evaluation & limits','50-year research study'])
+    with browser:
+        polity = st.selectbox('Polity',sorted(data.polity.unique()))
+        history = data[data.polity.eq(polity)].sort_values('time_t')
+        time = st.selectbox('Observed year',history.time_t.tolist())
+        selected = history[history.time_t.eq(time)].iloc[0]
+        a,b = st.columns(2)
+        a.metric('Out-of-fold contraction score',f'{selected.model_score:.3f}')
+        b.metric('Observed next-century outcome',selected.outcome)
+        st.caption('A polity is a historical political unit. A non-contraction is not proof of survival or protection from other crises.')
+        st.line_chart(history.set_index('time_t')[['model_score']])
+        explanation = explain[explain.polity.eq(polity)&explain.time_t.eq(time)]
+        st.subheader('Why this held-out model gave this score')
+        st.caption('Actual linear SHAP values from the training fold, in log-odds. Positive pushes toward contraction. These explain the model, not historical causes.')
+        st.bar_chart(explanation.set_index('feature').shap_value)
+        grouped = groups[groups.polity.eq(polity)&groups.time_t.eq(time)]
+        st.bar_chart(grouped.set_index('feature_group').shap_value)
+        st.dataframe(history[['time_t','Terr','next_Terr','outcome','model_score']],hide_index=True)
+    with audit:
+        st.subheader('Pre-specified rule: OOF score >= 0.70 and no observed contraction')
+        st.info('Historical review is pending. No genuine_survival or label_artifact verdict is asserted without a source and review note.')
+        if cases.empty:
+            st.success('No cases meet this rule. No threshold was lowered to manufacture examples.')
+        else:
+            st.dataframe(cases,hide_index=True)
+        st.download_button('Download review queue',cases.to_csv(index=False),'fp_cases.csv','text/csv')
+        st.scatter_chart(data,x='time_t',y='model_score',color='contraction')
+    with evaluation:
+        st.write('Logistic regression, shallow random forest and training-fold majority baseline. Repeated grouped evaluation uses PolID across NGA, not a verified predecessor/successor lineage. Temporal holdout: year 800, with crossing label windows removed.')
+        st.dataframe(pd.read_csv(ROOT/'data/fold_metrics.csv'),hide_index=True)
+        st.write('Fold mean, standard deviation and valid-fold count:')
+        st.dataframe(pd.read_csv(ROOT/'data/metrics_summary.csv',header=[0,1]))
+        st.caption('Some folds contain no contractions. Their decline AP is undefined and omitted from the mean; the count column shows the valid folds. Repeated folds are correlated, not independent uncertainty intervals. The majority baseline wins grouped macro-F1 in this run.')
+        st.write('Missingness removal, missing indicators, imputation and scaling are learned inside each training fold. This Equinox input cannot directly support an exact 50-year target; the CLI refuses to fabricate observations. The separate Polaris/Clio study is shown in the research tab.')
+        st.json(meta)
+        st.download_button('Download predictions',data.to_csv(index=False),'predictions.csv','text/csv')
 
-@st.cache_resource
-def fit_model(table: pd.DataFrame) -> Pipeline:
-    model = Pipeline(
-        [
-            ("imp", SimpleImputer(strategy="median")),
-            ("sc", StandardScaler()),
-            ("lr", LogisticRegression(class_weight="balanced", max_iter=1000, random_state=0)),
-        ]
-    )
-    model.fit(table[FEATURES], table["contraction"])
-    return model
+    with research:
+        st.subheader('Separate exploratory 50-year area-change study')
+        st.warning('Not a governance or collapse predictor. This selected sample requires a continuing source ID and mapped future area. No publishability claim.')
+        r=ROOT/'data/research50'
+        if not (r/'manifest.json').exists():
+            st.info('Research summaries unavailable. Run the commands in research/README.md.')
+        else:
+            rm=json.loads((r/'manifest.json').read_text())
+            a,b,c=st.columns(3)
+            a.metric('Candidate observations',rm['candidate_rows'])
+            b.metric('Decline observations',rm['outcome_counts']['decline'])
+            c.metric('Rows with any strict governance/scale feature',rm['rows_with_any_strict_feature'])
+            st.write('756 rows are repeated historical reconstructions, not 756 independent events. Declines occur in only 30 conservative linked groups. The strict governance coverage is too sparse for the intended broad governance model.')
+            st.subheader('Area-history model evaluation')
+            st.caption('Inputs: current area, prior area, past area change and historical age. Grouped: five folds across three seeds. Temporal holdout also excludes test groups from training.')
+            summary=pd.read_csv(r/'area_history_summary.csv',header=[0,1],index_col=[0,1])
+            summary.columns=['_'.join(c) for c in summary.columns]
+            st.dataframe(summary.reset_index(),hide_index=True)
+            st.write('Time-plus-group holdout macro-F1: forest 0.287, majority 0.285, logistic 0.226. This does not establish a useful improvement.')
+            st.dataframe(pd.read_csv(r/'area_history_bootstrap.csv'),hide_index=True)
+            st.caption('Seed0 pooled OOF paired group-bootstrap descriptive intervals include zero. They are conditional on this selected sample, not confirmatory uncertainty intervals.')
+            st.subheader('Strict temporal feature coverage')
+            st.dataframe(pd.read_csv(r/'strict_feature_summary.csv'),hide_index=True)
+            st.write('Undated, disputed, uncertain or ambiguous values remain missing. Missing endpoints are censored, never called collapse or stable. Boundary uncertainty and source continuity still require historical review.')
+            st.download_button('Download expanded evaluation summary',(r/'area_history_summary.csv').read_bytes(),'area_history_summary.csv','text/csv')
+            st.markdown('Protocol and full limits: `research/protocol.md`, `docs/research_findings.md`. Reproduction: `research/README.md`. These summaries never replace the Equinox dashboard predictions.')
+            st.json(rm)
 
-
-def contribution_frame(model: Pipeline, values: pd.DataFrame) -> pd.DataFrame:
-    imputed = model.named_steps["imp"].transform(values[FEATURES])
-    standardized = model.named_steps["sc"].transform(imputed)
-    coefficients = model.named_steps["lr"].coef_[0]
-    return pd.DataFrame(standardized * coefficients, columns=FEATURES, index=values.index)
-
-
-def show_polity_browser(table: pd.DataFrame) -> None:
-    st.header("Polity browser")
-    polity = st.selectbox("Polity", sorted(table["polity"].unique()))
-    history = table[table["polity"].eq(polity)].sort_values("century")
-    st.line_chart(history.set_index("century")[BASE_FEATURES])
-    st.caption(f"{len(history)} observed centuries for {polity}")
-
-
-def show_fp_explorer(table: pd.DataFrame, cases: pd.DataFrame, ranking: pd.DataFrame, model: Pipeline) -> None:
-    st.header("False-positive explorer")
-    st.dataframe(ranking, hide_index=True, use_container_width=True)
-    case_labels = [f"{row.polity} @ {row.century}" for row in cases.itertuples()]
-    selected_label = st.selectbox("Case", case_labels)
-    selected_case = cases.iloc[case_labels.index(selected_label)]
-    row = table[(table["polity"] == selected_case.polity) & (table["century"] == selected_case.century)]
-    contributions = contribution_frame(model, row).T.rename(columns={row.index[0]: "contribution"})
-    contributions["absolute"] = contributions["contribution"].abs()
-    contributions = contributions.sort_values("absolute", ascending=False).drop(columns="absolute")
-    st.bar_chart(contributions)
-    st.write(f"OOF probability: {selected_case.oof_p_decline:.3f}")
-    st.write(f"Manual type: {selected_case.type or 'not reviewed'}")
-    st.write(f"Note: {selected_case.note or 'not reviewed'}")
-
-
-def show_what_if(table: pd.DataFrame, cases: pd.DataFrame, model: Pipeline) -> None:
-    st.header("What-if")
-    st.caption("Illustrative, not causal")
-    case_labels = [f"{row.polity} @ {row.century}" for row in cases.itertuples()]
-    selected_label = st.selectbox("Starting case", case_labels, key="what_if_case")
-    selected_case = cases.iloc[case_labels.index(selected_label)]
-    base = table[(table["polity"] == selected_case.polity) & (table["century"] == selected_case.century)].iloc[0]
-    values = {}
-    for start in range(0, len(FEATURES), 2):
-        columns = st.columns(2)
-        for column, feature in zip(columns, FEATURES[start:start + 2]):
-            current = float(base[feature]) if pd.notna(base[feature]) else 0.0
-            series = table[feature].dropna()
-            lower, upper = float(series.min()), float(series.max())
-            if lower == upper:
-                lower -= 1.0
-                upper += 1.0
-            values[feature] = column.slider(feature, lower, upper, min(max(current, lower), upper), key=f"what_if_{feature}")
-    probability = model.predict_proba(pd.DataFrame([values], columns=FEATURES))[0, 1]
-    st.metric("Illustrative contraction probability", f"{probability:.3f}")
-
-
-def main() -> None:
-    st.set_page_config(page_title="Equinox contraction model", layout="wide")
-    st.title("Equinox historical contraction model")
-    table, cases, ranking = load_data()
-    model = fit_model(table)
-    show_polity_browser(table)
-    show_fp_explorer(table, cases, ranking, model)
-    show_what_if(table, cases, model)
-
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__': main()

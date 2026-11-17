@@ -1,0 +1,3 @@
+model,comparison,metric,point_difference,descriptive_lower,descriptive_upper,replicates,independent_groups,interpretation
+logistic,majority,macro_f1,0.028346909638488904,-0.021408921248736695,0.09364623578557378,1000,113,conditional_exploratory_group_bootstrap_not_confirmatory
+forest,majority,macro_f1,0.029712288760835648,-0.01404494755685847,0.0836108963584694,1000,113,conditional_exploratory_group_bootstrap_not_confirmatory
