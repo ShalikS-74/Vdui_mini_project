@@ -49,28 +49,28 @@
           ]
         }
       }
-    }
-  },
-  "visualContainerObjects": {
-    "title": [
-      {
-        "properties": {
-          "show": {
-            "expr": {
-              "Literal": {
-                "Value": "true"
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
               }
-            }
-          },
-          "text": {
-            "expr": {
-              "Literal": {
-                "Value": "'Why the held-out model gave this score (SHAP, log-odds)'"
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Why the held-out model gave this score (SHAP, log-odds)'"
+                }
               }
             }
           }
         }
-      }
-    ]
+      ]
+    }
   }
 }

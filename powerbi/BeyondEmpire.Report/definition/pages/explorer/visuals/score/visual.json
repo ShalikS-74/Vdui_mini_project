@@ -32,28 +32,28 @@
           ]
         }
       }
-    }
-  },
-  "visualContainerObjects": {
-    "title": [
-      {
-        "properties": {
-          "show": {
-            "expr": {
-              "Literal": {
-                "Value": "true"
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
               }
-            }
-          },
-          "text": {
-            "expr": {
-              "Literal": {
-                "Value": "'Out-of-fold contraction score (uncalibrated)'"
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Out-of-fold contraction score (uncalibrated)'"
+                }
               }
             }
           }
         }
-      }
-    ]
+      ]
+    }
   }
 }
