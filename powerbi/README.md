@@ -15,6 +15,11 @@ The TMDL semantic model and rendering have not been executed in Power BI Desktop
 5. Inspect both pages: polity/year slicers, selected-score card, SHAP bars,
    observation table, false-positive review table and the score-by-year scatter
    (points at or above 0.70 without a decline outcome are the audit queue).
+   On the False-positive audit page, use the **Audit threshold** slicer to adjust
+   the queue from 30% to 90%. The queue card and scatter update to the selected
+   threshold. Format the threshold slicer as a numeric range slider in Power BI
+   Desktop if the slicer initially renders as a list. The case table is filtered
+   by `Cases[oof_p_decline]` and the scatter is filtered by matching audit cases.
    Select exactly one polity and year for a single score; a multi-row selection
    intentionally returns blank.
 6. Check that selection filters the exact OOF SHAP row; log-odds explanations must

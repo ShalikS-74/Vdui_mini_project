@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "polity",
   "position": {
-    "x": 20,
-    "y": 110,
+    "x": 32,
+    "y": 132,
     "z": 0,
-    "width": 400,
-    "height": 100,
-    "tabOrder": 1
+    "width": 320,
+    "height": 150,
+    "tabOrder": 2
   },
   "visual": {
     "visualType": "slicer",
@@ -47,7 +47,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Polity'"
+                  "Value": "'1  Select a polity'"
                 }
               }
             }

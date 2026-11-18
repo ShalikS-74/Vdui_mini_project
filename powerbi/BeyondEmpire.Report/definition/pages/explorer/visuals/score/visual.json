@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "score",
   "position": {
-    "x": 760,
-    "y": 110,
+    "x": 644,
+    "y": 132,
     "z": 0,
-    "width": 490,
-    "height": 100,
-    "tabOrder": 3
+    "width": 604,
+    "height": 150,
+    "tabOrder": 4
   },
   "visual": {
     "visualType": "card",
@@ -47,7 +47,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Out-of-fold contraction score (uncalibrated)'"
+                  "Value": "'Selected held-out score  \u2022  uncalibrated'"
                 }
               }
             }

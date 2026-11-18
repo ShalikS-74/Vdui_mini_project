@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "cases",
   "position": {
-    "x": 20,
-    "y": 200,
+    "x": 32,
+    "y": 218,
     "z": 0,
-    "width": 1240,
-    "height": 280,
-    "tabOrder": 1
+    "width": 1216,
+    "height": 270,
+    "tabOrder": 5
   },
   "visual": {
     "visualType": "tableEx",
@@ -112,7 +112,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Flagged confident false positives - all pending historical review'"
+                  "Value": "'Flagged rows  \u2022  all pending historical review'"
                 }
               }
             }
@@ -120,5 +120,57 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "audit_threshold_filter",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Cases"
+              }
+            },
+            "Property": "Audit case match"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "C",
+              "Entity": "Cases",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "C"
+                        }
+                      },
+                      "Property": "Audit case match"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }

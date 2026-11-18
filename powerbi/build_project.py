@@ -22,39 +22,80 @@ for page,title in [('explorer','Historical explorer'),('audit','False-positive a
     write(f'BeyondEmpire.Report/definition/pages/{page}/page.json',{'$schema':schema('page','1.4.0'),'name':page,'displayName':title,'displayOption':'FitToPage','width':1280,'height':800})
 def field(table,col,measure=False):return {('Measure' if measure else 'Column'):{'Expression':{'SourceRef':{'Entity':table}},'Property':col}}
 def projection(table,col,measure=False):return {'field':field(table,col,measure),'queryRef':f'{table}.{col}'}
-def visual(page,name,kind,x,y,w,h,roles=None,text=None,title=None,tab=0):
+def visual(page,name,kind,x,y,w,h,roles=None,text=None,title=None,tab=0,font_size='11pt',font_weight=None,objects=None,filter_config=None):
     v={'visualType':kind,'drillFilterOtherVisuals':True}
     if roles:v['query']={'queryState':{role:{'projections':cols} for role,cols in roles.items()}}
-    if text:v['objects']={'general':[{'properties':{'paragraphs':[{'textRuns':[{'value':text,'textStyle':{'fontSize':'15pt','fontFamily':'Segoe UI'}}]}]}}]}
+    if text:
+        text_style={'fontSize':font_size,'fontFamily':'Segoe UI'}
+        if font_weight:text_style['fontWeight']=font_weight
+        v['objects']={'general':[{'properties':{'paragraphs':[{'textRuns':[{'value':text,'textStyle':text_style}]}]}}]}
     container={}
     if title:container['title']=[{'properties':{'show':{'expr':{'Literal':{'Value':'true'}}},'text':{'expr':{'Literal':{'Value':repr(title)}}}}}]
     if container:v['visualContainerObjects']=container
+    if objects:
+        v['objects']=objects
+    if filter_config:
+        pass
     out={'$schema':schema('visualContainer','2.14.0'),'name':name,'position':{'x':x,'y':y,'z':0,'width':w,'height':h,'tabOrder':tab},'visual':v}
+    if filter_config:
+        out['filterConfig']=filter_config
     write(f'BeyondEmpire.Report/definition/pages/{page}/visuals/{name}/visual.json',out)
-caption=('Beyond the Empire | Uncalibrated historical model scores from held-out rows (98 rows, 6 contractions). '
- 'A polity is a historical political unit. A score ranks rows; it is not a probability. '
- 'Explanations describe the model, not causes of history. No modern-country or transfer claims. '
- 'Select exactly one polity and one year for a single score; the score card stays blank on multi-row selections by design.')
-for p in ['explorer','audit']:visual(p,'caption','textbox',20,10,1240,90,text=caption)
-visual('explorer','polity','slicer',20,110,400,100,{'Values':[projection('Predictions','polity')]},title='Polity',tab=1)
-visual('explorer','year','slicer',440,110,300,100,{'Values':[projection('Predictions','time_t')]},title='Observed year',tab=2)
-visual('explorer','score','card',760,110,490,100,{'Values':[projection('Predictions','Selected score',True)]},title='Out-of-fold contraction score (uncalibrated)',tab=3)
-visual('explorer','shap','barChart',20,230,780,530,{'Category':[projection('Explanations','feature')],'Y':[projection('Explanations','SHAP contribution',True)]},title='Why the held-out model gave this score (SHAP, log-odds)',tab=4)
-visual('explorer','observed','tableEx',820,230,430,530,{'Values':[projection('Predictions',x) for x in ['polity','time_t','outcome','model_score']]},title='Held-out observations (filtered by slicers)',tab=5)
-visual('audit','reviewnote','textbox',20,110,1240,70,text='Fixed OOF score >= 0.70; no observed contraction. All historical verdicts pending sourced manual review. Non-contraction is not proof of genuine survival.')
-visual('audit','cases','tableEx',20,200,1240,280,{'Values':[projection('Cases',x) for x in ['polity','century','oof_p_decline','true_label','type','note']]},title='Flagged confident false positives - all pending historical review',tab=1)
-visual('audit','scatter','scatterChart',20,490,1240,260,{'Details':[projection('Predictions','observation_id')],'X':[projection('Predictions','time_t')],'Y':[projection('Predictions','Mean model score',True)]},title='Score by observed year, all held-out rows - points at or above 0.70 without a decline outcome form the audit queue',tab=2)
+visual('explorer','caption','textbox',32,24,1216,42,text='BEYOND THE EMPIRE  /  HISTORICAL EXPLORER',font_size='22pt',font_weight='bold',tab=0)
+visual('explorer','context','textbox',32,72,1216,38,text='Inspect one held-out observation at a time. Scores rank model outputs; they are not probabilities or historical causes.',font_size='11pt',tab=1)
+visual('explorer','polity','slicer',32,132,320,150,{'Values':[projection('Predictions','polity')]},title='1  Select a polity',tab=2)
+visual('explorer','year','slicer',368,132,260,150,{'Values':[projection('Predictions','time_t')]},title='2  Select an observed year',tab=3)
+visual('explorer','score','card',644,132,604,150,{'Values':[projection('Predictions','Selected score',True)]},title='Selected held-out score  •  uncalibrated',tab=4)
+visual('explorer','shap','barChart',32,316,720,444,{'Category':[projection('Explanations','feature')],'Y':[projection('Explanations','SHAP contribution',True)]},title='Why the model gave this score  •  SHAP contribution (log-odds)',tab=5)
+visual('explorer','observed','tableEx',776,316,472,444,{'Values':[projection('Predictions',x) for x in ['polity','time_t','outcome','model_score']]},title='Held-out observations  •  filtered by selection',tab=6)
+visual('audit','caption','textbox',32,24,1216,42,text='BEYOND THE EMPIRE  /  FALSE-POSITIVE AUDIT',font_size='22pt',font_weight='bold',tab=0)
+visual('audit','context','textbox',32,72,1216,38,text='A review queue for rows with a high model score and no observed contraction. Historical verdicts remain pending sourced manual review.',font_size='11pt',tab=1)
+threshold_objects={'data':[{'properties':{'mode':{'expr':{'Literal':{'Value':"'Dropdown'"}}}}}]}
+visual('audit','threshold','slicer',32,132,220,82,{'Values':[projection('Threshold','Threshold')]},title='Audit threshold',tab=2,objects=threshold_objects)
+visual('audit','queuecount','card',268,132,220,82,{'Values':[projection('Predictions','Audit queue rows',True)]},title='Rows in current queue',tab=3)
+visual('audit','reviewnote','textbox',504,132,744,82,text='AUDIT RULE  •  Score at or above the selected threshold and no observed contraction. Non-contraction is not proof of genuine survival.',font_size='11pt',font_weight='bold',tab=4)
+case_filter={'filters':[{
+    'name':'audit_threshold_filter',
+    'field':{'Measure':{'Expression':{'SourceRef':{'Entity':'Cases'}},'Property':'Audit case match'}},
+    'type':'Advanced',
+    'filter':{
+        'Version':2,
+        'From':[{'Name':'C','Entity':'Cases','Type':0}],
+        'Where':[{'Condition':{'Comparison':{
+            'ComparisonKind':0,
+            'Left':{'Measure':{'Expression':{'SourceRef':{'Source':'C'}},'Property':'Audit case match'}},
+            'Right':{'Literal':{'Value':'1L'}}
+        }}}]
+    }
+}]}
+visual('audit','cases','tableEx',32,218,1216,270,{'Values':[projection('Cases',x) for x in ['polity','century','oof_p_decline','true_label','type','note']]},title='Flagged rows  •  all pending historical review',tab=5,filter_config=case_filter)
+visual('audit','scatter','scatterChart',32,516,1216,244,{'Details':[projection('Predictions','observation_id')],'X':[projection('Predictions','time_t')],'Y':[projection('Predictions','Threshold scatter score',True)]},title='Score by observed year  •  use the threshold slider to update the audit queue',tab=6)
 model=OUT/'BeyondEmpire.SemanticModel/definition';model.mkdir(parents=True,exist_ok=True)
 (model/'database.tmdl').write_text('database\n\tcompatibilityLevel: 1601\n')
-(model/'model.tmdl').write_text('model Model\n\tculture: en-US\n\tdefaultPowerBIDataSourceVersion: powerBI_V3\n\tsourceQueryCulture: en-US\n\nref table Predictions\nref table Explanations\nref table Cases\n\nref expression DataRoot\n')
+(model/'model.tmdl').write_text('model Model\n\tculture: en-US\n\tdefaultPowerBIDataSourceVersion: powerBI_V3\n\tsourceQueryCulture: en-US\n\nref table Predictions\nref table Explanations\nref table Cases\nref table Threshold\n\nref expression DataRoot\n')
 (model/'expressions.tmdl').write_text('expression DataRoot = "C:\\CHANGE_ME\\Vdui_mini_project\\dashboard" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]\n')
 (model/'relationships.tmdl').write_text('relationship explanation_to_observation\n\tfromColumn: Explanations.observation_id\n\ttoColumn: Predictions.observation_id\n\nrelationship case_to_observation\n\tfromColumn: Cases.observation_id\n\ttoColumn: Predictions.observation_id\n')
 for table,file in [('Predictions','predictions.csv'),('Explanations','shap_long.csv'),('Cases','fp_cases.csv')]:
     df=pd.read_csv(ROOT/'dashboard'/file)
     year='century' if table=='Cases' else 'time_t'
     measures=''
-    if table=='Predictions':measures="\tmeasure 'Selected score' = SELECTEDVALUE(Predictions[model_score])\n\t\tformatString: 0.000\n\n\tmeasure 'Mean model score' = AVERAGE(Predictions[model_score])\n\t\tformatString: 0.000\n\n"
+    if table=='Predictions':measures="""\tmeasure 'Selected score' = SELECTEDVALUE(Predictions[model_score])
+\t\tformatString: 0.000
+
+\tmeasure 'Mean model score' = AVERAGE(Predictions[model_score])
+\t\tformatString: 0.000
+
+\tmeasure 'Audit queue rows' = COUNTROWS(FILTER(Cases, Cases[oof_p_decline] >= [Threshold value]))
+\t\tformatString: 0
+
+\tmeasure 'Threshold scatter score' =
+\t\tVAR AuditScore = MAXX(RELATEDTABLE(Cases), Cases[oof_p_decline])
+\t\tVAR SelectedThreshold = [Threshold value]
+\t\tRETURN IF(NOT(ISBLANK(AuditScore)) && AuditScore >= SelectedThreshold, SELECTEDVALUE(Predictions[model_score]), BLANK())
+\t\tformatString: 0.000
+
+"""
     if table=='Explanations':measures="\tmeasure 'SHAP contribution' = SUM(Explanations[shap_value])\n\t\tformatString: 0.000\n\n"
+    if table=='Cases':measures="\tmeasure 'Audit case match' = IF(MAX(Cases[oof_p_decline]) >= [Threshold value], 1, 0)\n\t\tformatString: 0\n\n"
     text=f'table {table}\n\n'+measures
     for col in list(df)+['observation_id']:
         dtype='string' if col=='observation_id' or not pd.api.types.is_numeric_dtype(df[col]) else ('int64' if pd.api.types.is_integer_dtype(df[col]) else 'double')
@@ -72,4 +113,28 @@ for table,file in [('Predictions','predictions.csv'),('Explanations','shap_long.
 \t\t\t    Keyed
 '''
     p=model/'tables'/f'{table}.tmdl';p.parent.mkdir(exist_ok=True);p.write_text(text)
+(model/'tables'/ 'Threshold.tmdl').write_text('''table Threshold
+    measure 'Threshold value' = SELECTEDVALUE(Threshold[Threshold], 0.70)
+        formatString: 0%
+
+    column Threshold
+        dataType: double
+        summarizeBy: none
+        sourceColumn: Threshold
+
+    partition Threshold = m
+        mode: import
+        source =
+            let
+                Source = #table(
+                    {"Threshold"},
+                    {
+                        {0.30}, {0.35}, {0.40}, {0.45}, {0.50},
+                        {0.55}, {0.60}, {0.65}, {0.70}, {0.75},
+                        {0.80}, {0.85}, {0.90}
+                    }
+                )
+            in
+                Source
+''')
 print('Generated PBIP candidate. Requires Power BI Desktop open, refresh and visual verification.')

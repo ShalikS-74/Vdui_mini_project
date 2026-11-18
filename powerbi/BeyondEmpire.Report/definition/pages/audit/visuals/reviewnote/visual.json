@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "reviewnote",
   "position": {
-    "x": 20,
-    "y": 110,
+    "x": 504,
+    "y": 132,
     "z": 0,
-    "width": 1240,
-    "height": 70,
-    "tabOrder": 0
+    "width": 744,
+    "height": 82,
+    "tabOrder": 4
   },
   "visual": {
     "visualType": "textbox",
@@ -20,10 +20,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Fixed OOF score >= 0.70; no observed contraction. All historical verdicts pending sourced manual review. Non-contraction is not proof of genuine survival.",
+                    "value": "AUDIT RULE  \u2022  Score at or above the selected threshold and no observed contraction. Non-contraction is not proof of genuine survival.",
                     "textStyle": {
-                      "fontSize": "15pt",
-                      "fontFamily": "Segoe UI"
+                      "fontSize": "11pt",
+                      "fontFamily": "Segoe UI",
+                      "fontWeight": "bold"
                     }
                   }
                 ]

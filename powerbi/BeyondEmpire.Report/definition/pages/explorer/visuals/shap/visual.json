@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "shap",
   "position": {
-    "x": 20,
-    "y": 230,
+    "x": 32,
+    "y": 316,
     "z": 0,
-    "width": 780,
-    "height": 530,
-    "tabOrder": 4
+    "width": 720,
+    "height": 444,
+    "tabOrder": 5
   },
   "visual": {
     "visualType": "barChart",
@@ -64,7 +64,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Why the held-out model gave this score (SHAP, log-odds)'"
+                  "Value": "'Why the model gave this score  \u2022  SHAP contribution (log-odds)'"
                 }
               }
             }

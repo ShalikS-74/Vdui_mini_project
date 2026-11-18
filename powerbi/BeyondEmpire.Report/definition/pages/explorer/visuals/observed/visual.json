@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "observed",
   "position": {
-    "x": 820,
-    "y": 230,
+    "x": 776,
+    "y": 316,
     "z": 0,
-    "width": 430,
-    "height": 530,
-    "tabOrder": 5
+    "width": 472,
+    "height": 444,
+    "tabOrder": 6
   },
   "visual": {
     "visualType": "tableEx",
@@ -86,7 +86,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Held-out observations (filtered by slicers)'"
+                  "Value": "'Held-out observations  \u2022  filtered by selection'"
                 }
               }
             }

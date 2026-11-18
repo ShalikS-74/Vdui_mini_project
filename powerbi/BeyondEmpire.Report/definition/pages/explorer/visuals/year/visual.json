@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "year",
   "position": {
-    "x": 440,
-    "y": 110,
+    "x": 368,
+    "y": 132,
     "z": 0,
-    "width": 300,
-    "height": 100,
-    "tabOrder": 2
+    "width": 260,
+    "height": 150,
+    "tabOrder": 3
   },
   "visual": {
     "visualType": "slicer",
@@ -47,7 +47,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Observed year'"
+                  "Value": "'2  Select an observed year'"
                 }
               }
             }

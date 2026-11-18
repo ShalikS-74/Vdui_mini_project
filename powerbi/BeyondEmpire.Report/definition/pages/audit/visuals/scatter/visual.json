@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "scatter",
   "position": {
-    "x": 20,
-    "y": 490,
+    "x": 32,
+    "y": 516,
     "z": 0,
-    "width": 1240,
-    "height": 260,
-    "tabOrder": 2
+    "width": 1216,
+    "height": 244,
+    "tabOrder": 6
   },
   "visual": {
     "visualType": "scatterChart",
@@ -58,10 +58,10 @@
                       "Entity": "Predictions"
                     }
                   },
-                  "Property": "Mean model score"
+                  "Property": "Threshold scatter score"
                 }
               },
-              "queryRef": "Predictions.Mean model score"
+              "queryRef": "Predictions.Threshold scatter score"
             }
           ]
         }
@@ -81,7 +81,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Score by observed year, all held-out rows - points at or above 0.70 without a decline outcome form the audit queue'"
+                  "Value": "'Score by observed year  \u2022  use the threshold slider to update the audit queue'"
                 }
               }
             }
