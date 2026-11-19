@@ -1,0 +1,93 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "scatter",
+  "position": {
+    "x": 32,
+    "y": 510,
+    "z": 0,
+    "width": 1216,
+    "height": 250,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Details": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Predictions"
+                    }
+                  },
+                  "Property": "observation_id"
+                }
+              },
+              "queryRef": "Predictions.observation_id"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Predictions"
+                    }
+                  },
+                  "Property": "time_t"
+                }
+              },
+              "queryRef": "Predictions.time_t"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Predictions"
+                    }
+                  },
+                  "Property": "Threshold scatter score"
+                }
+              },
+              "queryRef": "Predictions.Threshold scatter score"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Score by observed year  (flagged cases at the selected threshold)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

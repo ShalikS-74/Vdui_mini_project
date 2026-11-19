@@ -14,9 +14,10 @@ The TMDL semantic model and rendering have not been executed in Power BI Desktop
    to Explanations and Cases. All use polity|year, derived in Power Query.
 5. Inspect both pages: polity/year slicers, selected-score card, SHAP bars and
    observation table on the explorer page. The False-positive audit page has
-   three parts: the **Audit threshold** dropdown (30%, 50%, 70%, 90%; default
+   four parts: the **Audit threshold** dropdown (30%, 50%, 70%, 90%; default
    70% when nothing is selected), a card with the number of flagged cases, and a
-   table of the cases at or above the threshold (`Cases[oof_p_decline]`).
+   table of the cases at or above the threshold (`Cases[oof_p_decline]`), and a
+   score-by-observed-year scatter that shows only the flagged cases.
    Select exactly one polity and year for a single score on the explorer page;
    a multi-row selection intentionally returns blank.
 6. Check that selection filters the exact OOF SHAP row; log-odds explanations must

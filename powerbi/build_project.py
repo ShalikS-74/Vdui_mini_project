@@ -49,8 +49,8 @@ visual('explorer','shap','barChart',32,316,720,444,{'Category':[projection('Expl
 visual('explorer','observed','tableEx',776,316,472,444,{'Values':[projection('Predictions',x) for x in ['polity','time_t','outcome','model_score']]},title='Held-out observations  •  filtered by selection',tab=6)
 visual('audit','caption','textbox',32,24,1216,42,text='BEYOND THE EMPIRE  /  FALSE-POSITIVE AUDIT',font_size='22pt',font_weight='bold',tab=0)
 threshold_objects={'data':[{'properties':{'mode':{'expr':{'Literal':{'Value':"'Dropdown'"}}}}}]}
-visual('audit','threshold','slicer',32,88,220,82,{'Values':[projection('Threshold','Threshold')]},title='Audit threshold',tab=1,objects=threshold_objects)
-visual('audit','queuecount','card',268,88,220,82,{'Values':[projection('Cases','Flagged cases',True)]},title='Flagged cases',tab=2)
+visual('audit','threshold','slicer',32,88,220,100,{'Values':[projection('Threshold','Threshold')]},title='Audit threshold',tab=1,objects=threshold_objects)
+visual('audit','queuecount','card',268,88,220,100,{'Values':[projection('Cases','Flagged cases',True)]},title='Flagged cases',tab=2)
 case_filter={'filters':[{
     'name':'audit_threshold_filter',
     'field':{'Measure':{'Expression':{'SourceRef':{'Entity':'Cases'}},'Property':'Audit case match'}},
@@ -65,7 +65,8 @@ case_filter={'filters':[{
         }}}]
     }
 }]}
-visual('audit','cases','tableEx',32,190,1216,560,{'Values':[projection('Cases',x) for x in ['polity','century','oof_p_decline','true_label']]},title='Cases at or above the threshold',tab=3,filter_config=case_filter)
+visual('audit','cases','tableEx',32,204,1216,290,{'Values':[projection('Cases',x) for x in ['polity','century','oof_p_decline','true_label']]},title='Cases at or above the threshold',tab=3,filter_config=case_filter)
+visual('audit','scatter','scatterChart',32,510,1216,250,{'Details':[projection('Predictions','observation_id')],'X':[projection('Predictions','time_t')],'Y':[projection('Predictions','Threshold scatter score',True)]},title='Score by observed year  (flagged cases at the selected threshold)',tab=4)
 model=OUT/'BeyondEmpire.SemanticModel/definition';model.mkdir(parents=True,exist_ok=True)
 (model/'database.tmdl').write_text('database\n\tcompatibilityLevel: 1601\n')
 (model/'model.tmdl').write_text('model Model\n\tculture: en-US\n\tdefaultPowerBIDataSourceVersion: powerBI_V3\n\tsourceQueryCulture: en-US\n\nref table Predictions\nref table Explanations\nref table Cases\nref table Threshold\n\nref expression DataRoot\n')
@@ -81,9 +82,15 @@ for table,file in [('Predictions','predictions.csv'),('Explanations','shap_long.
 \tmeasure 'Mean model score' = AVERAGE(Predictions[model_score])
 \t\tformatString: 0.000
 
+\tmeasure 'Threshold scatter score' =
+\t\tVAR AuditScore = MAXX(RELATEDTABLE(Cases), Cases[oof_p_decline])
+\t\tVAR SelectedThreshold = [Threshold value]
+\t\tRETURN IF(NOT(ISBLANK(AuditScore)) && AuditScore >= SelectedThreshold, SELECTEDVALUE(Predictions[model_score]), BLANK())
+\t\tformatString: 0.000
+
 """
     if table=='Explanations':measures="\tmeasure 'SHAP contribution' = SUM(Explanations[shap_value])\n\t\tformatString: 0.000\n\n"
-    if table=='Cases':measures="\tmeasure 'Audit case match' = IF(MAX(Cases[oof_p_decline]) >= [Threshold value], 1, 0)\n\t\tformatString: 0\n\n\tmeasure 'Flagged cases' = COUNTROWS(FILTER(Cases, Cases[oof_p_decline] >= [Threshold value]))\n\t\tformatString: 0\n\n"
+    if table=='Cases':measures="\tmeasure 'Audit case match' = IF(MAX(Cases[oof_p_decline]) >= [Threshold value], 1, 0)\n\t\tformatString: 0\n\n\tmeasure 'Flagged cases' = SUMX(Cases, IF(Cases[oof_p_decline] >= [Threshold value], 1, 0))\n\t\tformatString: 0\n\n"
     text=f'table {table}\n\n'+measures
     for col in list(df)+['observation_id']:
         dtype='string' if col=='observation_id' or not pd.api.types.is_numeric_dtype(df[col]) else ('int64' if pd.api.types.is_integer_dtype(df[col]) else 'double')
