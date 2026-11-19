@@ -97,6 +97,17 @@ def test_audit_threshold_dropdown_drives_queue():
     assert sort['direction'] == 'Descending'
 
 
+def test_visual_filters_marked_user_created():
+    # Desktop writes howCreated: "User" on filter items and can silently
+    # ignore filters without it (regression pin for the queue-table fix).
+    found = False
+    for vf, doc in visual_docs():
+        for flt in doc.get('filterConfig', {}).get('filters', []):
+            found = True
+            assert flt.get('howCreated') == 'User', f'{vf}: filter missing howCreated'
+    assert found, 'no visual-level filters found'
+
+
 def test_audit_queue_matches_predictions_csv():
     import pandas as pd
     pred = pd.read_csv(ROOT / 'dashboard' / 'predictions.csv')
