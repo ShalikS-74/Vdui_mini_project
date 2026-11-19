@@ -15,6 +15,16 @@ table Predictions
 		RETURN IF(NOT(ISBLANK(RowScore)) && RowOutcome = 0 && RowScore >= [Threshold value], RowScore, BLANK())
 		formatString: 0.000
 
+	measure 'In audit queue' = IF(MAX(Predictions[model_score]) >= [Threshold value] && MAX(Predictions[contraction]) = 0, 1, 0)
+		formatString: 0
+
+	measure 'Row score' = MAX(Predictions[model_score])
+		formatString: 0.000
+
+	measure 'In 0.70 review set' = IF(COALESCE(COUNTROWS(Cases), 0) > 0, "yes", "no")
+
+	measure 'Review set note' = MAX(Cases[note])
+
 	column nga
 		dataType: string
 		summarizeBy: none

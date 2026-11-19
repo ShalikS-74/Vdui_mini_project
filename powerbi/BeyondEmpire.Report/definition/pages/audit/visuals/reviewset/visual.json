@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "reviewset",
+  "position": {
+    "x": 700,
+    "y": 132,
+    "z": 0,
+    "width": 220,
+    "height": 82,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "card",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cases"
+                    }
+                  },
+                  "Property": "Review-set rows in queue"
+                }
+              },
+              "queryRef": "Cases.Review-set rows in queue"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Of which in the 0.70 review set'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

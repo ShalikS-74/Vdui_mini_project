@@ -1,6 +1,7 @@
 """Generate a version-controlled PBIP candidate. Desktop render is required."""
 from pathlib import Path
 import json
+import shutil
 import pandas as pd
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'powerbi'
@@ -21,10 +22,18 @@ write('BeyondEmpire.Report/definition/pages/pages.json',{'$schema':schema('pages
 for page,title in [('explorer','Historical explorer'),('audit','False-positive audit'),('thresholds','Threshold results')]:
     write(f'BeyondEmpire.Report/definition/pages/{page}/page.json',{'$schema':schema('page','1.4.0'),'name':page,'displayName':title,'displayOption':'FitToPage','width':1280,'height':800})
 def field(table,col,measure=False):return {('Measure' if measure else 'Column'):{'Expression':{'SourceRef':{'Entity':table}},'Property':col}}
-def projection(table,col,measure=False):return {'field':field(table,col,measure),'queryRef':f'{table}.{col}'}
-def visual(page,name,kind,x,y,w,h,roles=None,text=None,title=None,tab=0,font_size='11pt',font_weight=None,objects=None,filter_config=None):
+def projection(table,col,measure=False,display=None):
+    p={'field':field(table,col,measure),'queryRef':f'{table}.{col}'}
+    if display:p['displayName']=display
+    return p
+def reset_visuals(page):
+    d=OUT/f'BeyondEmpire.Report/definition/pages/{page}/visuals'
+    if d.exists():shutil.rmtree(d)
+def visual(page,name,kind,x,y,w,h,roles=None,text=None,title=None,tab=0,font_size='11pt',font_weight=None,objects=None,filter_config=None,sort_definition=None):
     v={'visualType':kind,'drillFilterOtherVisuals':True}
-    if roles:v['query']={'queryState':{role:{'projections':cols} for role,cols in roles.items()}}
+    if roles:
+        v['query']={'queryState':{role:{'projections':cols} for role,cols in roles.items()}}
+        if sort_definition:v['query']['sortDefinition']=sort_definition
     if text:
         text_style={'fontSize':font_size,'fontFamily':'Segoe UI'}
         if font_weight:text_style['fontWeight']=font_weight
@@ -40,6 +49,7 @@ def visual(page,name,kind,x,y,w,h,roles=None,text=None,title=None,tab=0,font_siz
     if filter_config:
         out['filterConfig']=filter_config
     write(f'BeyondEmpire.Report/definition/pages/{page}/visuals/{name}/visual.json',out)
+reset_visuals('explorer')
 visual('explorer','caption','textbox',32,24,1216,42,text='BEYOND THE EMPIRE  /  HISTORICAL EXPLORER',font_size='22pt',font_weight='bold',tab=0)
 visual('explorer','context','textbox',32,72,1216,38,text='Inspect one held-out observation at a time. Scores rank model outputs; they are not probabilities or historical causes.',font_size='11pt',tab=1)
 visual('explorer','polity','slicer',32,132,320,150,{'Values':[projection('Predictions','polity')]},title='1  Select a polity',tab=2)
@@ -47,28 +57,38 @@ visual('explorer','year','slicer',368,132,260,150,{'Values':[projection('Predict
 visual('explorer','score','card',644,132,604,150,{'Values':[projection('Predictions','Selected score',True)]},title='Selected held-out score  •  uncalibrated',tab=4)
 visual('explorer','shap','barChart',32,316,720,444,{'Category':[projection('Explanations','feature')],'Y':[projection('Explanations','SHAP contribution',True)]},title='Why the model gave this score  •  SHAP contribution (log-odds)',tab=5)
 visual('explorer','observed','tableEx',776,316,472,444,{'Values':[projection('Predictions',x) for x in ['polity','time_t','outcome','model_score']]},title='Held-out observations  •  filtered by selection',tab=6)
+reset_visuals('audit')
 visual('audit','caption','textbox',32,24,1216,42,text='BEYOND THE EMPIRE  /  FALSE-POSITIVE AUDIT',font_size='22pt',font_weight='bold',tab=0)
-visual('audit','context','textbox',32,72,1216,38,text='A review queue for rows with a high model score and no observed contraction. Historical verdicts remain pending sourced manual review.',font_size='11pt',tab=1)
-threshold_objects={'data':[{'properties':{'mode':{'expr':{'Literal':{'Value':"'Dropdown'"}}}}}]}
+visual('audit','context','textbox',32,72,1216,38,text='Pick an audit threshold from the dropdown. The cards, queue table and scatter all update together to show the review queue at that cutoff.',font_size='11pt',tab=1)
+threshold_objects={'data':[{'properties':{'mode':{'expr':{'Literal':{'Value':"'Dropdown'"}}}}}],'selection':[{'properties':{'singleSelect':{'expr':{'Literal':{'Value':'true'}}}}}]}
 visual('audit','threshold','slicer',32,132,220,82,{'Values':[projection('Threshold','Threshold')]},title='Audit threshold',tab=2,objects=threshold_objects)
-visual('audit','queuecount','card',268,132,220,82,{'Values':[projection('Predictions','Audit queue rows',True)]},title='Rows in current queue',tab=3)
-visual('audit','reviewnote','textbox',504,132,744,82,text='AUDIT RULE  •  Score at or above the selected threshold and no observed contraction. The queue card and scatter count every held-out row; the case table lists the fixed 0.70 review set, all pending sourced review.',font_size='11pt',font_weight='bold',tab=4)
-case_filter={'filters':[{
-    'name':'audit_threshold_filter',
-    'field':{'Measure':{'Expression':{'SourceRef':{'Entity':'Cases'}},'Property':'Audit case match'}},
+visual('audit','selected','card',268,132,200,82,{'Values':[projection('Threshold','Threshold value',True)]},title='Selected threshold',tab=3)
+visual('audit','queuecount','card',484,132,200,82,{'Values':[projection('Predictions','Audit queue rows',True)]},title='Rows in current queue',tab=4)
+visual('audit','reviewset','card',700,132,220,82,{'Values':[projection('Cases','Review-set rows in queue',True)]},title='Of which in the 0.70 review set',tab=5)
+visual('audit','reviewnote','textbox',936,132,312,82,text='AUDIT RULE  •  Score at or above the selected threshold and no observed contraction. Verdicts remain pending sourced manual review.',font_size='11pt',font_weight='bold',tab=6)
+queue_filter={'filters':[{
+    'name':'audit_queue_filter',
+    'field':{'Measure':{'Expression':{'SourceRef':{'Entity':'Predictions'}},'Property':'In audit queue'}},
     'type':'Advanced',
     'filter':{
         'Version':2,
-        'From':[{'Name':'C','Entity':'Cases','Type':0}],
+        'From':[{'Name':'P','Entity':'Predictions','Type':0}],
         'Where':[{'Condition':{'Comparison':{
             'ComparisonKind':0,
-            'Left':{'Measure':{'Expression':{'SourceRef':{'Source':'C'}},'Property':'Audit case match'}},
+            'Left':{'Measure':{'Expression':{'SourceRef':{'Source':'P'}},'Property':'In audit queue'}},
             'Right':{'Literal':{'Value':'1L'}}
         }}}]
     }
 }]}
-visual('audit','cases','tableEx',32,218,1216,270,{'Values':[projection('Cases',x) for x in ['polity','century','oof_p_decline','true_label','type','note']]},title='Flagged rows  •  all pending historical review',tab=5,filter_config=case_filter)
-visual('audit','scatter','scatterChart',32,516,1216,244,{'Details':[projection('Predictions','observation_id')],'X':[projection('Predictions','time_t')],'Y':[projection('Predictions','Threshold scatter score',True)]},title='Score by observed year  •  use the threshold slider to update the audit queue',tab=6)
+visual('audit','queue','tableEx',32,226,1216,280,{'Values':[
+    projection('Predictions','polity',display='Polity'),
+    projection('Predictions','time_t',display='Observed year'),
+    projection('Predictions','Row score',True,display='Model score'),
+    projection('Predictions','outcome',display='Observed outcome'),
+    projection('Predictions','In 0.70 review set',True),
+    projection('Predictions','Review set note',True)]},title='Audit queue at the selected threshold  •  every held-out row, highest scores first',tab=7,filter_config=queue_filter,sort_definition={'sort':[{'field':field('Predictions','Row score',True),'direction':'Descending'}],'isDefaultSort':True})
+visual('audit','scatter','scatterChart',32,522,1216,238,{'Details':[projection('Predictions','observation_id')],'X':[projection('Predictions','time_t')],'Y':[projection('Predictions','Threshold scatter score',True)]},title='Score by observed year  •  only queue rows at the selected threshold are plotted',tab=8)
+reset_visuals('thresholds')
 visual('thresholds','caption','textbox',32,24,1216,42,text='BEYOND THE EMPIRE  /  THRESHOLD RESULTS',font_size='22pt',font_weight='bold',tab=0)
 visual('thresholds','context','textbox',32,72,1216,38,text='One trained model is scored once per held-out row; each audit threshold only re-classifies the same scores. No per-threshold retraining. Exploratory: six observed declines.',font_size='11pt',tab=1)
 visual('thresholds','model','slicer',32,132,220,120,{'Values':[projection('ThresholdResults','model')]},title='Model',tab=2)
@@ -106,9 +126,19 @@ for table,file in [('Predictions','predictions.csv'),('Explanations','shap_long.
 \t\tRETURN IF(NOT(ISBLANK(RowScore)) && RowOutcome = 0 && RowScore >= [Threshold value], RowScore, BLANK())
 \t\tformatString: 0.000
 
+\tmeasure 'In audit queue' = IF(MAX(Predictions[model_score]) >= [Threshold value] && MAX(Predictions[contraction]) = 0, 1, 0)
+\t\tformatString: 0
+
+\tmeasure 'Row score' = MAX(Predictions[model_score])
+\t\tformatString: 0.000
+
+\tmeasure 'In 0.70 review set' = IF(COALESCE(COUNTROWS(Cases), 0) > 0, "yes", "no")
+
+\tmeasure 'Review set note' = MAX(Cases[note])
+
 """
     if table=='Explanations':measures="\tmeasure 'SHAP contribution' = SUM(Explanations[shap_value])\n\t\tformatString: 0.000\n\n"
-    if table=='Cases':measures="\tmeasure 'Audit case match' = IF(MAX(Cases[oof_p_decline]) >= [Threshold value], 1, 0)\n\t\tformatString: 0\n\n"
+    if table=='Cases':measures="\tmeasure 'Audit case match' = IF(MAX(Cases[oof_p_decline]) >= [Threshold value], 1, 0)\n\t\tformatString: 0\n\n\tmeasure 'Review-set rows in queue' = COUNTROWS(FILTER(Cases, Cases[oof_p_decline] >= [Threshold value]))\n\t\tformatString: 0\n\n"
     text=f'table {table}\n\n'+measures
     for col in list(df)+['observation_id']:
         dtype='string' if col=='observation_id' or not pd.api.types.is_numeric_dtype(df[col]) else ('int64' if pd.api.types.is_integer_dtype(df[col]) else 'double')

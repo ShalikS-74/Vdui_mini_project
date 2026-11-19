@@ -3,11 +3,11 @@
   "name": "scatter",
   "position": {
     "x": 32,
-    "y": 516,
+    "y": 522,
     "z": 0,
     "width": 1216,
-    "height": 244,
-    "tabOrder": 6
+    "height": 238,
+    "tabOrder": 8
   },
   "visual": {
     "visualType": "scatterChart",
@@ -81,7 +81,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Score by observed year  \u2022  use the threshold slider to update the audit queue'"
+                  "Value": "'Score by observed year  \u2022  only queue rows at the selected threshold are plotted'"
                 }
               }
             }

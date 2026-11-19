@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
-  "name": "cases",
+  "name": "queue",
   "position": {
     "x": 32,
-    "y": 218,
+    "y": 226,
     "z": 0,
     "width": 1216,
-    "height": 270,
-    "tabOrder": 5
+    "height": 280,
+    "tabOrder": 7
   },
   "visual": {
     "visualType": "tableEx",
@@ -21,81 +21,103 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Cases"
+                      "Entity": "Predictions"
                     }
                   },
                   "Property": "polity"
                 }
               },
-              "queryRef": "Cases.polity"
+              "queryRef": "Predictions.polity",
+              "displayName": "Polity"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Cases"
+                      "Entity": "Predictions"
                     }
                   },
-                  "Property": "century"
+                  "Property": "time_t"
                 }
               },
-              "queryRef": "Cases.century"
+              "queryRef": "Predictions.time_t",
+              "displayName": "Observed year"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Predictions"
+                    }
+                  },
+                  "Property": "Row score"
+                }
+              },
+              "queryRef": "Predictions.Row score",
+              "displayName": "Model score"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Cases"
+                      "Entity": "Predictions"
                     }
                   },
-                  "Property": "oof_p_decline"
+                  "Property": "outcome"
                 }
               },
-              "queryRef": "Cases.oof_p_decline"
+              "queryRef": "Predictions.outcome",
+              "displayName": "Observed outcome"
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Cases"
+                      "Entity": "Predictions"
                     }
                   },
-                  "Property": "true_label"
+                  "Property": "In 0.70 review set"
                 }
               },
-              "queryRef": "Cases.true_label"
+              "queryRef": "Predictions.In 0.70 review set"
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Cases"
+                      "Entity": "Predictions"
                     }
                   },
-                  "Property": "type"
+                  "Property": "Review set note"
                 }
               },
-              "queryRef": "Cases.type"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Cases"
-                    }
-                  },
-                  "Property": "note"
-                }
-              },
-              "queryRef": "Cases.note"
+              "queryRef": "Predictions.Review set note"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Predictions"
+                  }
+                },
+                "Property": "Row score"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "visualContainerObjects": {
@@ -112,7 +134,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Flagged rows  \u2022  all pending historical review'"
+                  "Value": "'Audit queue at the selected threshold  \u2022  every held-out row, highest scores first'"
                 }
               }
             }
@@ -124,15 +146,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "audit_threshold_filter",
+        "name": "audit_queue_filter",
         "field": {
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Cases"
+                "Entity": "Predictions"
               }
             },
-            "Property": "Audit case match"
+            "Property": "In audit queue"
           }
         },
         "type": "Advanced",
@@ -140,8 +162,8 @@
           "Version": 2,
           "From": [
             {
-              "Name": "C",
-              "Entity": "Cases",
+              "Name": "P",
+              "Entity": "Predictions",
               "Type": 0
             }
           ],
@@ -154,10 +176,10 @@
                     "Measure": {
                       "Expression": {
                         "SourceRef": {
-                          "Source": "C"
+                          "Source": "P"
                         }
                       },
-                      "Property": "Audit case match"
+                      "Property": "In audit queue"
                     }
                   },
                   "Right": {
