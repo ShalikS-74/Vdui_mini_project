@@ -4,5 +4,63 @@
   "displayName": "False-positive audit",
   "displayOption": "FitToPage",
   "width": 1280,
-  "height": 800
+  "height": 800,
+  "visualInteractions": [
+    {
+      "source": "cases",
+      "target": "queuecount",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cases",
+      "target": "summary",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cases",
+      "target": "scatter",
+      "type": "HighlightFilter"
+    },
+    {
+      "source": "scatter",
+      "target": "queuecount",
+      "type": "NoFilter"
+    },
+    {
+      "source": "scatter",
+      "target": "summary",
+      "type": "NoFilter"
+    },
+    {
+      "source": "scatter",
+      "target": "cases",
+      "type": "NoFilter"
+    }
+  ],
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F3F6FA'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
 }

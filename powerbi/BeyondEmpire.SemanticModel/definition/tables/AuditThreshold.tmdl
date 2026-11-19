@@ -1,0 +1,15 @@
+table AuditThreshold
+
+	column Value
+		dataType: double
+		summarizeBy: none
+		sourceColumn: Value
+
+	partition AuditThreshold = m
+		mode: import
+		source =
+			let
+			    Source = #table({"Value"}, {{0.3}, {0.5}, {0.7}, {0.75}, {0.8}, {0.85}, {0.9}}),
+			    Typed = Table.TransformColumnTypes(Source, {{"Value", type number}})
+			in
+			    Typed

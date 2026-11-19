@@ -3,11 +3,11 @@
   "name": "threshold",
   "position": {
     "x": 32,
-    "y": 132,
+    "y": 84,
     "z": 0,
-    "width": 220,
-    "height": 82,
-    "tabOrder": 2
+    "width": 300,
+    "height": 96,
+    "tabOrder": 1
   },
   "visual": {
     "visualType": "slicer",
@@ -21,13 +21,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Threshold"
+                      "Entity": "AuditThreshold"
                     }
                   },
-                  "Property": "Threshold"
+                  "Property": "Value"
                 }
               },
-              "queryRef": "Threshold.Threshold"
+              "queryRef": "AuditThreshold.Value"
             }
           ]
         }
@@ -47,7 +47,94 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Audit threshold'"
+                  "Value": "'1. Pick the threshold'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#12355B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D5DDE8'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
                 }
               }
             }

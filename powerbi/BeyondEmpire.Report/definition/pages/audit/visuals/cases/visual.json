@@ -3,11 +3,11 @@
   "name": "cases",
   "position": {
     "x": 32,
-    "y": 218,
+    "y": 196,
     "z": 0,
-    "width": 1216,
-    "height": 270,
-    "tabOrder": 5
+    "width": 600,
+    "height": 544,
+    "tabOrder": 3
   },
   "visual": {
     "visualType": "tableEx",
@@ -21,78 +21,52 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Cases"
+                      "Entity": "Predictions"
                     }
                   },
                   "Property": "polity"
                 }
               },
-              "queryRef": "Cases.polity"
+              "queryRef": "Predictions.polity"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Cases"
+                      "Entity": "Predictions"
                     }
                   },
-                  "Property": "century"
+                  "Property": "time_t"
                 }
               },
-              "queryRef": "Cases.century"
+              "queryRef": "Predictions.time_t"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Cases"
+                      "Entity": "Predictions"
                     }
                   },
                   "Property": "oof_p_decline"
                 }
               },
-              "queryRef": "Cases.oof_p_decline"
+              "queryRef": "Predictions.oof_p_decline"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Cases"
+                      "Entity": "Predictions"
                     }
                   },
-                  "Property": "true_label"
+                  "Property": "outcome"
                 }
               },
-              "queryRef": "Cases.true_label"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Cases"
-                    }
-                  },
-                  "Property": "type"
-                }
-              },
-              "queryRef": "Cases.type"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Cases"
-                    }
-                  },
-                  "Property": "note"
-                }
-              },
-              "queryRef": "Cases.note"
+              "queryRef": "Predictions.outcome"
             }
           ]
         }
@@ -112,7 +86,140 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Flagged rows  \u2022  all pending historical review'"
+                  "Value": "'3. Audit table'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#12355B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D5DDE8'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#12355B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
                 }
               }
             }
@@ -129,7 +236,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Cases"
+                "Entity": "Predictions"
               }
             },
             "Property": "Audit case match"
@@ -141,7 +248,7 @@
           "From": [
             {
               "Name": "C",
-              "Entity": "Cases",
+              "Entity": "Predictions",
               "Type": 0
             }
           ],

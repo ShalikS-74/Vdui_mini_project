@@ -1,1 +1,1 @@
-expression DataRoot = "E:\code\contribution\vdui\dashboard" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+expression DataRoot = "C:\Users\Spoorthi AN\Vdui_mini_project\dashboard" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
