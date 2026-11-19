@@ -83,10 +83,16 @@ def test_audit_threshold_dropdown_drives_queue():
     single = slicer['visual']['objects']['selection'][0]['properties']['singleSelect']['expr']['Literal']['Value']
     assert single == 'true'
     assert 'In audit queue' in tables['Predictions']['Measure']
+    assert 'In original 0.70 case set' in tables['Predictions']['Measure']
+    assert 'Case note (pending review)' in tables['Predictions']['Measure']
+    assert 'Case-set rows in queue' in tables['Cases']['Measure']
     queue = json.loads((DEF / 'pages' / 'audit' / 'visuals' / 'queue' / 'visual.json').read_text())
     used = {node['Property'] for _, node, _ in refs(queue)
             if node['Expression'].get('SourceRef', {}).get('Entity') == 'Predictions'}
     assert 'In audit queue' in used
+    projections = queue['visual']['query']['queryState']['Values']['projections']
+    outcome = next(p for p in projections if p['queryRef'] == 'Predictions.outcome')
+    assert outcome['displayName'] == 'Observed outcome (area proxy)'
     sort = queue['visual']['query']['sortDefinition']['sort'][0]
     assert sort['direction'] == 'Descending'
 

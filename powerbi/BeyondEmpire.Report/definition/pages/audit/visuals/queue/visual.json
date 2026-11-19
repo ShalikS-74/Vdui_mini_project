@@ -70,7 +70,7 @@
                 }
               },
               "queryRef": "Predictions.outcome",
-              "displayName": "Observed outcome"
+              "displayName": "Observed outcome (area proxy)"
             },
             {
               "field": {
@@ -80,10 +80,10 @@
                       "Entity": "Predictions"
                     }
                   },
-                  "Property": "In 0.70 review set"
+                  "Property": "In original 0.70 case set"
                 }
               },
-              "queryRef": "Predictions.In 0.70 review set"
+              "queryRef": "Predictions.In original 0.70 case set"
             },
             {
               "field": {
@@ -93,10 +93,10 @@
                       "Entity": "Predictions"
                     }
                   },
-                  "Property": "Review set note"
+                  "Property": "Case note (pending review)"
                 }
               },
-              "queryRef": "Predictions.Review set note"
+              "queryRef": "Predictions.Case note (pending review)"
             }
           ]
         }
@@ -134,7 +134,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Audit queue at the selected threshold  \u2022  every held-out row, highest scores first'"
+                  "Value": "'Audit queue at the selected threshold  \u2022  high score, no observed contraction, highest scores first'"
                 }
               }
             }

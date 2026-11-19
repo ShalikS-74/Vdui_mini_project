@@ -20,7 +20,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "AUDIT RULE  \u2022  Score at or above the selected threshold and no observed contraction. Verdicts remain pending sourced manual review.",
+                    "value": "AUDIT RULE  \u2022  Score at or above the selected threshold and no observed contraction. Flagged case-set rows remain pending sourced historical review.",
                     "textStyle": {
                       "fontSize": "11pt",
                       "fontFamily": "Segoe UI",

@@ -21,9 +21,9 @@ table Predictions
 	measure 'Row score' = MAX(Predictions[model_score])
 		formatString: 0.000
 
-	measure 'In 0.70 review set' = IF(COALESCE(COUNTROWS(Cases), 0) > 0, "yes", "no")
+	measure 'In original 0.70 case set' = IF(COALESCE(COUNTROWS(Cases), 0) > 0, "yes", "no")
 
-	measure 'Review set note' = MAX(Cases[note])
+	measure 'Case note (pending review)' = MAX(Cases[note])
 
 	column nga
 		dataType: string

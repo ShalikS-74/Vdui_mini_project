@@ -24,10 +24,10 @@
                       "Entity": "Cases"
                     }
                   },
-                  "Property": "Review-set rows in queue"
+                  "Property": "Case-set rows in queue"
                 }
               },
-              "queryRef": "Cases.Review-set rows in queue"
+              "queryRef": "Cases.Case-set rows in queue"
             }
           ]
         }
@@ -47,7 +47,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Of which in the 0.70 review set'"
+                  "Value": "'Of which in the original 0.70 case set'"
                 }
               }
             }

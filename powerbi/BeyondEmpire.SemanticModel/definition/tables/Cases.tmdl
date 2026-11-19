@@ -3,7 +3,7 @@ table Cases
 	measure 'Audit case match' = IF(MAX(Cases[oof_p_decline]) >= [Threshold value], 1, 0)
 		formatString: 0
 
-	measure 'Review-set rows in queue' = COUNTROWS(FILTER(Cases, Cases[oof_p_decline] >= [Threshold value]))
+	measure 'Case-set rows in queue' = COUNTROWS(FILTER(Cases, Cases[oof_p_decline] >= [Threshold value]))
 		formatString: 0
 
 	column polity
