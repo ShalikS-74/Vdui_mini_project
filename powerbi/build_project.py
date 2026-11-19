@@ -70,7 +70,7 @@ visual('audit','scatter','scatterChart',32,510,1216,250,{'Details':[projection('
 model=OUT/'BeyondEmpire.SemanticModel/definition';model.mkdir(parents=True,exist_ok=True)
 (model/'database.tmdl').write_text('database\n\tcompatibilityLevel: 1601\n')
 (model/'model.tmdl').write_text('model Model\n\tculture: en-US\n\tdefaultPowerBIDataSourceVersion: powerBI_V3\n\tsourceQueryCulture: en-US\n\nref table Predictions\nref table Explanations\nref table Cases\nref table Threshold\n\nref expression DataRoot\n')
-(model/'expressions.tmdl').write_text('expression DataRoot = "C:\\CHANGE_ME\\Vdui_mini_project\\dashboard" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]\n')
+(model/'expressions.tmdl').write_text('expression DataRoot = "C:\\Users\\Spoorthi AN\\Vdui_mini_project\\dashboard" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]\n')
 (model/'relationships.tmdl').write_text('relationship explanation_to_observation\n\tfromColumn: Explanations.observation_id\n\ttoColumn: Predictions.observation_id\n\nrelationship case_to_observation\n\tfromColumn: Cases.observation_id\n\ttoColumn: Predictions.observation_id\n')
 for table,file in [('Predictions','predictions.csv'),('Explanations','shap_long.csv'),('Cases','fp_cases.csv')]:
     df=pd.read_csv(ROOT/'dashboard'/file)
