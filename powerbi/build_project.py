@@ -48,11 +48,9 @@ visual('explorer','score','card',644,132,604,150,{'Values':[projection('Predicti
 visual('explorer','shap','barChart',32,316,720,444,{'Category':[projection('Explanations','feature')],'Y':[projection('Explanations','SHAP contribution',True)]},title='Why the model gave this score  •  SHAP contribution (log-odds)',tab=5)
 visual('explorer','observed','tableEx',776,316,472,444,{'Values':[projection('Predictions',x) for x in ['polity','time_t','outcome','model_score']]},title='Held-out observations  •  filtered by selection',tab=6)
 visual('audit','caption','textbox',32,24,1216,42,text='BEYOND THE EMPIRE  /  FALSE-POSITIVE AUDIT',font_size='22pt',font_weight='bold',tab=0)
-visual('audit','context','textbox',32,72,1216,38,text='A review queue for rows with a high model score and no observed contraction. Historical verdicts remain pending sourced manual review.',font_size='11pt',tab=1)
 threshold_objects={'data':[{'properties':{'mode':{'expr':{'Literal':{'Value':"'Dropdown'"}}}}}]}
-visual('audit','threshold','slicer',32,132,220,82,{'Values':[projection('Threshold','Threshold')]},title='Audit threshold',tab=2,objects=threshold_objects)
-visual('audit','queuecount','card',268,132,220,82,{'Values':[projection('Predictions','Audit queue rows',True)]},title='Rows in current queue',tab=3)
-visual('audit','reviewnote','textbox',504,132,744,82,text='AUDIT RULE  •  Score at or above the selected threshold and no observed contraction. Non-contraction is not proof of genuine survival.',font_size='11pt',font_weight='bold',tab=4)
+visual('audit','threshold','slicer',32,88,220,82,{'Values':[projection('Threshold','Threshold')]},title='Audit threshold',tab=1,objects=threshold_objects)
+visual('audit','queuecount','card',268,88,220,82,{'Values':[projection('Cases','Flagged cases',True)]},title='Flagged cases',tab=2)
 case_filter={'filters':[{
     'name':'audit_threshold_filter',
     'field':{'Measure':{'Expression':{'SourceRef':{'Entity':'Cases'}},'Property':'Audit case match'}},
@@ -67,8 +65,7 @@ case_filter={'filters':[{
         }}}]
     }
 }]}
-visual('audit','cases','tableEx',32,218,1216,270,{'Values':[projection('Cases',x) for x in ['polity','century','oof_p_decline','true_label','type','note']]},title='Flagged rows  •  all pending historical review',tab=5,filter_config=case_filter)
-visual('audit','scatter','scatterChart',32,516,1216,244,{'Details':[projection('Predictions','observation_id')],'X':[projection('Predictions','time_t')],'Y':[projection('Predictions','Threshold scatter score',True)]},title='Score by observed year  •  use the threshold slider to update the audit queue',tab=6)
+visual('audit','cases','tableEx',32,190,1216,560,{'Values':[projection('Cases',x) for x in ['polity','century','oof_p_decline','true_label']]},title='Cases at or above the threshold',tab=3,filter_config=case_filter)
 model=OUT/'BeyondEmpire.SemanticModel/definition';model.mkdir(parents=True,exist_ok=True)
 (model/'database.tmdl').write_text('database\n\tcompatibilityLevel: 1601\n')
 (model/'model.tmdl').write_text('model Model\n\tculture: en-US\n\tdefaultPowerBIDataSourceVersion: powerBI_V3\n\tsourceQueryCulture: en-US\n\nref table Predictions\nref table Explanations\nref table Cases\nref table Threshold\n\nref expression DataRoot\n')
@@ -84,18 +81,9 @@ for table,file in [('Predictions','predictions.csv'),('Explanations','shap_long.
 \tmeasure 'Mean model score' = AVERAGE(Predictions[model_score])
 \t\tformatString: 0.000
 
-\tmeasure 'Audit queue rows' = COUNTROWS(FILTER(Cases, Cases[oof_p_decline] >= [Threshold value]))
-\t\tformatString: 0
-
-\tmeasure 'Threshold scatter score' =
-\t\tVAR AuditScore = MAXX(RELATEDTABLE(Cases), Cases[oof_p_decline])
-\t\tVAR SelectedThreshold = [Threshold value]
-\t\tRETURN IF(NOT(ISBLANK(AuditScore)) && AuditScore >= SelectedThreshold, SELECTEDVALUE(Predictions[model_score]), BLANK())
-\t\tformatString: 0.000
-
 """
     if table=='Explanations':measures="\tmeasure 'SHAP contribution' = SUM(Explanations[shap_value])\n\t\tformatString: 0.000\n\n"
-    if table=='Cases':measures="\tmeasure 'Audit case match' = IF(MAX(Cases[oof_p_decline]) >= [Threshold value], 1, 0)\n\t\tformatString: 0\n\n"
+    if table=='Cases':measures="\tmeasure 'Audit case match' = IF(MAX(Cases[oof_p_decline]) >= [Threshold value], 1, 0)\n\t\tformatString: 0\n\n\tmeasure 'Flagged cases' = COUNTROWS(FILTER(Cases, Cases[oof_p_decline] >= [Threshold value]))\n\t\tformatString: 0\n\n"
     text=f'table {table}\n\n'+measures
     for col in list(df)+['observation_id']:
         dtype='string' if col=='observation_id' or not pd.api.types.is_numeric_dtype(df[col]) else ('int64' if pd.api.types.is_integer_dtype(df[col]) else 'double')

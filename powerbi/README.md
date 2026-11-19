@@ -12,16 +12,13 @@ The TMDL semantic model and rendering have not been executed in Power BI Desktop
 3. Open the PBIP and refresh. Check typed Predictions, Explanations and Cases.
 4. Confirm observation_id uniqueness in Predictions and one-to-many relationships
    to Explanations and Cases. All use polity|year, derived in Power Query.
-5. Inspect both pages: polity/year slicers, selected-score card, SHAP bars,
-   observation table, false-positive review table and the score-by-year scatter
-   (points at or above 0.70 without a decline outcome are the audit queue).
-   On the False-positive audit page, use the **Audit threshold** slicer to adjust
-   the queue from 30% to 90%. The queue card and scatter update to the selected
-   threshold. The audit threshold slicer is a dropdown with four options (30%, 50%,
-   70%, 90%); the default with nothing selected is 70%. The case table is filtered
-   by `Cases[oof_p_decline]` and the scatter is filtered by matching audit cases.
-   Select exactly one polity and year for a single score; a multi-row selection
-   intentionally returns blank.
+5. Inspect both pages: polity/year slicers, selected-score card, SHAP bars and
+   observation table on the explorer page. The False-positive audit page has
+   three parts: the **Audit threshold** dropdown (30%, 50%, 70%, 90%; default
+   70% when nothing is selected), a card with the number of flagged cases, and a
+   table of the cases at or above the threshold (`Cases[oof_p_decline]`).
+   Select exactly one polity and year for a single score on the explorer page;
+   a multi-row selection intentionally returns blank.
 6. Check that selection filters the exact OOF SHAP row; log-odds explanations must
    reconstruct that score. Check pending historical-review status and captions.
 7. Inspect pixels at 100% and fit-to-page, fix any Desktop issues, then save as

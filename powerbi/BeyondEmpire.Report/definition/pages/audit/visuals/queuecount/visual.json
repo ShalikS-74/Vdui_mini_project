@@ -3,11 +3,11 @@
   "name": "queuecount",
   "position": {
     "x": 268,
-    "y": 132,
+    "y": 88,
     "z": 0,
     "width": 220,
     "height": 82,
-    "tabOrder": 3
+    "tabOrder": 2
   },
   "visual": {
     "visualType": "card",
@@ -21,13 +21,13 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Predictions"
+                      "Entity": "Cases"
                     }
                   },
-                  "Property": "Audit queue rows"
+                  "Property": "Flagged cases"
                 }
               },
-              "queryRef": "Predictions.Audit queue rows"
+              "queryRef": "Cases.Flagged cases"
             }
           ]
         }
@@ -47,7 +47,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Rows in current queue'"
+                  "Value": "'Flagged cases'"
                 }
               }
             }

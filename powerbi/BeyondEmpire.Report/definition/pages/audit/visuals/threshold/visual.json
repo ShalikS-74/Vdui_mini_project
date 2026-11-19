@@ -3,11 +3,11 @@
   "name": "threshold",
   "position": {
     "x": 32,
-    "y": 132,
+    "y": 88,
     "z": 0,
     "width": 220,
     "height": 82,
-    "tabOrder": 2
+    "tabOrder": 1
   },
   "visual": {
     "visualType": "slicer",

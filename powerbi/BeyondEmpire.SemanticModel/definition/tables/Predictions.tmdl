@@ -6,15 +6,6 @@ table Predictions
 	measure 'Mean model score' = AVERAGE(Predictions[model_score])
 		formatString: 0.000
 
-	measure 'Audit queue rows' = COUNTROWS(FILTER(Cases, Cases[oof_p_decline] >= [Threshold value]))
-		formatString: 0
-
-	measure 'Threshold scatter score' =
-		VAR AuditScore = MAXX(RELATEDTABLE(Cases), Cases[oof_p_decline])
-		VAR SelectedThreshold = [Threshold value]
-		RETURN IF(NOT(ISBLANK(AuditScore)) && AuditScore >= SelectedThreshold, SELECTEDVALUE(Predictions[model_score]), BLANK())
-		formatString: 0.000
-
 	column nga
 		dataType: string
 		summarizeBy: none
