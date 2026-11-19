@@ -70,6 +70,7 @@ queue_filter={'filters':[{
     'name':'audit_queue_filter',
     'field':{'Measure':{'Expression':{'SourceRef':{'Entity':'Predictions'}},'Property':'In audit queue'}},
     'type':'Advanced',
+    'howCreated':'User',
     'filter':{
         'Version':2,
         'From':[{'Name':'P','Entity':'Predictions','Type':0}],
