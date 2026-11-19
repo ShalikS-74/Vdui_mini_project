@@ -13,6 +13,12 @@
   "contractions": 6,
   "grouping": "PolID, not verified lineage",
   "fp_threshold": 0.7,
+  "audit_thresholds": [
+    0.5,
+    0.6,
+    0.7,
+    0.8
+  ],
   "score": "uncalibrated",
   "seeds": [
     0,
