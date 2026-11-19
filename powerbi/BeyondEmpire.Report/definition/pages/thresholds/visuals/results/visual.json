@@ -1,0 +1,215 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "results",
+  "position": {
+    "x": 32,
+    "y": 268,
+    "z": 0,
+    "width": 1216,
+    "height": 240,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "protocol"
+                }
+              },
+              "queryRef": "ThresholdResults.protocol"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "model"
+                }
+              },
+              "queryRef": "ThresholdResults.model"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "seed"
+                }
+              },
+              "queryRef": "ThresholdResults.seed"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "threshold"
+                }
+              },
+              "queryRef": "ThresholdResults.threshold"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "n"
+                }
+              },
+              "queryRef": "ThresholdResults.n"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "tp"
+                }
+              },
+              "queryRef": "ThresholdResults.tp"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "fp"
+                }
+              },
+              "queryRef": "ThresholdResults.fp"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "fn"
+                }
+              },
+              "queryRef": "ThresholdResults.fn"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "tn"
+                }
+              },
+              "queryRef": "ThresholdResults.tn"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "precision"
+                }
+              },
+              "queryRef": "ThresholdResults.precision"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "recall"
+                }
+              },
+              "queryRef": "ThresholdResults.recall"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "f1"
+                }
+              },
+              "queryRef": "ThresholdResults.f1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "audit_queue"
+                }
+              },
+              "queryRef": "ThresholdResults.audit_queue"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Held-out results by threshold  \u2022  per evaluation seed'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

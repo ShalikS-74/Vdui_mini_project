@@ -17,8 +17,8 @@ write('BeyondEmpire.Report/definition.pbir',{'version':'4.0','datasetReference':
 write('BeyondEmpire.SemanticModel/definition.pbism',{'version':'4.2','settings':{}})
 write('BeyondEmpire.Report/definition/version.json',{'$schema':schema('versionMetadata','1.0.0'),'version':'2.0.0'})
 write('BeyondEmpire.Report/definition/report.json',{'$schema':schema('report','1.3.0'),'themeCollection':{'baseTheme':{'name':'CY24SU10','reportVersionAtImport':'5.61','type':'SharedResources'}},'layoutOptimization':'None','settings':{'useEnhancedTooltips':True}})
-write('BeyondEmpire.Report/definition/pages/pages.json',{'$schema':schema('pagesMetadata','1.1.0'),'pageOrder':['explorer','audit'],'activePageName':'explorer'})
-for page,title in [('explorer','Historical explorer'),('audit','False-positive audit')]:
+write('BeyondEmpire.Report/definition/pages/pages.json',{'$schema':schema('pagesMetadata','1.1.0'),'pageOrder':['explorer','audit','thresholds'],'activePageName':'explorer'})
+for page,title in [('explorer','Historical explorer'),('audit','False-positive audit'),('thresholds','Threshold results')]:
     write(f'BeyondEmpire.Report/definition/pages/{page}/page.json',{'$schema':schema('page','1.4.0'),'name':page,'displayName':title,'displayOption':'FitToPage','width':1280,'height':800})
 def field(table,col,measure=False):return {('Measure' if measure else 'Column'):{'Expression':{'SourceRef':{'Entity':table}},'Property':col}}
 def projection(table,col,measure=False):return {'field':field(table,col,measure),'queryRef':f'{table}.{col}'}
@@ -52,7 +52,7 @@ visual('audit','context','textbox',32,72,1216,38,text='A review queue for rows w
 threshold_objects={'data':[{'properties':{'mode':{'expr':{'Literal':{'Value':"'Dropdown'"}}}}}]}
 visual('audit','threshold','slicer',32,132,220,82,{'Values':[projection('Threshold','Threshold')]},title='Audit threshold',tab=2,objects=threshold_objects)
 visual('audit','queuecount','card',268,132,220,82,{'Values':[projection('Predictions','Audit queue rows',True)]},title='Rows in current queue',tab=3)
-visual('audit','reviewnote','textbox',504,132,744,82,text='AUDIT RULE  •  Score at or above the selected threshold and no observed contraction. Non-contraction is not proof of genuine survival.',font_size='11pt',font_weight='bold',tab=4)
+visual('audit','reviewnote','textbox',504,132,744,82,text='AUDIT RULE  •  Score at or above the selected threshold and no observed contraction. The queue card and scatter count every held-out row; the case table lists the fixed 0.70 review set, all pending sourced review.',font_size='11pt',font_weight='bold',tab=4)
 case_filter={'filters':[{
     'name':'audit_threshold_filter',
     'field':{'Measure':{'Expression':{'SourceRef':{'Entity':'Cases'}},'Property':'Audit case match'}},
@@ -69,10 +69,23 @@ case_filter={'filters':[{
 }]}
 visual('audit','cases','tableEx',32,218,1216,270,{'Values':[projection('Cases',x) for x in ['polity','century','oof_p_decline','true_label','type','note']]},title='Flagged rows  •  all pending historical review',tab=5,filter_config=case_filter)
 visual('audit','scatter','scatterChart',32,516,1216,244,{'Details':[projection('Predictions','observation_id')],'X':[projection('Predictions','time_t')],'Y':[projection('Predictions','Threshold scatter score',True)]},title='Score by observed year  •  use the threshold slider to update the audit queue',tab=6)
+visual('thresholds','caption','textbox',32,24,1216,42,text='BEYOND THE EMPIRE  /  THRESHOLD RESULTS',font_size='22pt',font_weight='bold',tab=0)
+visual('thresholds','context','textbox',32,72,1216,38,text='One trained model is scored once per held-out row; each audit threshold only re-classifies the same scores. No per-threshold retraining. Exploratory: six observed declines.',font_size='11pt',tab=1)
+visual('thresholds','model','slicer',32,132,220,120,{'Values':[projection('ThresholdResults','model')]},title='Model',tab=2)
+visual('thresholds','protocol','slicer',268,132,220,120,{'Values':[projection('ThresholdResults','protocol')]},title='Evaluation protocol',tab=3)
+visual('thresholds','means','tableEx',504,132,744,120,{'Values':[projection('ThresholdResults','Mean audit queue',True),projection('ThresholdResults','Mean recall',True),projection('ThresholdResults','Mean precision',True),projection('ThresholdResults','Mean F1',True)]},title='Means across seeds at the selected filters',tab=4)
+visual('thresholds','results','tableEx',32,268,1216,240,{'Values':[projection('ThresholdResults',x) for x in ['protocol','model','seed','threshold','n','tp','fp','fn','tn','precision','recall','f1','audit_queue']]},title='Held-out results by threshold  •  per evaluation seed',tab=5)
+visual('thresholds','queuechart','clusteredColumnChart',32,532,600,228,{'Category':[projection('ThresholdResults','threshold')],'Y':[projection('ThresholdResults','Mean audit queue',True)]},title='False-alarm queue size by threshold  •  mean across seeds',tab=6)
+visual('thresholds','prchart','lineChart',648,532,600,228,{'Category':[projection('ThresholdResults','threshold')],'Y':[projection('ThresholdResults','Mean recall',True),projection('ThresholdResults','Mean precision',True)]},title='Recall and precision by threshold  •  mean across seeds',tab=7)
 model=OUT/'BeyondEmpire.SemanticModel/definition';model.mkdir(parents=True,exist_ok=True)
 (model/'database.tmdl').write_text('database\n\tcompatibilityLevel: 1601\n')
-(model/'model.tmdl').write_text('model Model\n\tculture: en-US\n\tdefaultPowerBIDataSourceVersion: powerBI_V3\n\tsourceQueryCulture: en-US\n\nref table Predictions\nref table Explanations\nref table Cases\nref table Threshold\n\nref expression DataRoot\n')
-(model/'expressions.tmdl').write_text('expression DataRoot = "C:\\CHANGE_ME\\Vdui_mini_project\\dashboard" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]\n')
+(model/'model.tmdl').write_text('model Model\n\tculture: en-US\n\tdefaultPowerBIDataSourceVersion: powerBI_V3\n\tsourceQueryCulture: en-US\n\nref table Predictions\nref table Explanations\nref table Cases\nref table Threshold\nref table ThresholdResults\n\nref expression DataRoot\n')
+existing=model/'expressions.tmdl'
+if existing.exists() and 'CHANGE_ME' not in existing.read_text():
+    data_root=existing.read_text()
+else:
+    data_root='expression DataRoot = "C:\\CHANGE_ME\\Vdui_mini_project\\dashboard" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]\n'
+(model/'expressions.tmdl').write_text(data_root)
 (model/'relationships.tmdl').write_text('relationship explanation_to_observation\n\tfromColumn: Explanations.observation_id\n\ttoColumn: Predictions.observation_id\n\nrelationship case_to_observation\n\tfromColumn: Cases.observation_id\n\ttoColumn: Predictions.observation_id\n')
 for table,file in [('Predictions','predictions.csv'),('Explanations','shap_long.csv'),('Cases','fp_cases.csv')]:
     df=pd.read_csv(ROOT/'dashboard'/file)
@@ -84,13 +97,13 @@ for table,file in [('Predictions','predictions.csv'),('Explanations','shap_long.
 \tmeasure 'Mean model score' = AVERAGE(Predictions[model_score])
 \t\tformatString: 0.000
 
-\tmeasure 'Audit queue rows' = COUNTROWS(FILTER(Cases, Cases[oof_p_decline] >= [Threshold value]))
+\tmeasure 'Audit queue rows' = COUNTROWS(FILTER(Predictions, Predictions[model_score] >= [Threshold value] && Predictions[contraction] = 0))
 \t\tformatString: 0
 
 \tmeasure 'Threshold scatter score' =
-\t\tVAR AuditScore = MAXX(RELATEDTABLE(Cases), Cases[oof_p_decline])
-\t\tVAR SelectedThreshold = [Threshold value]
-\t\tRETURN IF(NOT(ISBLANK(AuditScore)) && AuditScore >= SelectedThreshold, SELECTEDVALUE(Predictions[model_score]), BLANK())
+\t\tVAR RowScore = SELECTEDVALUE(Predictions[model_score])
+\t\tVAR RowOutcome = SELECTEDVALUE(Predictions[contraction])
+\t\tRETURN IF(NOT(ISBLANK(RowScore)) && RowOutcome = 0 && RowScore >= [Threshold value], RowScore, BLANK())
 \t\tformatString: 0.000
 
 """
@@ -129,12 +142,41 @@ for table,file in [('Predictions','predictions.csv'),('Explanations','shap_long.
                 Source = #table(
                     {"Threshold"},
                     {
-                        {0.30}, {0.35}, {0.40}, {0.45}, {0.50},
-                        {0.55}, {0.60}, {0.65}, {0.70}, {0.75},
-                        {0.80}, {0.85}, {0.90}
+                        {0.50}, {0.60}, {0.70}, {0.80}
                     }
                 )
             in
                 Source
 ''')
+tdf=pd.read_csv(ROOT/'dashboard'/'threshold_results.csv')
+ttext='''table ThresholdResults
+
+\tmeasure 'Mean audit queue' = AVERAGE(ThresholdResults[audit_queue])
+\t\tformatString: 0.0
+
+\tmeasure 'Mean recall' = AVERAGE(ThresholdResults[recall])
+\t\tformatString: 0.000
+
+\tmeasure 'Mean precision' = AVERAGE(ThresholdResults[precision])
+\t\tformatString: 0.000
+
+\tmeasure 'Mean F1' = AVERAGE(ThresholdResults[f1])
+\t\tformatString: 0.000
+
+'''
+for col in tdf:
+    dtype='string' if not pd.api.types.is_numeric_dtype(tdf[col]) else ('int64' if pd.api.types.is_integer_dtype(tdf[col]) else 'double')
+    ttext+=f'\tcolumn {col}\n\t\tdataType: {dtype}\n\t\tsummarizeBy: none\n\t\tsourceColumn: {col}\n\n'
+tconv=', '.join('{"'+c+'", '+('Int64.Type' if pd.api.types.is_integer_dtype(tdf[c]) else 'type number' if pd.api.types.is_numeric_dtype(tdf[c]) else 'type text')+'}' for c in tdf)
+ttext+=f'''\tpartition ThresholdResults = m
+\t\tmode: import
+\t\tsource =
+\t\t\tlet
+\t\t\t    Source = Csv.Document(File.Contents(DataRoot & "\\threshold_results.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+\t\t\t    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+\t\t\t    Typed = Table.TransformColumnTypes(Headers, {{{tconv}}})
+\t\t\tin
+\t\t\t    Typed
+'''
+(model/'tables'/'ThresholdResults.tmdl').write_text(ttext)
 print('Generated PBIP candidate. Requires Power BI Desktop open, refresh and visual verification.')
