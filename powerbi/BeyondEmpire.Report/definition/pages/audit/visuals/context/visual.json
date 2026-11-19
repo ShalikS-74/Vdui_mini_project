@@ -20,7 +20,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "A review queue for rows with a high model score and no observed contraction. Historical verdicts remain pending sourced manual review.",
+                    "value": "Pick an audit threshold from the dropdown. The cards, queue table and scatter all update together to show the review queue at that cutoff.",
                     "textStyle": {
                       "fontSize": "11pt",
                       "fontFamily": "Segoe UI"

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "prchart",
+  "position": {
+    "x": 648,
+    "y": 532,
+    "z": 0,
+    "width": 600,
+    "height": 228,
+    "tabOrder": 7
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "threshold"
+                }
+              },
+              "queryRef": "ThresholdResults.threshold"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "Mean recall"
+                }
+              },
+              "queryRef": "ThresholdResults.Mean recall"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "Mean precision"
+                }
+              },
+              "queryRef": "ThresholdResults.Mean precision"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Recall and precision by threshold  \u2022  mean across seeds'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

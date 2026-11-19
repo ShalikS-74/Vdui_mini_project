@@ -1,0 +1,76 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "queuechart",
+  "position": {
+    "x": 32,
+    "y": 532,
+    "z": 0,
+    "width": 600,
+    "height": 228,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "threshold"
+                }
+              },
+              "queryRef": "ThresholdResults.threshold"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "Mean audit queue"
+                }
+              },
+              "queryRef": "ThresholdResults.Mean audit queue"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'False-alarm queue size by threshold  \u2022  mean across seeds'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

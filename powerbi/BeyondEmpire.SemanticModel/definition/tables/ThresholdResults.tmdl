@@ -1,0 +1,88 @@
+table ThresholdResults
+
+	measure 'Mean audit queue' = AVERAGE(ThresholdResults[audit_queue])
+		formatString: 0.0
+
+	measure 'Mean recall' = AVERAGE(ThresholdResults[recall])
+		formatString: 0.000
+
+	measure 'Mean precision' = AVERAGE(ThresholdResults[precision])
+		formatString: 0.000
+
+	measure 'Mean F1' = AVERAGE(ThresholdResults[f1])
+		formatString: 0.000
+
+	column protocol
+		dataType: string
+		summarizeBy: none
+		sourceColumn: protocol
+
+	column model
+		dataType: string
+		summarizeBy: none
+		sourceColumn: model
+
+	column seed
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: seed
+
+	column threshold
+		dataType: double
+		summarizeBy: none
+		sourceColumn: threshold
+
+	column n
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: n
+
+	column tp
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: tp
+
+	column fp
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: fp
+
+	column fn
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: fn
+
+	column tn
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: tn
+
+	column precision
+		dataType: double
+		summarizeBy: none
+		sourceColumn: precision
+
+	column recall
+		dataType: double
+		summarizeBy: none
+		sourceColumn: recall
+
+	column f1
+		dataType: double
+		summarizeBy: none
+		sourceColumn: f1
+
+	column audit_queue
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: audit_queue
+
+	partition ThresholdResults = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents(DataRoot & "\threshold_results.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    Typed = Table.TransformColumnTypes(Headers, {{"protocol", type text}, {"model", type text}, {"seed", Int64.Type}, {"threshold", type number}, {"n", Int64.Type}, {"tp", Int64.Type}, {"fp", Int64.Type}, {"fn", Int64.Type}, {"tn", Int64.Type}, {"precision", type number}, {"recall", type number}, {"f1", type number}, {"audit_queue", Int64.Type}})
+			in
+			    Typed

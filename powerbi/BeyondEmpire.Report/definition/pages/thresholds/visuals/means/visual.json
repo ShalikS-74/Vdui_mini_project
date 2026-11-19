@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "means",
+  "position": {
+    "x": 504,
+    "y": 132,
+    "z": 0,
+    "width": 744,
+    "height": 120,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "Mean audit queue"
+                }
+              },
+              "queryRef": "ThresholdResults.Mean audit queue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "Mean recall"
+                }
+              },
+              "queryRef": "ThresholdResults.Mean recall"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "Mean precision"
+                }
+              },
+              "queryRef": "ThresholdResults.Mean precision"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ThresholdResults"
+                    }
+                  },
+                  "Property": "Mean F1"
+                }
+              },
+              "queryRef": "ThresholdResults.Mean F1"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Means across seeds at the selected filters'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

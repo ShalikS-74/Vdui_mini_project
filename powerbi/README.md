@@ -12,18 +12,27 @@ The TMDL semantic model and rendering have not been executed in Power BI Desktop
 3. Open the PBIP and refresh. Check typed Predictions, Explanations and Cases.
 4. Confirm observation_id uniqueness in Predictions and one-to-many relationships
    to Explanations and Cases. All use polity|year, derived in Power Query.
-5. Inspect both pages: polity/year slicers, selected-score card, SHAP bars,
-   observation table, false-positive review table and the score-by-year scatter
-   (points at or above 0.70 without a decline outcome are the audit queue).
-   On the False-positive audit page, use the **Audit threshold** slicer to adjust
-   the queue from 30% to 90%. The queue card and scatter update to the selected
-   threshold. Format the threshold slicer as a numeric range slider in Power BI
-   Desktop if the slicer initially renders as a list. The case table is filtered
-   by `Cases[oof_p_decline]` and the scatter is filtered by matching audit cases.
-   Select exactly one polity and year for a single score; a multi-row selection
-   intentionally returns blank.
+5. Inspect the pages: polity/year slicers, selected-score card, SHAP bars,
+   observation table, threshold-driven audit queue table and the score-by-year scatter
+   (points at or above the selected threshold without a decline outcome are the
+   audit queue).
+   On the False-positive audit page, use the **Audit threshold** dropdown to
+   switch among 50%, 60%, 70% and 80%. The selected-threshold card, queue-size
+   card, review-set card, queue table and scatter all update together. The
+   queue table lists every held-out row at or above the selected threshold,
+   highest scores first; rows in the curated 0.70 review set are flagged and
+   carry their notes. Verdicts remain pending sourced review.
+   On the Threshold results page, pick a model and protocol to read the held-out
+   confusion counts (tp/fp/fn/tn), precision, recall, F1 and false-alarm queue
+   size at each of the four thresholds, per evaluation seed, with mean-across-
+   seeds cards and charts. These come from threshold_results.csv: one trained
+   model scored once per held-out row, re-classified at each cutoff. No
+   per-threshold retraining, and with six observed declines every number is
+   exploratory.
 6. Check that selection filters the exact OOF SHAP row; log-odds explanations must
    reconstruct that score. Check pending historical-review status and captions.
+   `DataRoot` is preserved across regeneration; the generator only writes the
+   CHANGE_ME placeholder when no path has been set yet.
 7. Inspect pixels at 100% and fit-to-page, fix any Desktop issues, then save as
    PBIX if needed. Do not claim this step was done until a person/renderer checks.
 

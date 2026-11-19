@@ -6,14 +6,24 @@ table Predictions
 	measure 'Mean model score' = AVERAGE(Predictions[model_score])
 		formatString: 0.000
 
-	measure 'Audit queue rows' = COUNTROWS(FILTER(Cases, Cases[oof_p_decline] >= [Threshold value]))
+	measure 'Audit queue rows' = COUNTROWS(FILTER(Predictions, Predictions[model_score] >= [Threshold value] && Predictions[contraction] = 0))
 		formatString: 0
 
 	measure 'Threshold scatter score' =
-		VAR AuditScore = MAXX(RELATEDTABLE(Cases), Cases[oof_p_decline])
-		VAR SelectedThreshold = [Threshold value]
-		RETURN IF(NOT(ISBLANK(AuditScore)) && AuditScore >= SelectedThreshold, SELECTEDVALUE(Predictions[model_score]), BLANK())
+		VAR RowScore = SELECTEDVALUE(Predictions[model_score])
+		VAR RowOutcome = SELECTEDVALUE(Predictions[contraction])
+		RETURN IF(NOT(ISBLANK(RowScore)) && RowOutcome = 0 && RowScore >= [Threshold value], RowScore, BLANK())
 		formatString: 0.000
+
+	measure 'In audit queue' = IF(MAX(Predictions[model_score]) >= [Threshold value] && MAX(Predictions[contraction]) = 0, 1, 0)
+		formatString: 0
+
+	measure 'Row score' = MAX(Predictions[model_score])
+		formatString: 0.000
+
+	measure 'In original 0.70 case set' = IF(COALESCE(COUNTROWS(Cases), 0) > 0, "yes", "no")
+
+	measure 'Case note (pending review)' = MAX(Cases[note])
 
 	column nga
 		dataType: string

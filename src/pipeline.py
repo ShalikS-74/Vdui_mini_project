@@ -24,6 +24,10 @@ CANDIDATES = FEATURES + [f'{f}_delta' for f in FEATURES]
 SOURCE_COMMIT = '602c7cdf0649e1fbbdb37f5b5a387edbe19915d0'
 SOURCE_URL = f'https://raw.githubusercontent.com/seshatdb/Equinox_Data/{SOURCE_COMMIT}/Equinox_on_GitHub_June9_2022.xlsx'
 THRESHOLD = .7
+# Audit decision cutoffs requested for the Power BI report. One trained model
+# is SCORED once; each threshold only turns the same held-out score into a
+# yes/no decline call. No per-threshold retraining.
+THRESHOLDS = (.5, .6, .7, .8)
 
 class MissingRateFilter(TransformerMixin, BaseEstimator):
     """Feature removal is learned on TRAINING rows only, never global data."""
@@ -149,6 +153,30 @@ def run_evaluation(table, target='binary', horizon=100):
                         explanations.append(dict(row=int(index),polity=table.iloc[index].polity,time_t=int(table.iloc[index].century),feature=feature,value=float(test_z[j,k]),shap_value=float(values.values[j,k]),base_value=float(values.base_values[j]),fold=fold,units='log_odds',model='logistic_oof_seed0'))
     return pd.DataFrame(predictions),pd.DataFrame(memberships),pd.DataFrame(scores),pd.DataFrame(explanations)
 
+def threshold_metrics(predictions, thresholds=THRESHOLDS):
+    """Confusion counts when held-out scores are classified at each cutoff.
+
+    predictions is the leakage-safe split_predictions frame (one row per
+    protocol/seed/fold/model/held-out observation with score_1 = P(decline)).
+    Undefined ratios are NaN, never fake zeros (same rule as average precision).
+    """
+    records = []
+    for (protocol, model, seed), group in predictions.groupby(['protocol', 'model', 'seed']):
+        y = group.y.to_numpy()
+        p = group.score_1.to_numpy()
+        for threshold in thresholds:
+            call = p >= threshold
+            tp = int((call & (y == 1)).sum())
+            fp = int((call & (y == 0)).sum())
+            fn = int((~call & (y == 1)).sum())
+            tn = int((~call & (y == 0)).sum())
+            precision = tp / (tp + fp) if tp + fp else np.nan
+            recall = tp / (tp + fn) if tp + fn else np.nan
+            f1 = 2 * precision * recall / (precision + recall) if np.isfinite(precision) and np.isfinite(recall) and precision + recall else np.nan
+            records.append(dict(protocol=protocol, model=model, seed=seed, threshold=threshold, n=len(group), tp=tp, fp=fp, fn=fn, tn=tn, precision=precision, recall=recall, f1=f1, audit_queue=fp))
+    return pd.DataFrame(records)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--target', choices=['binary','three-class'], default='binary')
@@ -172,7 +200,7 @@ def main():
     numeric = [c for c in folds if c.startswith('ap_') or c == 'macro_f1']
     summary = folds.groupby(['protocol','model'])[numeric].agg(['mean','std','count'])
     summary.to_csv(out/'metrics_summary.csv')
-    metadata = dict(source_url=SOURCE_URL,source_sha256=digest,source_commit=SOURCE_COMMIT,horizon=args.horizon,target=args.target,rows=len(table),class_counts=table.outcome.value_counts().to_dict(),contractions=int(table.contraction.sum()),grouping='PolID, not verified lineage',fp_threshold=THRESHOLD,score='uncalibrated',seeds=[0,1,2],temporal_cutoff=800)
+    metadata = dict(source_url=SOURCE_URL,source_sha256=digest,source_commit=SOURCE_COMMIT,horizon=args.horizon,target=args.target,rows=len(table),class_counts=table.outcome.value_counts().to_dict(),contractions=int(table.contraction.sum()),grouping='PolID, not verified lineage',fp_threshold=THRESHOLD,audit_thresholds=list(THRESHOLDS),score='uncalibrated',seeds=[0,1,2],temporal_cutoff=800)
     (out/'run_metadata.json').write_text(json.dumps(metadata,indent=2)+'\n')
     if args.target != 'binary' or args.horizon != 100:
         print(summary.to_string()); return
@@ -183,6 +211,8 @@ def main():
     data['y'] = data.contraction
     data['fp_flag'] = ((data.p >= THRESHOLD) & data.y.eq(0)).astype(int)
     data.to_csv(out/'oof.csv',index=False)
+    thresholds = threshold_metrics(pred)
+    thresholds.to_csv(out/'threshold_results.csv',index=False)
     cases = data.loc[data.fp_flag.eq(1),['polity','century','p','outcome','fp_flag']].rename(columns={'p':'oof_p_decline','outcome':'true_label'})
     # Never replace authored review evidence on regeneration.
     review_path = ROOT/'data/manual_reviews.csv'
@@ -206,7 +236,7 @@ def main():
     ranking.to_csv(out/'fp_feature_ranking.csv')
     dashboard = ROOT/'dashboard'
     data.rename(columns={'century':'time_t','p':'model_score'}).to_csv(dashboard/'predictions.csv',index=False)
-    for filename in ['shap_long.csv','fp_cases.csv','fold_metrics.csv','metrics_summary.csv','run_metadata.json']:
+    for filename in ['shap_long.csv','fp_cases.csv','fold_metrics.csv','metrics_summary.csv','threshold_results.csv','run_metadata.json']:
         shutil.copyfile(out/filename,dashboard/filename)
     groups = {'Pop':'scale','Cap':'scale','Hier':'administration','Gov':'governance','Infra':'infrastructure','Info':'information','Money':'monetary_system'}
     explain['feature_group'] = explain.feature.str.removeprefix('missingindicator_').str.removesuffix('_delta').map(groups)

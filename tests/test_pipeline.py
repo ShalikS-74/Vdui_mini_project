@@ -79,3 +79,30 @@ def test_streamlit_tabs_and_empty_case_handling():
     assert not app.exception
     app.selectbox[0].select(app.selectbox[0].options[-1]).run()
     assert not app.exception
+
+def test_threshold_results_match_split_predictions():
+    pred=pd.read_csv(ROOT/'data/split_predictions.csv')
+    res=pd.read_csv(ROOT/'data/threshold_results.csv')
+    assert sorted(res.threshold.unique())==[.5,.6,.7,.8]
+    assert set(res.model)=={'logistic','forest','majority'}
+    assert set(res.protocol)=={'grouped','temporal'}
+    for (protocol,model,seed,threshold),g in res.groupby(['protocol','model','seed','threshold']):
+        r=g.iloc[0]
+        src=pred[(pred.protocol==protocol)&(pred.model==model)&(pred.seed==seed)]
+        y=src.y.to_numpy(); call=(src.score_1>=threshold).to_numpy()
+        assert r.tp==int((call&(y==1)).sum()) and r.fp==int((call&(y==0)).sum())
+        assert r.fn==int((~call&(y==1)).sum()) and r.tn==int((~call&(y==0)).sum())
+        assert r.n==len(src) and r.audit_queue==r.fp
+
+def test_threshold_queue_monotonic_and_complete():
+    res=pd.read_csv(ROOT/'data/threshold_results.csv')
+    for _,g in res.groupby(['protocol','model','seed']):
+        g=g.sort_values('threshold')
+        assert g.audit_queue.is_monotonic_decreasing
+        assert (g.tp+g.fp+g.fn+g.tn==g.n).all()
+
+def test_threshold_metrics_undefined_precision_is_nan():
+    from pipeline import threshold_metrics
+    pred=pd.DataFrame(dict(protocol=['grouped']*3,model=['logistic']*3,seed=[0]*3,fold=[0]*3,row=[0,1,2],y=[0,0,1],score_0=[.9,.8,.2],score_1=[.1,.2,.8]))
+    r=threshold_metrics(pred,(.9,)).iloc[0]
+    assert r.tp==0 and r.fp==0 and np.isnan(r.precision) and r.recall==0 and np.isnan(r.f1)

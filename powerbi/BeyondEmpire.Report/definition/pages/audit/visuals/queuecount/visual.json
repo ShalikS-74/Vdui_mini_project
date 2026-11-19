@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "queuecount",
   "position": {
-    "x": 268,
+    "x": 484,
     "y": 132,
     "z": 0,
-    "width": 220,
+    "width": 200,
     "height": 82,
-    "tabOrder": 3
+    "tabOrder": 4
   },
   "visual": {
     "visualType": "card",
