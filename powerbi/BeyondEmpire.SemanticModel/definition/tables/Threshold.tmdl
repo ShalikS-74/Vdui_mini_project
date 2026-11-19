@@ -1,5 +1,5 @@
 table Threshold
-    measure 'Threshold value' = SELECTEDVALUE(Threshold[Threshold], 0.70)
+    measure 'Threshold value' = IF(ISFILTERED(Threshold[Threshold]), MIN(Threshold[Threshold]), 0.70)
         formatString: 0%
 
     column Threshold
