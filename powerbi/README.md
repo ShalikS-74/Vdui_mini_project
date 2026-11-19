@@ -17,9 +17,8 @@ The TMDL semantic model and rendering have not been executed in Power BI Desktop
    (points at or above 0.70 without a decline outcome are the audit queue).
    On the False-positive audit page, use the **Audit threshold** slicer to adjust
    the queue from 30% to 90%. The queue card and scatter update to the selected
-   threshold. The audit threshold slicer is configured as a single-handle
-   greater-than-or-equal slider spanning 30% to 90% in 5% steps; confirm it
-   renders as a slider. The case table is filtered
+   threshold. The audit threshold slicer is a dropdown with four options (30%, 50%,
+   70%, 90%); the default with nothing selected is 70%. The case table is filtered
    by `Cases[oof_p_decline]` and the scatter is filtered by matching audit cases.
    Select exactly one polity and year for a single score; a multi-row selection
    intentionally returns blank.

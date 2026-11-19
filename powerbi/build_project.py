@@ -49,7 +49,7 @@ visual('explorer','shap','barChart',32,316,720,444,{'Category':[projection('Expl
 visual('explorer','observed','tableEx',776,316,472,444,{'Values':[projection('Predictions',x) for x in ['polity','time_t','outcome','model_score']]},title='Held-out observations  •  filtered by selection',tab=6)
 visual('audit','caption','textbox',32,24,1216,42,text='BEYOND THE EMPIRE  /  FALSE-POSITIVE AUDIT',font_size='22pt',font_weight='bold',tab=0)
 visual('audit','context','textbox',32,72,1216,38,text='A review queue for rows with a high model score and no observed contraction. Historical verdicts remain pending sourced manual review.',font_size='11pt',tab=1)
-threshold_objects={'data':[{'properties':{'mode':{'expr':{'Literal':{'Value':"'After'"}}}}}]}
+threshold_objects={'data':[{'properties':{'mode':{'expr':{'Literal':{'Value':"'Dropdown'"}}}}}]}
 visual('audit','threshold','slicer',32,132,220,82,{'Values':[projection('Threshold','Threshold')]},title='Audit threshold',tab=2,objects=threshold_objects)
 visual('audit','queuecount','card',268,132,220,82,{'Values':[projection('Predictions','Audit queue rows',True)]},title='Rows in current queue',tab=3)
 visual('audit','reviewnote','textbox',504,132,744,82,text='AUDIT RULE  •  Score at or above the selected threshold and no observed contraction. Non-contraction is not proof of genuine survival.',font_size='11pt',font_weight='bold',tab=4)
@@ -113,28 +113,5 @@ for table,file in [('Predictions','predictions.csv'),('Explanations','shap_long.
 \t\t\t    Keyed
 '''
     p=model/'tables'/f'{table}.tmdl';p.parent.mkdir(exist_ok=True);p.write_text(text)
-(model/'tables'/ 'Threshold.tmdl').write_text('''table Threshold
-    measure 'Threshold value' = IF(ISFILTERED(Threshold[Threshold]), MIN(Threshold[Threshold]), 0.70)
-        formatString: 0%
-
-    column Threshold
-        dataType: double
-        summarizeBy: none
-        sourceColumn: Threshold
-
-    partition Threshold = m
-        mode: import
-        source =
-            let
-                Source = #table(
-                    {"Threshold"},
-                    {
-                        {0.30}, {0.35}, {0.40}, {0.45}, {0.50},
-                        {0.55}, {0.60}, {0.65}, {0.70}, {0.75},
-                        {0.80}, {0.85}, {0.90}
-                    }
-                )
-            in
-                Source
-''')
+(model/'tables'/ 'Threshold.tmdl').write_text('table Threshold\n\n\tmeasure \'Threshold value\' = IF(ISFILTERED(Threshold[Threshold]), MIN(Threshold[Threshold]), 0.70)\n\t\tformatString: 0%\n\n\tcolumn Threshold\n\t\tdataType: double\n\t\tsummarizeBy: none\n\t\tsourceColumn: Threshold\n\n\tpartition Threshold = m\n\t\tmode: import\n\t\tsource =\n\t\t\tlet\n\t\t\t    Source = #table({"Threshold"}, {{0.3}, {0.5}, {0.7}, {0.9}}),\n\t\t\t    Typed = Table.TransformColumnTypes(Source, {{"Threshold", type number}})\n\t\t\tin\n\t\t\t    Typed\n')
 print('Generated PBIP candidate. Requires Power BI Desktop open, refresh and visual verification.')

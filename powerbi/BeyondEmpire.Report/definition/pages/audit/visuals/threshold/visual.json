@@ -62,7 +62,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'After'"
+                  "Value": "'Dropdown'"
                 }
               }
             }
