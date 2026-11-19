@@ -6,11 +6,19 @@ table Predictions
 	measure 'Mean model score' = AVERAGE(Predictions[model_score])
 		formatString: 0.000
 
-	measure 'Threshold scatter score' =
-		VAR AuditScore = MAXX(RELATEDTABLE(Cases), Cases[oof_p_decline])
-		VAR SelectedThreshold = [Threshold value]
-		RETURN IF(NOT(ISBLANK(AuditScore)) && AuditScore >= SelectedThreshold, SELECTEDVALUE(Predictions[model_score]), BLANK())
+	measure 'Threshold scatter score' = IF(MAX(Predictions[oof_p_decline]) >= SELECTEDVALUE(AuditThreshold[Value], 0.7), MAX(Predictions[model_score]))
 		formatString: 0.000
+
+	measure 'Case year' = MAX(Predictions[time_t])
+		formatString: 0
+
+	measure 'Audit case match' = IF(MAX(Predictions[oof_p_decline]) >= SELECTEDVALUE(AuditThreshold[Value], 0.7), 1, 0)
+		formatString: 0
+
+	measure 'Audit summary' = (CALCULATE(COUNTROWS(Predictions), Predictions[oof_p_decline] >= SELECTEDVALUE(AuditThreshold[Value], 0.7)) + 0) & " of " & CALCULATE(COUNTROWS(Predictions), ALL(Predictions), NOT(ISBLANK(Predictions[oof_p_decline]))) & " cases at threshold " & FORMAT(SELECTEDVALUE(AuditThreshold[Value], 0.7), "0.00")
+
+	measure 'Flagged cases' = CALCULATE(COUNTROWS(Predictions), Predictions[oof_p_decline] >= SELECTEDVALUE(AuditThreshold[Value], 0.7))
+		formatString: 0
 
 	column nga
 		dataType: string
@@ -152,6 +160,11 @@ table Predictions
 		summarizeBy: none
 		sourceColumn: observation_id
 
+	column oof_p_decline
+		dataType: double
+		summarizeBy: none
+		sourceColumn: oof_p_decline
+
 	partition Predictions = m
 		mode: import
 		source =
@@ -159,6 +172,12 @@ table Predictions
 			    Source = Csv.Document(File.Contents(DataRoot & "\predictions.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 			    Typed = Table.TransformColumnTypes(Headers, {{"nga", type text}, {"PolID", type text}, {"polity", type text}, {"group_id", type text}, {"time_t", Int64.Type}, {"next_time", Int64.Type}, {"Terr", type number}, {"next_Terr", type number}, {"contraction", Int64.Type}, {"outcome", type text}, {"Pop", type number}, {"Cap", type number}, {"Hier", type number}, {"Gov", type number}, {"Infra", type number}, {"Info", type number}, {"Money", type number}, {"Pop_delta", type number}, {"Cap_delta", type number}, {"Hier_delta", type number}, {"Gov_delta", type number}, {"Infra_delta", type number}, {"Info_delta", type number}, {"Money_delta", type number}, {"model_score", type number}, {"y", Int64.Type}, {"fp_flag", Int64.Type}}),
-			    Keyed = Table.AddColumn(Typed, "observation_id", each [polity] & "|" & Text.From([time_t]), type text)
+			    Keyed = Table.AddColumn(Typed, "observation_id", each [polity] & "|" & Text.From([time_t]), type text),
+			    CasesRaw = Csv.Document(File.Contents(DataRoot & "\fp_cases.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+			    CasesHdr = Table.PromoteHeaders(CasesRaw, [PromoteAllScalars=true]),
+			    CasesSel = Table.TransformColumnTypes(Table.SelectColumns(CasesHdr, {"polity", "century", "oof_p_decline"}), {{"polity", type text}, {"century", Int64.Type}, {"oof_p_decline", type number}}),
+			    CasesKeyed = Table.AddColumn(CasesSel, "case_key", each [polity] & "|" & Text.From([century]), type text),
+			    Joined = Table.NestedJoin(Keyed, {"observation_id"}, CasesKeyed, {"case_key"}, "case", JoinKind.LeftOuter),
+			    Expanded = Table.ExpandTableColumn(Joined, "case", {"oof_p_decline"}, {"oof_p_decline"})
 			in
-			    Keyed
+			    Expanded
